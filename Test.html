@@ -1,1 +1,57 @@
-Test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./assets/css/test.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-student">
+        <h3>Thông tin sinh viên</h3>
+
+        <label>Họ và Tên:</label>
+        <input type="text" id="txtFullName" tabindex="1">
+        <br>
+
+        <label>Địa chỉ Email:</label>
+        <input type="text" id="txtEmailAddress" tabindex="1">
+        <br>
+
+        <label>Số điện thoại:</label>
+        <input type="text" id="txtPhoneNumber" tabindex="1">
+        <br>
+
+        <label>Quê quán:</label>
+        <input type="text" id="txtHomeTown" tabindex="1">
+        <br>
+
+        <label id="lblGender">Giới tính:</label>
+        <input type="radio" name="gender" id="male" value="1" tabindex="1"> Nam
+        <input type="radio" name="gender" id="female" value="2" tabindex="1"> Nữ
+        <br>
+
+        <label for="">&nbsp;</label>
+        <button class="btn-save">Lưu lại</button>
+
+    </div>
+
+    <div class="list-student">
+        <h3>Danh sách sinh viên</h3>
+        <table width="600" border="1" cellpadding="0" cellpadding="0">
+            <tr>
+                <td>STT</td>
+                <td>Họ và tên</td>
+                <td>Giới tính</td>
+                <td>Ngày sinh</td>
+                <td>Địa chỉ</td>
+                <td>Số điện thoại </td>
+                <td>Email</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="./assets/js/test.js"></script>
+</body>
+</html>

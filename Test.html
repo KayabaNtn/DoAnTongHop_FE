@@ -4,54 +4,140 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./assets/css/test.css" />
-    <title>Document</title>
+    <title>The Band</title>
+    <link rel="stylesheet" href="./assets/css/test.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons.css">
 </head>
 <body>
-    <div class="form-student">
-        <h3>Thông tin sinh viên</h3>
+    
+    <div id="main">
+            
+            <div id="header">
+                <!-- Begin : nav -->
+                 <ul id="nav"> <!--ul#nav>li*5 -->
+                    <a ><img class="logo" src="./assets/image/logo.jpg" alt="abc"></a>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#bodys">Function</a></li>
+                    <li><a href="#footer">Giới thiệu</a></li>
+                </ul>
+                <!-- End : nav -->
+                <!-- Begin : search button -->
+                <div class="search-btn">
+                    <i class="search-icon ti-search"></i>
+                </div>
+                <div class="search-btn1">
+                    <p class="fix">Mai Hồng Quân <br>
+                    Quản lí </p>
+                </div>
+                <!-- End : search button -->
+            </div>
 
-        <label>Họ và Tên:</label>
-        <input type="text" id="txtFullName" tabindex="1">
-        <br>
+            <div id="bodys">
+                <div class="form-student">
+                    <h3>Thông tin Hợp đồng</h3>
+            
+                    <label>Họ và Tên:</label>
+                    <input type="text" id="txtFullName" tabindex="1">
+                    <br>
+            
+                    <label>Địa chỉ Email:</label>
+                    <input type="text" id="txtEmailAddress" tabindex="1">
+                    <br>
+            
+                    <label>Số điện thoại:</label>
+                    <input type="text" id="txtPhoneNumber" tabindex="1">
+                    <br>
+            
+                    <label>Quê quán:</label>
+                    <input type="text" id="txtHomeTown" tabindex="1">
+                    <br>
+            
+                    <label>Date :</label>
+                    <input type="text" id="txtHomeTown" tabindex="1">
+                    <br>
+            
+                    <label for="">&nbsp;</label>
+                    <button class="btn-save">Tìm </button>
+                    <label for="">&nbsp;</label>
+                    <button class="btn-save">Thêm </button>
+                </div>
+            
+                
+            </div>
 
-        <label>Địa chỉ Email:</label>
-        <input type="text" id="txtEmailAddress" tabindex="1">
-        <br>
+            <div class="list-student">
+                <h3>Danh sách Hợp đồng</h3>
+                <table width="100%" border="1" cellpadding="0" cellpadding="0">
+                    <tr>
+                        <td>STT</td>
+                        <td>Họ và tên</td>
+                        <td>Giới tính</td>
+                        <td>Ngày sinh</td>
+                        <td>Địa chỉ</td>
+                        <td>Số điện thoại </td>
+                        <td>Email</td>
+                    </tr>
+                </table>
+            </div>
 
-        <label>Số điện thoại:</label>
-        <input type="text" id="txtPhoneNumber" tabindex="1">
-        <br>
 
-        <label>Quê quán:</label>
-        <input type="text" id="txtHomeTown" tabindex="1">
-        <br>
+            <div id="footer">
+                <div class="socials-list">
+                    <a href=""><i class="ti-facebook"></i></a>
+                    <a href=""><i class="ti-instagram"></i></a>
+                    <a href=""><i class="ti-youtube"></i></a>
+                    <a href=""><i class="ti-printerest"></i></a>
+                    <a href=""><i class="ti-twitter"></i></a>
+                    <a href=""><i class="ti-linkedin"></i></a>
+                </div>
+                <p class="copyright">
+                    Powered by <a href="#"> Cats Sport Academy
+                    </a>
+                </p>
+            </div>
+        </div>
 
-        <label id="lblGender">Giới tính:</label>
-        <input type="radio" name="gender" id="male" value="1" tabindex="1"> Nam
-        <input type="radio" name="gender" id="female" value="2" tabindex="1"> Nữ
-        <br>
 
-        <label for="">&nbsp;</label>
-        <button class="btn-save">Lưu lại</button>
+   <div class="modal">
+        <div class="modal-container">
+            <div class="modal-close ">
+                <i class="ti-close"></i>
+            </div>
 
+            <header class="modar-header">
+                <i class="ti-bag"></i>
+                Thêm 
+            </header>
+
+            <div class="modal-body">
+
+                <label for="ticket-quantity" class="modal-label">
+                    <i class="ti-shopping-cart"></i>
+                    Tickers, $15 per person
+                </label>
+                <input id="ticket-quantity" type="text" class="modal-input" placeholder="How many?">
+
+
+                <label for="ticket-quantity" class="modal-label">
+                    <i class="ti-shopping-cart"></i>
+                    Tickers, $15 per person
+                </label>
+                <input id="ticket-quantity" type="text" class="modal-input" placeholder="How many?">
+                
+                <button id="buy-tickets">
+                   Hoàn thành  <i class="ti-check"></i>
+                </button>
+
+            </div>
+
+
+            <footer class="modal-footer">
+                <p class="modal-help">Need <a href="#">helf?</a></p>
+            </footer>
+
+
+        </div>
     </div>
-
-    <div class="list-student">
-        <h3>Danh sách sinh viên</h3>
-        <table width="600" border="1" cellpadding="0" cellpadding="0">
-            <tr>
-                <td>STT</td>
-                <td>Họ và tên</td>
-                <td>Giới tính</td>
-                <td>Ngày sinh</td>
-                <td>Địa chỉ</td>
-                <td>Số điện thoại </td>
-                <td>Email</td>
-            </tr>
-        </table>
-    </div>
-
-    <script src="./assets/js/test.js"></script>
 </body>
 </html>

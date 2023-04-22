@@ -133,14 +133,16 @@ div.form-student label {
     text-align: center;
 }
 
-div.form-student input[type="text"], .btn-save {
+div.form-student input[type="text"]{
     margin-bottom: 10px;
-    width: 40%   ;
+    width: 60%   ;
     padding: 5px;
 }
 
 .btn-save {
     margin-top: 15px;
+    width: 61%   ;
+    padding: 10px;
 }
 
  #bodys div.list-student{

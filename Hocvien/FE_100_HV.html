@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cats Sport Academy</title>
+    <link rel="stylesheet" href="./assets/css/FE_100_HV.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    
+    <div id="main">
+            
+            <div id="header">
+                <!-- Begin : nav -->
+                 <ul id="nav"> <!--ul#nav>li*5 -->
+                    <a ><img class="logo" src="./assets/image/logo.jpg" alt="abc"></a>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="hopdong.html">Function</a></li>
+                    <li><a href="#footer">Giới thiệu</a></li>
+                </ul>
+                <!-- End : nav -->
+                <!-- Begin : search button -->
+                <div class="search-btn">
+                    <i class="search-icon ti-search"></i>
+                </div>
+                <div class="search-btn1">
+                    <p class="fix">Sengphet PHILAVONG<br>
+                    Quản lí </p>
+                </div>
+                <!-- End : search button -->
+            </div>
+
+            <div id="bodys">
+                <div class="form-student">
+                    <h3>Đăng nhập cho học viên</h3>
+            
+                    <label>Giá tiền :</label>
+                    <input class ="form_st_input" type="text" id="txtFullName" tabindex="1" placeholder="Seng Phet" disabled>
+                    <br>
+            
+                    <label>Ngày sinh :</label>
+                    <input class ="form_st_input" type="text" id="txtEmailAddress" tabindex="1" placeholder="05/09/1990" disabled>
+                    <br>
+            
+                    <label>Địa chỉ :</label>
+                    <input class ="form_st_input" type="text" id="txtPhoneNumber" tabindex="1" placeholder="Giải phóng" disabled>
+                    <br>
+            
+                    <label>Giới tính :</label> 
+                    <input class ="form_st_input" type="text" id="txtHomeTown" tabindex="1"  placeholder="Nam" disabled>
+                    <br>
+            
+                    <label>Email :</label>
+                    <input class ="form_st_input" type="text" id="txtHomeTown" tabindex="1" placeholder="*****@gmail.com" disabled>
+                    <br>
+
+                    <label>Số điện thoại :</label>
+                    <input class ="form_st_input" type="text" id="txtHomeTown" tabindex="1" placeholder="0366******" disabled>
+                    <br>
+
+                    <label>Mật khẩu :</label>
+                    <input class ="form_st_input" type="text" id="txtHomeTown" tabindex="1" placeholder="05******" disabled>
+                    <br>
+            
+                    <label for="">&nbsp;</label>
+                    <button class="btn-save js-buy-ticket ">Feddback </button>
+                    <label for="">&nbsp;</label>
+                    <button  class="btn-save" onclick="enableInputs()">Sửa</button>
+                    <label for="">&nbsp;</label>
+                    <button  class="btn-save" onclick="disableInputs()">Hoàn Thành</button>
+                </div>
+            
+                
+            </div>
+
+            <!-- <div class="list-student">
+                <h3>Danh sách Hợp đồng</h3>
+                <table width="100%" border="1" cellpadding="0" cellpadding="0">
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên khóa học</th>
+                        <th>Thời gian</th>
+                        <th>Lịch dạy</th>
+                        <th>Giá Tiền </th>
+                        <th>EDIT </th> 
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Football basic </td>
+                        <td>NV_72</td>
+                        <td>Mai Hồng Quân</td>
+                        <td>15000vnđ</td>
+                        <td> <button class="btn-update "> Sửa </button> </td>    
+                    </tr>
+                </table>
+            </div> -->
+
+
+            <div id="footer">
+                <div class="socials-list">
+                    <a href="#"><i class="ti-facebook"></i></a>
+                    <a href="#"><i class="ti-instagram"></i></a>
+                    <a href="#"><i class="ti-youtube"></i></a>
+                    <a href="#"><i class="ti-printerest"></i></a>
+                    <a href="#"><i class="ti-twitter"></i></a>
+                    <a href="#"><i class="ti-linkedin"></i></a>
+                </div>
+                <p class="copyright">
+                    Powered by <a href="#"> Cats Sport Academy
+                    </a>
+                </p>
+            </div>
+        </div>
+
+
+   <div class="modal js-modal">
+        <div class="modal-container">
+            <div class="modal-close js-modal-close ">
+                <i class="ti-close"></i>
+            </div>
+
+            <header class="modal-header">
+                <i class="modal-heading-icon ti-bag" ></i>
+                Thêm FeedBack 
+            </header>
+
+            <div class="modal-body">
+
+                <label for="HVT-quantity" class="modal-label">
+                    <i class="ti-user"></i>
+                        Họ và Tên:
+                </label>
+                <select name="cars" class="modal-select">
+                    <option value="volvo"> Thầy Huấn  </option>
+                    <option value="saab"> Thầy Nhật </option >
+                    <option value="mercedes"> Thầy Tokuda</option>
+                    <option value="audi"> Thầy seng </option>
+                  </select>
+
+                <label for="Date-quantity" class="modal-label">
+                    <i class="ti-alarm-clock"></i>
+                        Feedback :
+                </label>
+                <input id="Date-quantity" type="text" class="modal-input" placeholder="Ngày ?">
+
+
+                <button id="buy-tickets" class=" js-buy-tickets">
+                   Hoàn thành  <i class="ti-check"></i>
+                </button>
+
+            </div>
+
+            <footer class="modal-footer">
+                <p class="modal-help">Need <a href="#">helf?</a></p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const buyBtns = document.querySelectorAll('.js-buy-ticket')
+        const modal = document.querySelector('.js-modal')
+        const modalClose = document.querySelector('.js-modal-close')
+        const modalbutton = document.querySelector('.js-buy-tickets')
+
+        function showBuy(){
+            modal.classList.add('open')
+        }
+        function showButton(){
+            alert('Đã thêm thành công')
+        }
+
+        function hideBuy(){
+            modal.classList.remove('open')
+        }
+
+        for (const buyBtn of buyBtns) {
+            buyBtn.addEventListener('click', showBuy)
+        }
+        modalbutton.addEventListener('click',showButton)
+        modalClose.addEventListener('click', hideBuy)
+
+        // Lưu phần tử input có thuộc tính disabled vào biến
+        let myInputs = document.getElementsByClassName("form_st_input");
+
+    // Bật thuộc tính disabled của phần tử input
+    function enableInputs() {
+    for (let i = 0; i < myInputs.length; i++) {
+        myInputs[i].disabled = false;
+    }
+}
+
+    // Tắt thuộc tính disabled của phần tử input
+    function disableInputs() {
+    for (let i = 0; i < myInputs.length; i++) {
+        myInputs[i].disabled = true;
+    }
+}
+    </script>
+</body>
+</html>

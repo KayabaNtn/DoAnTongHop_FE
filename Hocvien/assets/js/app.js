@@ -1,10 +1,10 @@
-$(document).ready(function(){
-    $('#eye').click(function(){
+$(document).ready(function () {
+    $('#eye').click(function () {
         $(this).toggleClass('open');
         $(this).children('i').toggleClass('fa-eye-slash fa-eye');
-        if($(this).hasClass('open')){
+        if ($(this).hasClass('open')) {
             $(this).prev().attr('type', 'text');
-        }else{
+        } else {
             $(this).prev().attr('type', 'password');
         }
     });

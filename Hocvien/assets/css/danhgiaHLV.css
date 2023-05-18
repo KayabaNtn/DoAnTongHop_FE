@@ -1,9 +1,10 @@
-#main{
+#main {
     padding: 0;
     margin: -2px;
     box-sizing: border-box;
 
 }
+
 html {
     scroll-behavior: smooth;
     font-family: Arial, Helvetica, sans-serif;
@@ -14,8 +15,9 @@ html {
     display: flex;
     flex-direction: column;
 }
+
 #header {
-    height:70px;
+    height: 70px;
     position: fixed;
     top: 0;
     left: 0;
@@ -25,7 +27,7 @@ html {
     display: flex;
 }
 
-#nav{
+#nav {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -35,7 +37,7 @@ html {
 
 .logo {
     width: 70px;
-    height:70px;
+    height: 70px;
     /* object-fit: contain; */
 }
 
@@ -47,8 +49,8 @@ html {
     display: inline-block;
 }
 
-#nav  li  {
-     
+#nav li {
+
     position: relative;
 }
 
@@ -57,18 +59,18 @@ html {
     text-transform: uppercase; /* tất cả các chữ viết hoa */
 }
 
-#nav li a  {
-    
+#nav li a {
+
     text-decoration: none; /* gạch chân */
     line-height: 70px; /* Tip nhỏ : muốn căn giữa chữ thì cho chiều cao của chữ bằng chiều cao thẻ bên ngoài */
     padding: 0px 24px;
     display: block; /* Thành phần hiển thị như 1 khối */
-} 
+}
 
-#nav > li:hover > a  {
+#nav > li:hover > a {
     color: #000;
     background-color: #ccc;
-} 
+}
 
 #header .search-btn {
     float: right;
@@ -86,23 +88,24 @@ html {
     line-height: 36px;
     text-align: center;
 }
- .fix {
+
+.fix {
     margin: 0;
- }
+}
 
 #header .search-btn:hover {
     cursor: pointer; /*Thay đổi con trỏ khi nó được chuột trỏ vào 1 box được chọn */
     background-color: #f44336;
-} 
+}
 
 #header .search-icon {
     color: #fff;
     font-size: 20px;
-    line-height:70px;
+    line-height: 70px;
 }
 
 
-div.form-student  {
+div.form-student {
     width: 35%;
     border: 1px solid #ccc;
     height: 100%;
@@ -118,30 +121,30 @@ div.form-student h3 {
     margin-top: 0;
     margin-bottom: 15px;
     text-align: center;
-   
+
 }
 
 div.form-student label {
-    width:30%;
+    width: 30%;
     float: left;
     text-align: center;
 }
 
-div.form-student input[type="text"]{
+div.form-student input[type="text"] {
     margin-bottom: 10px;
-    width: 59%   ;
+    width: 59%;
     padding: 10px;
 }
 
 .btn-save {
     margin-top: 15px;
     margin-bottom: 15px;
-    width: 30% ;
+    width: 30%;
     padding: 8px;
 
 }
 
- div.list-student{
+div.list-student {
     width: 60%;
     height: 50%;
     border: 1px solid #ccc;
@@ -173,7 +176,7 @@ div.form-student input[type="text"]{
     height: 60%;
     overflow: hidden;
     padding-top: 80px;
-    padding-bottom: 25px ;
+    padding-bottom: 25px;
 }
 
 #footer {
@@ -182,29 +185,29 @@ div.form-student input[type="text"]{
     height: 1000px;
 }
 
-#footer .socials-list{
+#footer .socials-list {
     font-size: 24px;
-    
+
 }
 
-#footer .socials-list a{
+#footer .socials-list a {
     color: rgba(0, 0, 0, 0.6);
     text-decoration: none;
     padding: 0 12px 0 12px;
 }
 
-#footer .socials-list a:hover{
+#footer .socials-list a:hover {
     opacity: 0.6;
 }
 
-#footer .copyright{
+#footer .copyright {
     margin-top: 15px;
     color: rgba(0, 0, 0, 0.6);
 }
 
 #footer .copyright a {
     color: rgba(0, 0, 0, 0.6);
-    
+
 }
 
 .modal {
@@ -213,7 +216,7 @@ div.form-student input[type="text"]{
     right: 0;
     bottom: 0;
     left: 0;
-    background :rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.4);
     align-items: center;
     justify-content: center;
     display: none;
@@ -226,7 +229,7 @@ div.form-student input[type="text"]{
 .modal-container {
     background-color: #fff;
     width: 900px;
-    max-width: calc(100%-32px);
+    max-width: calc(100% - 32px);
     min-height: 200px;
     position: relative;
 }
@@ -239,14 +242,14 @@ div.form-student input[type="text"]{
     justify-content: center;
     font-size: 30px;
     color: #ffffff;
-    
+
 }
 
 .modal-heading-icon {
     margin-right: 16px;
 }
 
-.modal-close{
+.modal-close {
     position: absolute;
     right: 0;
     top: 0;
@@ -256,13 +259,14 @@ div.form-student input[type="text"]{
     opacity: 1;
 }
 
-.modal-body{
+.modal-body {
     padding: 16px;
 }
-.modal-label{
-    display: block;/*inline block là nằm trên 1 hàng **/
+
+.modal-label {
+    display: block; /*inline block là nằm trên 1 hàng **/
     font-size: 20px;
-    margin-bottom: 12px ;
+    margin-bottom: 12px;
 }
 
 .modal-input {
@@ -270,7 +274,7 @@ div.form-student input[type="text"]{
     width: 97%;
     padding: 10px;
     font-size: 15px;
-    margin-bottom: 24px ;
+    margin-bottom: 24px;
 }
 
 #buy-tickets {
@@ -288,11 +292,11 @@ div.form-student input[type="text"]{
     opacity: 0.9;
 }
 
-.modal-footer  {
+.modal-footer {
     padding: 16px;
     text-align: right;
 }
 
-.modal-footer  {
+.modal-footer {
     color: #2196F3;
 }

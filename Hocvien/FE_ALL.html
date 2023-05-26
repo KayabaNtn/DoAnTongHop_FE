@@ -211,12 +211,12 @@
     }
 
 
-
-   function Send1 (){
-       const inputName = document.getElementById("Name").value;
-       const inputEmail = document.getElementById("Email").value;
-       const inputNumber = document.getElementById("Number").value;
-       Sends.addEventListener('click',Send("http://localhost:8889/PhieuDangKy/insert", {  ten: inputName,
+    function Send1() {
+        const inputName = document.getElementById("Name").value;
+        const inputEmail = document.getElementById("Email").value;
+        const inputNumber = document.getElementById("Number").value;
+        Sends.addEventListener('click', Send("http://localhost:8889/PhieuDangKy/insert", {
+            ten: inputName,
            email: inputEmail,
            sdt: inputNumber,
            ngayThem: null,

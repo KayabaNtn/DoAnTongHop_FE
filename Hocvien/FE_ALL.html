@@ -54,7 +54,7 @@
                 Học viện thể thao Cat Sports Academy Là ngôi trường số 1 Việt Nam về đào tạo Thể thao Cấp cao, được ra
                 đời từ tâm huyết của những người đam mê nuôi dưỡng và ươm mầm tài năng thể thao trẻ Việt Nam. Với phương
                 châm “Vì một thế hệ trẻ phát triển toàn diện”, tại học viện, các học viên sẽ được đào tạo về mọi mặt Thể
-                chất – Kiến thức – Kỹ năng. Học viện thể thao Olympic còn tự hào là một trong những trung tâm thể thao
+                chất – Kiến thức – Kỹ năng. Học viện thể thao Cat Sports Academy còn tự hào là một trong những trung tâm thể thao
                 uy tín, có chất lượng giảng dạy tốt nhất với một đội ngũ chuyên gia giàu kinh nghiệm. Các học viên sẽ
                 được dẫn dắt bởi HLV Mai Hồng Quân – Cựu tuyển thủ quốc gia Việt Nam, hiện đang là Giám đốc Kỹ thuật của
                 trung tâm.
@@ -144,18 +144,18 @@
                     <form action="">
                         <div class="row">
                             <div class="col  s-col-full col-half">
-                                <input class="form-control" id="" name="" placeholder="Name" required type="text">
+                                <input class="form-control" id="Name" name="" placeholder="Name" required type="text">
                             </div>
                             <div class="col s-col-full col-half s-mt-8">
-                                <input class="form-control" id="" name="" placeholder="Email" required type="email">
+                                <input class="form-control" id="Email" name="" placeholder="Email" required type="email">
                             </div>
                         </div>
                         <div class="row mt-8 ">
                             <div class="col col-full">
-                                <input class="form-control" id="" name="" placeholder="Message" required type="email">
+                                <input class="form-control" id="Number" name="" placeholder="Phone number" required type="number">
                             </div>
                         </div>
-                        <input class="btn mt-16 form-submit-btn s-full-width" type="submit" value="SEND">
+                        <button class="btn mt-16 form-submit-btn s-full-width js-Send " onclick="Send1()" > Send </button>
 
                     </form>
 
@@ -186,41 +186,54 @@
     </div>
 </div>
 
-<!-- <div class="modal js-modal">
-    <div class="modal-container js-modal-container">
-        <div class="modal-close js-modal-close">
-            <i class="ti-close"></i>
-        </div>
+<script>
 
-        <header class="modal-header">
-            <i class="modal-heading-icon ti-bag"></i>
-                Tickets
-        </header>
+    const Sends = document.querySelector(" .js-Send")
+    const inputName = document.getElementById("Name").value;
+        const inputEmail = document.getElementById("Email").value;
+        const inputNumber = document.getElementById("Number").value;
+    async function Send(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
 
-        <div class="modal-body">
 
-            <label for="ticket-quantity" class="modal-label">
-                <i class="ti-shopping-cart"></i>
-                Tickers, $15 per person
-            </label>
-            <input id="ticket-quantity" type="text" class="modal-input" placeholder="How many?">
 
-            <label for="ticket-email" class="modal-label">
-                <i class="ti-user"></i>
-                Send to
-            </label>
-            <input id="ticket-email" type="email" class="modal-input" placeholder="Enter email ...">
+   function Send1 (){
+       const inputName = document.getElementById("Name").value;
+       const inputEmail = document.getElementById("Email").value;
+       const inputNumber = document.getElementById("Number").value;
+       Sends.addEventListener('click',Send("http://localhost:8889/PhieuDangKy/insert", {  ten: inputName,
+           email: inputEmail,
+           sdt: inputNumber,
+           ngayThem: null,
+       }).then((data) => {
+           alert("Thành công")
+           console.log(data); // JSON data parsed by `data.json()` call
+       }));
+       console.log('Dữ liệu ô input')
+       console.log(inputName);
+        console.log(inputEmail);
+        console.log(inputNumber);
 
-            <button id="buy-tickets">
-                Pay <i class="ti-check"></i>
-            </button>
-        </div>
+   }
 
-        <footer class="modal-footer">
-            <p class="modal-help">Need <a href="#">helf?</a></p>
-        </footer>
-    </div>
-</div> -->
+
+</script>
+
 
 <!-- <script>
     const buyBtns = document.querySelectorAll('.js-buy-ticket')

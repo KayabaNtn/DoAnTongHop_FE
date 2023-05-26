@@ -18,7 +18,10 @@
         <ul id="nav"> <!--ul#nav>li*5 -->
             <img alt="abc" class="logo" src="./assets/image/logo.jpg">
             <li><a href="#">HOME</a></li>
-            <li><a href="#bodys">Function</a></li>
+            <li><a href="#bodys">Sinh Viên </a></li>
+            <li><a href="./FE_36_QL.html">Hợp Đồng </a></li>
+            <li><a href="./FE_42_QL.html">Phiếu Đăng Kí </a></li>
+            <li><a href="./FE_54_QL.html">Feed-Back </a></li>
             <li><a href="#footer">Giới thiệu</a></li>
         </ul>
         <!-- End : nav -->
@@ -41,25 +44,34 @@
             <input id="txtFullName" tabindex="1" type="text">
             <br>
 
-            <label>Địa chỉ Email:</label>
-            <input id="txtEmailAddress" tabindex="1" type="text">
-            <br>
-
-            <label>Số điện thoại:</label>
-            <input id="txtPhoneNumber" tabindex="1" type="text">
+            <label>Ngày Sinh:</label>
+            <input id="txtNgaySinh" tabindex="2" type="text">
             <br>
 
             <label>Quê quán:</label>
-            <input id="txtHomeTown" tabindex="1" type="text">
+            <input id="txtHomeTown" tabindex="3" type="text">
             <br>
 
             <label id="lblGender">Giới tính:</label>
-            <input id="male" name="gender" tabindex="1" type="radio" value="1"> Nam
-            <input id="female" name="gender" tabindex="1" type="radio" value="2"> Nữ
+            <input id="male" name="gender" tabindex="4" type="radio" value="Nam "> Nam
+            <input id="female" name="gender" tabindex="5" type="radio" value="Nữ "> Nữ
+            <br>
+            <br>
+
+            <label>Địa chỉ Email:</label>
+            <input id="txtEmailAddress" tabindex="6" type="text">
+            <br>
+
+            <label>Số điện thoại:</label>
+            <input id="txtPhoneNumber" tabindex="7" type="text">
+            <br>
+
+            <label>Mật Khẩu :</label>
+            <input id="txtPass" tabindex="8" type="text">
             <br>
 
             <label for="">&nbsp;</label>
-            <button class="btn-save" onclick="getValue()"  >Lưu lại</button>
+            <button class="btn-save js-save" onclick="getValue()"  >Lưu lại</button>
 
         </div>
 
@@ -69,13 +81,14 @@
         <h3>Danh sách sinh viên</h3>
         <table border="1" cellpadding="0" cellpadding="0" width="100%">
             <tr>
-                <td>STT</td>
-                <td>Họ và tên</td>
-                <td>Giới tính</td>
-                <td>Ngày sinh</td>
-                <td>Địa chỉ</td>
-                <td>Số điện thoại</td>
-                <td>Email</td>
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Địa chỉ</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Mật khẩu</th>
             </tr>
         </table>
     </div>
@@ -85,7 +98,7 @@
             <a href=""><i class="ti-facebook"></i></a>
             <a href=""><i class="ti-instagram"></i></a>
             <a href=""><i class="ti-youtube"></i></a>
-            <a href=""><i class="ti-printerest"></i></a>
+
             <a href=""><i class="ti-twitter"></i></a>
             <a href=""><i class="ti-linkedin"></i></a>
         </div>
@@ -99,23 +112,9 @@
 <script>
     const Save = document.querySelector(" .js-save");
 
-    // async function save() {
-    //     const response = await fetch("http://localhost:8889/HopDong/search",{
-    //
-    //         pageBegin: 0,
-    //         pageEnd: 5
-    //
-    //     });
-    //     const jsonData = await response.json();
-    //     console.log(jsonData);
-    //     alert('Thành công')
-    // }
-
-    /////////
-
 
     // Example POST method implementation:
-    async function save(url = "", data = {}) {
+    async function Saves(url = "", data = {}) {
         // Default options are marked with *
         const response = await fetch(url, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -135,31 +134,39 @@
 
     const idKh = document.getElementById('txtFullName').value;
 
-    ////////
-    // Save.addEventListener('click',save("http://localhost:8889/HopDong/insert", {  idKh: null,
-    //     idLh: null,
-    //     idHv: null,
-    //     idNv: null,
-    //     ngayKy: null,}).then((data) => {
-    //         alert("Thành công")
-    //     console.log(data); // JSON data parsed by `data.json()` call
-    // }));
-    function tets (){
-        console.log(idKh)
-    }
-    Save.addEventListener('click',tets)
+
 
     function getValue() {
         // Lấy tham chiếu đến phần tử input
-        var inputElement = document.getElementById("txtFullName");
+        var inputName = document.getElementById("txtFullName").value;
+        var inputDate = document.getElementById("txtNgaySinh").value;
+        var inputDiachi= document.getElementById("txtHomeTown").value;
+        var radios = document.getElementsByName('gender');
+        var selectedGender;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                selectedGender = radios[i].value;
+                break;
+            }
+        }
+        var inputEmail= document.getElementById("txtEmailAddress").value;
+        var inputNumber = document.getElementById("txtPhoneNumber").value;
+        var inputMatKhau = document.getElementById("txtPass").value;
 
-        // Lấy giá trị từ phần tử input
-        var value = inputElement.value;
+        Save.addEventListener('click', Saves("http://localhost:8889/HocVien/insert", {
+            tenHv: inputName,
+            ngaySinh: inputDate,
+            diaChi: inputDiachi,
+            gioiTinh: selectedGender,
+            email :inputEmail,
+            sdt :inputNumber,
+            matKhau:inputMatKhau,
+        }).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
 
-        // Hiển thị giá trị trong console
-        console.log('Dữ liệu ô input')
-        console.log(value);
-        inputElement.value = null;
+
     }
 
 

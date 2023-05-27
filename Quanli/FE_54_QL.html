@@ -41,18 +41,22 @@
         <div class="form-student">
             <h3>Thông tin </h3>
 
-            <label>Feedback:</label>
-            <input id="txtFullName" tabindex="1" type="text">
+            <label>ID Nhân Viên :</label>
+            <input id="IDNV" tabindex="1" type="text">
+            <br>
+
+            <label>ID Học Viên :</label>
+            <input id="IDHV" tabindex="1" type="text">
             <br>
 
             <label>Date :</label>
-            <input id="txtHomeTown" tabindex="1" type="text">
+            <input id="ngayGui" tabindex="1" type="text">
             <br>
 
 
-            <button class="btn-save ">Tìm</button>
-            <label for="">&nbsp;</label>
-            <button class="btn-save js-buy-ticket ">Thêm</button>
+          <div class="btn-save1">
+            <button class="btn-save Search" onclick="getValue()">Tìm</button>
+          </div>
         </div>
 
         <div class="list-student">
@@ -100,71 +104,55 @@
 </div>
 
 
-<div class="modal js-modal">
-    <div class="modal-container js-modal-container">
-        <div class="modal-close js-modal-close ">
-            <i class="ti-close"></i>
-        </div>
-
-        <header class="modal-header">
-            <i class="modal-heading-icon ti-bag"></i>
-            Thêm
-        </header>
-
-        <div class="modal-body">
-
-            <label class="modal-label" for="HVT-quantity">
-                <i class="ti-user"></i>
-                Feed back:
-            </label>
-            <input class="modal-input" id="HVT-quantity" placeholder="feed back ?" type="text">
-
-
-            <label class="modal-label" for="Date-quantity">
-                <i class="ti-alarm-clock"></i>
-                Date :
-            </label>
-            <input class="modal-input" id="Date-quantity" placeholder="Ngày ?" type="text">
-
-
-            <button id="buy-tickets">
-                Hoàn thành <i class="ti-check"></i>
-            </button>
-
-        </div>
-
-        <footer class="modal-footer">
-            <p class="modal-help">Need <a href="#">helf?</a></p>
-        </footer>
-    </div>
-</div>
-
 <script>
-    const buyBtns = document.querySelectorAll('.js-buy-ticket')
-    const modal = document.querySelector('.js-modal')
-    const modalClose = document.querySelector('.js-modal-close')
-    const modalContainer = document.querySelector('.js-modal-container')
 
-    function showBuy() {
-        modal.classList.add('open')
+    const Search = document.querySelector(" .Search");
+
+
+    // Example POST method implementation:
+    async function Searchs(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
     }
 
-    function hideBuy() {
-        modal.classList.remove('open')
-    }
-
-    for (const buyBtn of buyBtns) {
-        buyBtn.addEventListener('click', showBuy)
-    }
-
-    modalClose.addEventListener('click', hideBuy)
 
 
-    modal.addEventListener('click', hideBuy)
 
-    modalContainer.addEventListener('click', function (event) {
-        event.stopPropagation()
-    })
+
+    function getValue() {
+        // Lấy tham chiếu đến phần tử input
+        var inputIDNV = document.getElementById("IDNV").value;
+        var inputIDHV = document.getElementById("IDHV").value;
+        var inputngayGui= document.getElementById("ngayGui").value;
+
+
+        Search.addEventListener('click', Searchs("http://localhost:8889/Feedback/search", {
+            idNv: inputIDNV,
+            idHv: inputIDHV,
+            ngayGui: inputngayGui,
+            pageBegin : 0,
+            pageEnd : 5,
+        }).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));}
+
+
+
 </script>
+
 </body>
 </html>

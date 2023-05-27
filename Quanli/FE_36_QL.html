@@ -57,13 +57,13 @@
             <br>
 
             <label>Date :</label>
-            <input id="txtHomeTown" tabindex="1" type="text">
+            <input id="txtDate" tabindex="1" type="text">
             <br>
 
-            <label for="">&nbsp;</label>
+            <label >&nbsp;</label>
             <button class="btn-save ">Tìm</button>
-            <label for="">&nbsp;</label>
-            <button class="btn-save js-buy-ticket ">Thêm</button>
+            <label >&nbsp;</label>
+            <button class="btn-save js-HD-themOpen  " >Thêm</button>
         </div>
 
 
@@ -126,39 +126,45 @@
 
         <div class="modal-body">
 
-            <label class="modal-label" for="HVT-quantity">
+            <label class="modal-label" for="ID-KH">
                 <i class="ti-user"></i>
-                Họ và Tên:
+                ID Khách Hàng:
             </label>
-            <input class="modal-input" id="HVT-quantity" placeholder="Họ và tên ?" type="text">
+            <input class="modal-input" id="ID-KH" placeholder="ID Khách Hàng ?" type="text">
 
 
-            <label class="modal-label" for="DC-quantity">
+            <label class="modal-label" for="ID-LH">
                 <i class="ti-email"></i>
-                Địa chỉ Email:
+                ID Lớp học:
             </label>
-            <input class="modal-input" id="DC-quantity" placeholder="Địa chỉ ?" type="text">
+            <input class="modal-input" id="ID-LH" placeholder="ID Lớp học ?" type="text">
 
-            <label class="modal-label" for="SDT-quantity">
+            <label class="modal-label" for="ID-HV">
                 <i class="ti-headphone-alt"></i>
-                Số điện thoại:
+                ID Học Viên :
             </label>
-            <input class="modal-input" id="SDT-quantity" placeholder="Số điện thoại ?" type="text">
+            <input class="modal-input" id="ID-HV" placeholder="ID Học Viên  ?" type="text">
 
-            <label class="modal-label" for="QQ-quantity">
+            <label class="modal-label" for="ID-NV">
+                <i class="ti-headphone-alt"></i>
+                ID Nhân Viên :
+            </label>
+            <input class="modal-input" id="ID-NV" placeholder="ID Nhân Viên  ?" type="text">
+
+            <label class="modal-label" for="hocPhi">
                 <i class="ti-home"></i>
-                Quê quán:
+                Học Phí :
             </label>
-            <input class="modal-input" id="QQ-quantity" placeholder="Quê quán ?" type="text">
+            <input class="modal-input" id="hocPhi" placeholder="Học Phí ?" type="number">
 
-            <label class="modal-label" for="Date-quantity">
+            <label class="modal-label" for="ngayKy">
                 <i class="ti-alarm-clock"></i>
                 Date :
             </label>
-            <input class="modal-input" id="Date-quantity" placeholder="Ngày ?" type="text">
+            <input class="modal-input" id="ngayKy" placeholder="Ngày ?" type="text">
 
 
-            <button id="buy-tickets">
+            <button class="abc" id="buy-tickets" onclick="getValue()">
                 Hoàn thành <i class="ti-check"></i>
             </button>
 
@@ -171,11 +177,11 @@
 </div>
 
 <script>
-    const buyBtns = document.querySelectorAll('.js-buy-ticket')
+    const buyBtns = document.querySelectorAll('.js-HD-themOpen')
     const modal = document.querySelector('.js-modal')
     const modalClose = document.querySelector('.js-modal-close')
     const modalContainer = document.querySelector('.js-modal-container')
-
+    const add = document.querySelector('.abc')
 
     function showBuy() {
         modal.classList.add('open')
@@ -196,6 +202,55 @@
     modalContainer.addEventListener('click', function (event) {
         event.stopPropagation()
     })
+
+    async function ADDS(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    function getValue() {
+        // Lấy tham chiếu đến phần tử input
+        var inputIDKH = document.getElementById("ID-KH").value;
+        var inputIDLH = document.getElementById("ID-LH").value;
+        var inputIDHV = document.getElementById('ID-HV').value;
+        var inputIDNV = document.getElementById("ID-NV").value;
+        var inputhocPhi = document.getElementById("hocPhi").value;
+        var inputngayKy = document.getElementById("ngayKy").value;
+        console.log(add)
+        add.addEventListener('click', ADDS("http://localhost:8889/HopDong/insert", {
+            idKh: inputIDKH,
+            idLh: inputIDLH,
+            idHv: inputIDHV,
+            idNv: inputIDNV,
+            ngayKy: inputngayKy,
+            hocPhi: inputhocPhi,
+
+        }).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
+        // console.log('Đã in ra')
+        // console.log(inputIDKH)
+        // console.log(inputIDLH)
+        // console.log(inputIDHV)
+        // console.log(inputIDNV)
+        // console.log(inputhocPhi)
+        // console.log(inputngayKy)
+    }
+
 </script>
 </body>
 </html>

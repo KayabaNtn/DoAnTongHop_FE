@@ -40,28 +40,28 @@
         <div class="form-student">
             <h3>Thông tin Hợp đồng</h3>
 
-            <label>Họ và Tên:</label>
-            <input id="txtFullName" tabindex="1" type="text">
+            <label>ID Khách Hàng :</label>
+            <input id="txtKhachHang" tabindex="1" type="text">
             <br>
 
-            <label>Địa chỉ Email:</label>
-            <input id="txtEmailAddress" tabindex="1" type="text">
+            <label>Lớp Học :</label>
+            <input id="txtLopHoc" tabindex="2" type="text">
             <br>
 
-            <label>Số điện thoại:</label>
-            <input id="txtPhoneNumber" tabindex="1" type="text">
+            <label>ID Học Viên:</label>
+            <input id="txtHocVien" tabindex="3" type="text">
             <br>
 
-            <label>Quê quán:</label>
-            <input id="txtHomeTown" tabindex="1" type="text">
+            <label>Ngày Kí :</label>
+            <input id="txtDate" tabindex="4" type="text">
             <br>
 
-            <label>Date :</label>
-            <input id="txtDate" tabindex="1" type="text">
+            <label>Học Phí :</label>
+            <input id="txtHocPhi" tabindex="5" type="text">
             <br>
 
             <label >&nbsp;</label>
-            <button class="btn-save ">Tìm</button>
+            <button class="btn-save Search" onclick="getValue1()">Tìm</button>
             <label >&nbsp;</label>
             <button class="btn-save js-HD-themOpen  " >Thêm</button>
         </div>
@@ -242,14 +242,59 @@
             alert("Thành công")
             console.log(data); // JSON data parsed by `data.json()` call
         }));
-        // console.log('Đã in ra')
-        // console.log(inputIDKH)
-        // console.log(inputIDLH)
-        // console.log(inputIDHV)
-        // console.log(inputIDNV)
-        // console.log(inputhocPhi)
-        // console.log(inputngayKy)
+
     }
+
+    const Search = document.querySelector(" .Search");
+
+
+    // Example POST method implementation:
+    async function Searchs(url = "") {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            //body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+
+    function getValue1() {
+        // Lấy tham chiếu đến phần tử input
+        var inputKhachHang = document.getElementById("txtKhachHang").value;
+        var inputLopHoc = document.getElementById("txtLopHoc").value;
+        var inputHocVien = document.getElementById("txtHocVien").value;
+        var inputDate = document.getElementById("txtDate").value;
+        var inputHocPhi = document.getElementById("txtHocPhi").value;
+
+
+        let data = {
+            idKh: inputKhachHang,
+            idLh: inputLopHoc,
+            idHv: inputHocVien,
+            pageBegin: 0,
+            pageEnd: 5,
+            ngayKy: inputDate,
+            hocPhi: inputHocPhi
+        }
+        let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+        let urlWithQuery = 'http://localhost:8889/Feedback/search??' + queryString;
+
+        Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
+    }
+
 
 </script>
 </body>

@@ -70,8 +70,10 @@
             <input id="txtPass" tabindex="8" type="text">
             <br>
 
-            <label for="">&nbsp;</label>
+            <label >&nbsp;</label>
             <button class="btn-save js-save" onclick="getValue()"  >Lưu lại</button>
+            <label >&nbsp;</label>
+            <button class="btn-save search " onclick="getValue1()"  >Tìm Kiếm </button>
 
         </div>
 
@@ -111,7 +113,7 @@
 
 <script>
     const Save = document.querySelector(" .js-save");
-
+    const Search = document.querySelector(" .search");
 
     // Example POST method implementation:
     async function Saves(url = "", data = {}) {
@@ -168,6 +170,58 @@
 
 
     }
+
+
+
+
+    // Example POST method implementation:
+    async function Searchs(url = "") {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            //body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+
+    function getValue1() {
+        // Lấy tham chiếu đến phần tử input
+        var inputName = document.getElementById("txtFullName").value;
+        var inputNgaySinh = document.getElementById("txtNgaySinh").value;
+        var inputQuequan = document.getElementById("txtHomeTown").value;
+        var inputEmail = document.getElementById("txtEmailAddress").value;
+        var inputPhoneNB = document.getElementById("txtPhoneNumber").value;
+
+
+        let data = {
+            tenHv: inputName,
+            ngaySinh : inputNgaySinh,
+            pageBegin: 0,
+            pageEnd: 5,
+            diaChi: inputQuequan,
+            email: inputEmail,
+            sdt : inputPhoneNB
+
+        }
+        let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+        let urlWithQuery = 'http://localhost:8889/HocVien/search??' + queryString;
+
+        Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
+    }
+
 
 
 </script>

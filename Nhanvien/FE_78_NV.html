@@ -39,26 +39,22 @@
 
     <div id="bodys">
         <div class="form-student">
-            <h3>Thông tin Hợp đồng</h3>
+            <h3>Thông tin Khóa Học</h3>
 
-            <label>Họ và Tên:</label>
-            <input id="txtFullName" tabindex="1" type="text">
+            <label>Tên Khóa Học:</label>
+            <input id="txtnameKhoaHoc" tabindex="1" type="text">
             <br>
 
-            <label>Địa chỉ Email:</label>
-            <input id="txtEmailAddress" tabindex="1" type="text">
+            <label>Lịch Dạy:</label>
+            <input id="txtlichDay" tabindex="1" type="text">
             <br>
 
-            <label>Số điện thoại:</label>
-            <input id="txtPhoneNumber" tabindex="1" type="text">
-            <br>
-
-            <label>Quê quán:</label>
-            <input id="txtHomeTown" tabindex="1" type="text">
+            <label>Giá Tềin:</label>
+            <input id="txtGiaTien" tabindex="1" type="text">
             <br>
 
             <label>Date :</label>
-            <input id="txtHomeTown" tabindex="1" type="text">
+            <input id="txtDate" tabindex="1" type="text">
             <br>
 
             <label for="">&nbsp;</label>
@@ -69,7 +65,7 @@
     </div>
 
     <div class="list-student">
-        <h3>Danh sách Hợp đồng</h3>
+        <h3>Danh sách Khóa Học</h3>
         <table border="1" cellpadding="0" cellpadding="0" width="100%">
             <tr>
                 <th>STT</th>
@@ -110,80 +106,6 @@
 </div>
 
 
-<!-- <div class="modal js-modal">
-     <div class="modal-container">
-         <div class="modal-close js-modal-close ">
-             <i class="ti-close"></i>
-         </div>
 
-         <header class="modal-header">
-             <i class="modal-heading-icon ti-bag" ></i>
-             Thêm
-         </header>
-
-         <div class="modal-body">
-
-             <label for="HVT-quantity" class="modal-label">
-                 <i class="ti-user"></i>
-                     Họ và Tên:
-             </label>
-            <input id="HVT-quantity" type="text" class="modal-input" placeholder="Họ và tên ?">
-
-
-             <label for="DC-quantity" class="modal-label">
-                 <i class="ti-email"></i>
-                     Địa chỉ Email:
-             </label>
-             <input id="DC-quantity" type="text" class="modal-input" placeholder="Địa chỉ ?">
-
-             <label for="SDT-quantity" class="modal-label">
-                 <i class="ti-headphone-alt"></i>
-                     Số điện thoại:
-             </label>
-             <input id="SDT-quantity" type="text" class="modal-input" placeholder="Số điện thoại ?">
-
-             <label for="QQ-quantity" class="modal-label">
-                 <i class="ti-home"></i>
-                     Quê quán:
-             </label>
-             <input id="QQ-quantity" type="text" class="modal-input" placeholder="Quê quán ?">
-
-             <label for="Date-quantity" class="modal-label">
-                 <i class="ti-alarm-clock"></i>
-                     Date :
-             </label>
-             <input id="Date-quantity" type="text" class="modal-input" placeholder="Ngày ?">
-
-
-             <button id="buy-tickets">
-                Hoàn thành  <i class="ti-check"></i>
-             </button>
-
-         </div>
-
-         <footer class="modal-footer">
-             <p class="modal-help">Need <a href="#">helf?</a></p>
-         </footer>
-     </div>
- </div>
-
- <script>
-     const buyBtns = document.querySelectorAll('.js-buy-ticket')
-     const modal = document.querySelector('.js-modal')
-     const modalClose = document.querySelector('.js-modal-close')
-     function showBuy(){
-         modal.classList.add('open')
-     }
-
-     function hideBuy(){
-         modal.classList.remove('open')
-     }
-
-     for (const buyBtn of buyBtns) {
-         buyBtn.addEventListener('click', showBuy)
-     }
-
-     modalClose.addEventListener('click', hideBuy)
- </script> -->
 </body>
 </html>

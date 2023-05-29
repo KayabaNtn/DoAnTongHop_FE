@@ -39,7 +39,7 @@
 
     <div id="bodys">
         <div class="form-student">
-            <h3>Thông tin </h3>
+            <h3>Thông tin về các Phản hồi </h3>
 
             <label>ID Nhân Viên :</label>
             <input id="IDNV" tabindex="1" type="text">
@@ -64,20 +64,18 @@
             <table border="1" cellpadding="0" cellpadding="0" width="100%">
                 <tr>
                     <th>STT</th>
-                    <th>Tên khóa học</th>
-                    <th>Lớp học</th>
-                    <th>Tên học viên</th>
-                    <th>Tên nhân viên</th>
-                    <th>Feedback</th>
-                    <th>Tổng tiền</th>
+                    <th>Huấn Luyện Viên</th>
+                    <th>Học Viên</th>
+                    <th>feedback</th>
+                    <th>Ngày gửi </th>
+                    <th>Question</th>
                 </tr>
                 <tr>
                     <td>STT</td>
-                    <td>Tên khóa học</td>
-                    <td>Lớp học</td>
-                    <td>Tên học viên</td>
-                    <td>Tên nhân viên</td>
-                    <td>Feedback</td>
+                    <td>Mai Hồng Quân</td>
+                    <td>Mikami</td>
+                    <td>Em làm rất tốt</td>
+                    <td>29/5/2023</td>
                     <td>
                         <button class="btn-update"> Sửa</button>
                     </td>
@@ -110,7 +108,7 @@
 
 
     // Example POST method implementation:
-    async function Searchs(url = "", data = {}) {
+    async function Searchs(url = "") {
         // Default options are marked with *
         const response = await fetch(url, {
             method: "GET", // *GET, POST, PUT, DELETE, etc.
@@ -123,33 +121,35 @@
             },
             redirect: "follow", // manual, *follow, error
             referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            body: JSON.stringify(data), // body data type must match "Content-Type" header
+            //body: JSON.stringify(data), // body data type must match "Content-Type" header
         });
         return response.json(); // parses JSON response into native JavaScript objects
     }
-
-
-
 
 
     function getValue() {
         // Lấy tham chiếu đến phần tử input
         var inputIDNV = document.getElementById("IDNV").value;
         var inputIDHV = document.getElementById("IDHV").value;
-        var inputngayGui= document.getElementById("ngayGui").value;
+        var inputngayGui = document.getElementById("ngayGui").value;
 
 
-        Search.addEventListener('click', Searchs("http://localhost:8889/Feedback/search", {
-            idNv: inputIDNV,
+        let data = {
             idHv: inputIDHV,
-            ngayGui: inputngayGui,
-            pageBegin : 0,
-            pageEnd : 5,
-        }).then((data) => {
+            idHlv: inputIDNV,
+            pageBegin: 0,
+            pageEnd: 5,
+            feedBack: null,
+            ngayGui: inputngayGui
+        }
+        let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+        let urlWithQuery = 'http://localhost:8889/Feedback/search??' + queryString;
+
+        Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
             alert("Thành công")
             console.log(data); // JSON data parsed by `data.json()` call
-        }));}
-
+        }));
+    }
 
 
 </script>

@@ -38,19 +38,19 @@
             <h3>Thông tin sinh viên</h3>
 
             <label>Họ và Tên:</label>
-            <input id="txtFullName" tabindex="1" type="text">
+            <input id="txtFullName" tabindex="1" onblur="checkHT()" type="text">
             <br>
 
             <label>Địa chỉ Email:</label>
-            <input id="txtEmailAddress" tabindex="1" type="text">
+            <input id="txtEmailAddress" tabindex="1" onblur="checkDC()" type="text">
             <br>
 
             <label>Số điện thoại:</label>
-            <input id="txtPhoneNumber" tabindex="1" type="text">
+            <input id="txtPhoneNumber" tabindex="1" onblur="checkSDT()" type="text">
             <br>
 
             <label>Quê quán:</label>
-            <input id="txtHomeTown" tabindex="1" type="text">
+            <input id="txtHomeTown" tabindex="1" onblur="checkQQ()" type="text">
             <br>
 
             <label id="lblGender">Giới tính:</label>
@@ -160,6 +160,69 @@
         console.log('Dữ liệu ô input')
         console.log(value);
         inputElement.value = null;
+    }
+    
+
+</script>
+<script>
+    function kiemtra() {
+        var HovaTen = document.getElementById("txtFullName").value;
+        var ĐiachiEmail = document.getElementById("txtEmailAddress").value;
+        var Sođienthoai = document.getElementById("txtPhoneNumber").value;
+        var Quequan = document.getElementById("txtHomeTown").value;
+        //var error = document.getElementById("lblError");
+        console.log(idnhanvien)
+
+    //     var reg = /^\d+$/;
+    //     if (reg.test(HovaTen) && reg.test(ĐiachiEmail) && reg.test(Sođienthoai) && reg.test(date)) {
+
+    //     } else {
+    //        alert("Sai cmmm ,nhap cung nguu")
+    //     }
+
+
+
+
+    }  
+    
+    function checkHT(){
+        var HovaTen = document.getElementById("txtFullName").value;
+        var reg = /[a-z]/;
+        if (reg.test(HovaTen)) {
+
+        } else {
+           alert("Nhập sai")
+        }
+    }
+
+    function checkDC(){
+        var ĐiachiEmail = document.getElementById("txtEmailAddress").value;
+        var reg = /^[^\s@]+@gmail\.com$/;
+        if (reg.test(ĐiachiEmail)) {
+
+        } else {
+           alert("Nhập sai")
+        }
+    }
+
+    function checkSDT(){
+        var Sođienthoai = document.getElementById("txtPhoneNumber").value;
+        var reg = /^\d+$/;
+        if (reg.test(Sođienthoai)) {
+
+        } else {
+           alert("Nhập sai")
+        }
+    }
+
+    function checkQQ(){
+        var Quequan = document.getElementById("txtHomeTown").value;
+        var reg = /[a-z]/;
+        if (reg.test(Quequan)) {
+
+        } else {
+           alert("Nhập sai")
+        }
     }
 
 

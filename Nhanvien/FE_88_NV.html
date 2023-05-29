@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -9,104 +10,106 @@
     <link href="./assets/css/responsive.css" rel="stylesheet">
     <link href="./assets/fonts/themify-icons.css" rel="stylesheet">
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-          referrerpolicy="no-referrer" rel="stylesheet"/>
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        referrerpolicy="no-referrer" rel="stylesheet" />
 
 </head>
+
 <body>
 
-<div id="main">
+    <div id="main">
 
-    <div id="header">
-        <!-- Begin : nav -->
-        <ul id="nav"> <!--ul#nav>li*5 -->
-            <a><img alt="abc" class="logo" src="./assets/image/logo.jpg"></a>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#bodys">Function</a></li>
-            <li><a href="#footer">Giới thiệu</a></li>
-        </ul>
-        <!-- End : nav -->
-        <!-- Begin : search button -->
-        <div class="search-btn">
-            <i class="search-icon ti-search"></i>
-        </div>
-        <div class="search-btn1">
-            <p class="fix">Mai Hồng Quân <br>
-                Quản lí </p>
-        </div>
-        <!-- End : search button -->
-    </div>
-
-    <div id="bodys">
-        <div class="form-student">
-            <h3>Thông tin Hợp đồng</h3>
-
-            <label>ID Nhân Viên </label>
-            <input id="txtFullName" tabindex="1" type="text">
-            <br>
-
-            <label>ID Học Viên:</label>
-            <input id="txtEmailAddress" tabindex="1" type="text">
-            <br>
-
-            <label>Feed back:</label>
-            <input id="txtPhoneNumber" tabindex="1" type="text">
-            <br>
-
-            <label>Date :</label>
-            <input id="txtHomeTown" tabindex="1" type="text">
-            <br>
-
-            <label for="">&nbsp;</label>
-            <button class="btn-save  ">Tìm</button>
+        <div id="header">
+            <!-- Begin : nav -->
+            <ul id="nav"> <!--ul#nav>li*5 -->
+                <a><img alt="abc" class="logo" src="./assets/image/logo.jpg"></a>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#bodys">Function</a></li>
+                <li><a href="#footer">Giới thiệu</a></li>
+            </ul>
+            <!-- End : nav -->
+            <!-- Begin : search button -->
+            <div class="search-btn">
+                <i class="search-icon ti-search"></i>
+            </div>
+            <div class="search-btn1">
+                <p class="fix">Mai Hồng Quân <br>
+                    Quản lí </p>
+            </div>
+            <!-- End : search button -->
         </div>
 
+        <div id="bodys">
+            <div class="form-student">
+                <h3>Thông tin Hợp đồng</h3>
 
-    </div>
-
-    <div class="list-student">
-        <h3>Danh sách Hợp đồng</h3>
-        <table border="1" cellpadding="0" cellpadding="0" width="100%">
-            <tr>
-                <th>STT</th>
-                <th>IDNV</th>
-                <th>IDHV</th>
-                <th>Feedback</th>
-                <th>Date</th>
-                <th>EDIT</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Football basic</td>
-                <td>NV_88</td>
-                <td>Mai Hồng Quân</td>
-                <td>15000vnđ</td>
-                <td>
-                    <button class="btn-update "> Sửa</button>
-                </td>
-            </tr>
-        </table>
-    </div>
+                <label>ID Nhân Viên </label>
+                <input id="txtFullName" tabindex="1" onblur="checkNV()" type="text">
+                <br>
 
 
-    <div id="footer">
-        <div class="socials-list">
-            <a href="#"><i class="ti-facebook"></i></a>
-            <a href="#"><i class="ti-instagram"></i></a>
-            <a href="#"><i class="ti-youtube"></i></a>
-            <a href="#"><i class="ti-printerest"></i></a>
-            <a href="#"><i class="ti-twitter"></i></a>
-            <a href="#"><i class="ti-linkedin"></i></a>
+                <label>ID Học Viên:</label>
+                <input id="txtEmailAddress" tabindex="1" onblur="checkHV()" type="text">
+                <br>
+
+                <label>Feed back:</label>
+                <input id="txtPhoneNumber" tabindex="1" type="text">
+                <br>
+
+                <label>Date :</label>
+                <input id="txtHomeTown" tabindex="1" onblur="checkD()" type="text">
+                <br>
+
+                <label for="">&nbsp;</label>
+                <button class="btn-save  " onclick=" kiemtra() ">Tìm</button>
+            </div>
+
+
         </div>
-        <p class="copyright">
-            Powered by <a href="#"> Cats Sport Academy
-        </a>
-        </p>
+
+        <div class="list-student">
+            <h3>Danh sách Hợp đồng</h3>
+            <table border="1" cellpadding="0" cellpadding="0" width="100%">
+                <tr>
+                    <th>STT</th>
+                    <th>IDNV</th>
+                    <th>IDHV</th>
+                    <th>Feedback</th>
+                    <th>Date</th>
+                    <th>EDIT</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Football basic</td>
+                    <td>NV_88</td>
+                    <td>Mai Hồng Quân</td>
+                    <td>15000vnđ</td>
+                    <td>
+                        <button class="btn-update "> Sửa</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div id="footer">
+            <div class="socials-list">
+                <a href="#"><i class="ti-facebook"></i></a>
+                <a href="#"><i class="ti-instagram"></i></a>
+                <a href="#"><i class="ti-youtube"></i></a>
+                <a href="#"><i class="ti-printerest"></i></a>
+                <a href="#"><i class="ti-twitter"></i></a>
+                <a href="#"><i class="ti-linkedin"></i></a>
+            </div>
+            <p class="copyright">
+                Powered by <a href="#"> Cats Sport Academy
+                </a>
+            </p>
+        </div>
     </div>
-</div>
 
 
-<!-- <div class="modal js-modal">
+    <!-- <div class="modal js-modal">
      <div class="modal-container">
          <div class="modal-close js-modal-close ">
              <i class="ti-close"></i>
@@ -181,5 +184,81 @@
 
      modalClose.addEventListener('click', hideBuy)
  </script> -->
+
+    <script>
+        function kiemtra() {
+            var idnhanvien = document.getElementById("txtFullName").value;
+            var idhocvien = document.getElementById("txtEmailAddress").value;
+            var date = document.getElementById("txtHomeTown").value;
+            //var error = document.getElementById("lblError");
+            console.log(idnhanvien)
+
+            // var reg = /^\d+$/;
+            // if (reg.test(idnhanvien) && reg.test(idhocvien) && reg.test(date)) {
+
+            // } else {
+            //    alert("Sai cmmm ,nhap cung nguu")
+            // }
+
+
+
+
+        }  
+        
+        function checkNV(){
+            var idnhanvien = document.getElementById("txtFullName").value;
+            var reg = /^\d+$/;
+            if (reg.test(idnhanvien)) {
+
+            } else {
+               alert("Sai cmmm ,nhap cung nguu")
+            }
+        }
+
+        function checkHV(){
+            var idhocvien = document.getElementById("txtEmailAddress").value;
+            var reg = /^\d+$/;
+            if (reg.test(idhocvien)) {
+
+            } else {
+               alert("Sai cmmm ,nhap cung nguu")
+            }
+        }
+
+        function checkD(){
+            var date = document.getElementById("txtHomeTown").value;
+            var reg = /^([0-9]{2})-([0-9]{2})-([0-9]{4})$/;
+            if (reg.test(date)){
+
+            } else {
+                alert("Nhập sai")
+            }
+        }
+
+        // function checkD(){
+        //     var date = document.getElementById("txtPhoneNumber").value;
+        //     var reg = /^\d+$/;
+        //     if (reg.test(date)) {
+
+        //     } else {
+        //        alert("Sai cmmm ,nhap cung nguu")
+        //     }
+        // }
+        function checkD(){
+            var date = document.getElementById("txtHomeTown").value;
+            var reg = /^([0-9]{2})-([0-9]{2})-([0-9]{4})$/;
+            //var dateFormat = /^([0-9]{2})-([0-9]{2})-([0-9]{4})$/;
+            //var date = document.getElementById("txtHomeTown").value;
+            //var reg = /^\d+$/;
+            if (reg.test(date)){
+            //if (reg.test(date)) {
+
+            } else {
+                //console.log("Ngày-tháng-năm không hợp lệ.");
+                alert("Nhập sai")
+            }
+    }
+    </script>
 </body>
+
 </html>

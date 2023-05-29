@@ -42,23 +42,23 @@
             <h3>Thông tin Hợp đồng</h3>
 
             <label>Họ và Tên:</label>
-            <input class="form_st_input" disabled id="txtFullName" placeholder="Mai Hồng Quân" tabindex="1" type="text">
+            <input class="form_st_input" disabled id="txtFullName" placeholder="Mai Hồng Quân" tabindex="1" onblur="checkHT()" type="text">
             <br>
 
             <label>Địa chỉ Email:</label>
-            <input class="form_st_input" disabled id="txtEmailAddress" placeholder="Thanh Hóa" tabindex="1" type="text">
+            <input class="form_st_input" disabled id="txtEmailAddress" placeholder="Thanh Hóa" tabindex="1" onblur="checkDC()" type="text">
             <br>
 
             <label>Số điện thoại:</label>
-            <input class="form_st_input" disabled id="txtPhoneNumber" placeholder="0945****" tabindex="1" type="text">
+            <input class="form_st_input" disabled id="txtPhoneNumber" placeholder="0945****" tabindex="1" onblur="checkSDT()" type="text">
             <br>
 
             <label>Quê quán:</label>
-            <input class="form_st_input" disabled id="txtHomeTown" placeholder="Thanh Hóa" tabindex="1" type="text">
+            <input class="form_st_input" disabled id="txtHomeTown" placeholder="Thanh Hóa" tabindex="1" onblur="checkQQ()" type="text">
             <br>
 
             <label>Date :</label>
-            <input class="form_st_input" disabled id="txtHomeTown" placeholder="0 9 45" tabindex="1" type="text">
+            <input class="form_st_input" disabled id="txtHomeTown" placeholder="0 9 45" tabindex="1" onblur="checkD()" type="text">
             <br>
 
             <label for="">&nbsp;</label>
@@ -193,6 +193,79 @@
     function disableInputs() {
         for (let i = 0; i < myInputs.length; i++) {
             myInputs[i].disabled = true;
+        }
+    }
+</script>
+
+<script>
+    function kiemtra() {
+        var HovaTen = document.getElementById("txtFullName").value;
+        var ĐiachiEmail = document.getElementById("txtEmailAddress").value;
+        var Sođienthoai = document.getElementById("txtPhoneNumber").value;
+        var Quequan = document.getElementById("txtHomeTown").value;
+        var date = document.getElementById("txtHomeTown").value;
+        //var error = document.getElementById("lblError");
+        console.log(idnhanvien)
+
+    //     var reg = /^\d+$/;
+    //     if (reg.test(HovaTen) && reg.test(ĐiachiEmail) && reg.test(Sođienthoai) && reg.test(date)) {
+
+    //     } else {
+    //        alert("Sai cmmm ,nhap cung nguu")
+    //     }
+
+
+
+
+    }  
+    
+    function checkHT(){
+        var HovaTen = document.getElementById("txtFullName").value;
+        var reg = /[a-z]/;
+        if (reg.test(HovaTen)) {
+
+        } else {
+           alert("Nhập sai")
+        }
+    }
+
+    function checkDC(){
+        var ĐiachiEmail = document.getElementById("txtEmailAddress").value;
+        var reg = /^[^\s@]+@gmail\.com$/;
+        if (reg.test(ĐiachiEmail)) {
+
+        } else {
+           alert("Nhập sai z")
+        }
+    }
+
+    function checkSDT(){
+        var Sođienthoai = document.getElementById("txtPhoneNumber").value;
+        var reg = /^\d+$/;
+        if (reg.test(Sođienthoai)) {
+
+        } else {
+           alert("Nhập sai")
+        }
+    }
+
+    function checkQQ(){
+        var Quequan = document.getElementById("txtHomeTown").value;
+        var reg = /[a-z]/;
+        if (reg.test(Quequan)) {
+
+        } else {
+           alert("Nhập sai")
+        }
+    }
+
+    function checkD(){
+        var date = document.getElementById("txtDate").value;
+        var reg = /^([0-9]{2})-([0-9]{2})-([0-9]{4})$/;
+        if (reg.test(date)){
+
+        } else {
+            alert("Nhập sai")
         }
     }
 </script>

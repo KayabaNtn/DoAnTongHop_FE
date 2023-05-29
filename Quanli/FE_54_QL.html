@@ -43,7 +43,7 @@
             <br>
 
             <label>Date :</label>
-            <input id="txtHomeTown" tabindex="1" type="text">
+            <input id="txtHomeTown" tabindex="1" onblur="checkD()" type="text">
             <br>
 
 
@@ -162,6 +162,35 @@
     modalContainer.addEventListener('click', function (event) {
         event.stopPropagation()
     })
+</script>
+
+<script>
+    function kiemtra() {
+        var Date = document.getElementById("txtHomeTown").value;
+        //var error = document.getElementById("lblError");
+        console.log(idnhanvien)
+
+        var reg = /^\d+$/;
+        if (reg.test(HovaTen) && reg.test(ĐiachiEmail) && reg.test(Sođienthoai) && reg.test(date)) {
+
+        } else {
+           alert("Sai cmmm ,nhap cung nguu")
+        }
+
+
+
+
+    }  
+    
+    function checkD(){
+        var Date = document.getElementById("txtHomeTown").value;
+        var reg = /^([0-9]{2})-([0-9]{2})-([0-9]{4})$/;
+        if (reg.test(Date)){
+
+        } else {
+            alert("Nhập sai")
+        }
+    }
 </script>
 </body>
 </html>

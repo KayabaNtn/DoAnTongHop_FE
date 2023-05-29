@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cats Sport Academy</title>
+    <link href="./assets/css/FE_36_QL.css" rel="stylesheet">
+    <link href="./assets/css/responsive.css" rel="stylesheet">
+    <link href="./assets/fonts/themify-icons.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="main">
+
+    <div id="header">
+        <!-- Begin : nav -->
+        <ul id="nav"> <!--ul#nav>li*5 -->
+            <img alt="abc" class="logo" src="./assets/image/logo.jpg">
+            <li><a href="#">HOME</a></li>
+            <li><a href="./FE_24_QL.html">Sinh Viên </a></li>
+            <li><a href="./FE_36_QL.html">Hợp Đồng </a></li>
+            <li><a href="./FE_42_QL.html">Phiếu Đăng Kí </a></li>
+            <li><a href="./FE_54_QL.html">Feed-Back </a></li>
+            <li><a href="#footer">Giới thiệu</a></li>
+        </ul>
+        <!-- End : nav -->
+        <!-- Begin : search button -->
+        <div class="search-btn">
+            <i class="search-icon ti-search"></i>
+        </div>
+        <div class="search-btn1">
+            <p class="fix">Mai Hồng Quân <br>
+                Quản lí </p>
+        </div>
+        <!-- End : search button -->
+    </div>
+
+    <div id="bodys">
+        <div class="form-student">
+            <h3>Thông tin Hợp đồng</h3>
+
+            <label>ID Khách Hàng :</label>
+            <input id="txtKhachHang" tabindex="1" type="text">
+            <br>
+
+            <label>Lớp Học :</label>
+            <input id="txtLopHoc" tabindex="2" type="text">
+            <br>
+
+            <label>ID Học Viên:</label>
+            <input id="txtHocVien" tabindex="3" type="text">
+            <br>
+
+            <label>Ngày Kí :</label>
+            <input id="txtDate" tabindex="4" type="text">
+            <br>
+
+            <label>Học Phí :</label>
+            <input id="txtHocPhi" tabindex="5" type="text">
+            <br>
+
+            <label >&nbsp;</label>
+            <button class="btn-save Search" onclick="getValue1()">Tìm</button>
+            <label >&nbsp;</label>
+            <button class="btn-save js-HD-themOpen  " >Thêm</button>
+        </div>
+
+
+    </div>
+
+    <div class="list-student">
+        <h3>Danh sách Hợp đồng</h3>
+        <table border="1" cellpadding="0" cellpadding="0" width="100%">
+            <tr>
+                <th>STT</th>
+                <th>Tên khóa học</th>
+                <th>Lớp học</th>
+                <th>Tên học viên</th>
+                <th>Tên nhân viên</th>
+                <th>Ngày kí hợp đồng</th>
+                <th>Tổng tiền</th>
+            </tr>
+            <tr>
+                <td>STT</td>
+                <td>Tên khóa học</td>
+                <td>Lớp học</td>
+                <td>Tên học viên</td>
+                <td>Tên nhân viên</td>
+                <td>Ngày kí hợp đồng</td>
+                <td>
+                    <button class="btn-update"> Sửa</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div id="footer">
+        <div class="socials-list">
+            <a href=""><i class="ti-facebook"></i></a>
+            <a href=""><i class="ti-instagram"></i></a>
+            <a href=""><i class="ti-youtube"></i></a>
+            <a href=""><i class="ti-printerest"></i></a>
+            <a href=""><i class="ti-twitter"></i></a>
+            <a href=""><i class="ti-linkedin"></i></a>
+        </div>
+        <p class="copyright">
+            Powered by <a href="#"> Cats Sport Academy
+        </a>
+        </p>
+    </div>
+</div>
+
+
+<div class="modal js-modal">
+    <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close ">
+            <i class="ti-close"></i>
+        </div>
+
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+            Thêm
+        </header>
+
+        <div class="modal-body">
+
+            <label class="modal-label" for="ID-KH">
+                <i class="ti-user"></i>
+                ID Khách Hàng:
+            </label>
+            <input class="modal-input" id="ID-KH" placeholder="ID Khách Hàng ?" type="text">
+
+
+            <label class="modal-label" for="ID-LH">
+                <i class="ti-email"></i>
+                ID Lớp học:
+            </label>
+            <input class="modal-input" id="ID-LH" placeholder="ID Lớp học ?" type="text">
+
+            <label class="modal-label" for="ID-HV">
+                <i class="ti-headphone-alt"></i>
+                ID Học Viên :
+            </label>
+            <input class="modal-input" id="ID-HV" placeholder="ID Học Viên  ?" type="text">
+
+            <label class="modal-label" for="ID-NV">
+                <i class="ti-headphone-alt"></i>
+                ID Nhân Viên :
+            </label>
+            <input class="modal-input" id="ID-NV" placeholder="ID Nhân Viên  ?" type="text">
+
+            <label class="modal-label" for="hocPhi">
+                <i class="ti-home"></i>
+                Học Phí :
+            </label>
+            <input class="modal-input" id="hocPhi" placeholder="Học Phí ?" type="number">
+
+            <label class="modal-label" for="ngayKy">
+                <i class="ti-alarm-clock"></i>
+                Date :
+            </label>
+            <input class="modal-input" id="ngayKy" placeholder="Ngày ?" type="text">
+
+
+            <button class="abc" id="buy-tickets" onclick="getValue()">
+                Hoàn thành <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const buyBtns = document.querySelectorAll('.js-HD-themOpen')
+    const modal = document.querySelector('.js-modal')
+    const modalClose = document.querySelector('.js-modal-close')
+    const modalContainer = document.querySelector('.js-modal-container')
+    const add = document.querySelector('.abc')
+
+    function showBuy() {
+        modal.classList.add('open')
+    }
+
+    function hideBuy() {
+        modal.classList.remove('open')
+    }
+
+    for (const buyBtn of buyBtns) {
+        buyBtn.addEventListener('click', showBuy)
+    }
+
+    modalClose.addEventListener('click', hideBuy)
+
+    modal.addEventListener('click', hideBuy)
+
+    modalContainer.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+
+    async function ADDS(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    function getValue() {
+        // Lấy tham chiếu đến phần tử input
+        var inputIDKH = document.getElementById("ID-KH").value;
+        var inputIDLH = document.getElementById("ID-LH").value;
+        var inputIDHV = document.getElementById('ID-HV').value;
+        var inputIDNV = document.getElementById("ID-NV").value;
+        var inputhocPhi = document.getElementById("hocPhi").value;
+        var inputngayKy = document.getElementById("ngayKy").value;
+        console.log(add)
+        add.addEventListener('click', ADDS("http://localhost:8889/HopDong/insert", {
+            idKh: inputIDKH,
+            idLh: inputIDLH,
+            idHv: inputIDHV,
+            idNv: inputIDNV,
+            ngayKy: inputngayKy,
+            hocPhi: inputhocPhi,
+
+        }).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
+
+    }
+
+    const Search = document.querySelector(" .Search");
+
+
+    // Example POST method implementation:
+    async function Searchs(url = "") {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            //body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+
+    function getValue1() {
+        // Lấy tham chiếu đến phần tử input
+        var inputKhachHang = document.getElementById("txtKhachHang").value;
+        var inputLopHoc = document.getElementById("txtLopHoc").value;
+        var inputHocVien = document.getElementById("txtHocVien").value;
+        var inputDate = document.getElementById("txtDate").value;
+        var inputHocPhi = document.getElementById("txtHocPhi").value;
+
+
+        let data = {
+            idKh: inputKhachHang,
+            idLh: inputLopHoc,
+            idHv: inputHocVien,
+            pageBegin: 0,
+            pageEnd: 5,
+            ngayKy: inputDate,
+            hocPhi: inputHocPhi
+        }
+        let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+        let urlWithQuery = 'http://localhost:8889/Feedback/search??' + queryString;
+
+        Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
+    }
+
+
+</script>
+</body>
+</html>

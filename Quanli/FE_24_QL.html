@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cats Sport AcademyThe Band</title>
+    <link href="./assets/css/FE_24_QL.css" rel="stylesheet">
+    <link href="./assets/css/responsive.css" rel="stylesheet">
+    <link href="./assets/fonts/themify-icons.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="main">
+
+    <div id="header">
+        <!-- Begin : nav -->
+        <ul id="nav"> <!--ul#nav>li*5 -->
+            <img alt="abc" class="logo" src="./assets/image/logo.jpg">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#bodys">Sinh Viên </a></li>
+            <li><a href="./FE_36_QL.html">Hợp Đồng </a></li>
+            <li><a href="./FE_42_QL.html">Phiếu Đăng Kí </a></li>
+            <li><a href="./FE_54_QL.html">Feed-Back </a></li>
+            <li><a href="#footer">Giới thiệu</a></li>
+        </ul>
+        <!-- End : nav -->
+        <!-- Begin : search button -->
+        <div class="search-btn">
+            <i class="search-icon ti-search"></i>
+        </div>
+        <div class="search-btn1">
+            <p class="fix">Mai Hồng Quân <br>
+                Quản lí </p>
+        </div>
+        <!-- End : search button -->
+    </div>
+
+    <div id="bodys">
+        <div class="form-student">
+            <h3>Thông tin sinh viên</h3>
+
+            <label>Họ và Tên:</label>
+            <input id="txtFullName" tabindex="1" type="text">
+            <br>
+
+            <label>Ngày Sinh:</label>
+            <input id="txtNgaySinh" tabindex="2" type="text">
+            <br>
+
+            <label>Quê quán:</label>
+            <input id="txtHomeTown" tabindex="3" type="text">
+            <br>
+
+            <label id="lblGender">Giới tính:</label>
+            <input id="male" name="gender" tabindex="4" type="radio" value="Nam "> Nam
+            <input id="female" name="gender" tabindex="5" type="radio" value="Nữ "> Nữ
+            <br>
+            <br>
+
+            <label>Địa chỉ Email:</label>
+            <input id="txtEmailAddress" tabindex="6" type="text">
+            <br>
+
+            <label>Số điện thoại:</label>
+            <input id="txtPhoneNumber" tabindex="7" type="text">
+            <br>
+
+            <label>Mật Khẩu :</label>
+            <input id="txtPass" tabindex="8" type="text">
+            <br>
+
+            <label >&nbsp;</label>
+            <button class="btn-save js-save" onclick="getValue()"  >Lưu lại</button>
+            <label >&nbsp;</label>
+            <button class="btn-save search " onclick="getValue1()"  >Tìm Kiếm </button>
+
+        </div>
+
+
+    </div>
+    <div class="list-student">
+        <h3>Danh sách sinh viên</h3>
+        <table border="1" cellpadding="0" cellpadding="0" width="100%">
+            <tr>
+                <th>STT</th>
+                <th>Họ và tên</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+                <th>Địa chỉ</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Mật khẩu</th>
+            </tr>
+        </table>
+    </div>
+
+    <div id="footer">
+        <div class="socials-list">
+            <a href=""><i class="ti-facebook"></i></a>
+            <a href=""><i class="ti-instagram"></i></a>
+            <a href=""><i class="ti-youtube"></i></a>
+
+            <a href=""><i class="ti-twitter"></i></a>
+            <a href=""><i class="ti-linkedin"></i></a>
+        </div>
+        <p class="copyright">
+            Powered by <a href="#"> Cats Sport Academy
+        </a>
+        </p>
+    </div>
+</div>
+
+<script>
+    const Save = document.querySelector(" .js-save");
+    const Search = document.querySelector(" .search");
+
+    // Example POST method implementation:
+    async function Saves(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+
+
+
+
+    function getValue() {
+        // Lấy tham chiếu đến phần tử input
+        var inputName = document.getElementById("txtFullName").value;
+        var inputDate = document.getElementById("txtNgaySinh").value;
+        var inputDiachi= document.getElementById("txtHomeTown").value;
+        var radios = document.getElementsByName('gender');
+        var selectedGender;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                selectedGender = radios[i].value;
+                break;
+            }
+        }
+        var inputEmail= document.getElementById("txtEmailAddress").value;
+        var inputNumber = document.getElementById("txtPhoneNumber").value;
+        var inputMatKhau = document.getElementById("txtPass").value;
+
+        Save.addEventListener('click', Saves("http://localhost:8889/HocVien/insert", {
+            tenHv: inputName,
+            ngaySinh: inputDate,
+            diaChi: inputDiachi,
+            gioiTinh: selectedGender,
+            email :inputEmail,
+            sdt :inputNumber,
+            matKhau:inputMatKhau,
+        }).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
+
+
+    }
+
+
+
+
+    // Example POST method implementation:
+    async function Searchs(url = "") {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            //body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+
+    function getValue1() {
+        // Lấy tham chiếu đến phần tử input
+        var inputName = document.getElementById("txtFullName").value;
+        var inputNgaySinh = document.getElementById("txtNgaySinh").value;
+        var inputQuequan = document.getElementById("txtHomeTown").value;
+        var inputEmail = document.getElementById("txtEmailAddress").value;
+        var inputPhoneNB = document.getElementById("txtPhoneNumber").value;
+
+
+        let data = {
+            tenHv: inputName,
+            ngaySinh : inputNgaySinh,
+            pageBegin: 0,
+            pageEnd: 5,
+            diaChi: inputQuequan,
+            email: inputEmail,
+            sdt : inputPhoneNB
+
+        }
+        let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+        let urlWithQuery = 'http://localhost:8889/HocVien/search??' + queryString;
+
+        Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
+    }
+
+
+
+</script>
+</body>
+</html>

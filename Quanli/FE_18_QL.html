@@ -38,7 +38,7 @@
                     <h3>Thông tin khoá học</h3>
             
                     <label>Tên khoá học:</label>
-                    <input type="text" id="txtFullName" tabindex="1">
+                    <input type="text" id="txtFullName" tabindex="1" onblur="checkKH()">
                     <br>
             
                     <label>Thời gian :</label>
@@ -46,11 +46,11 @@
                     <br>
             
                     <label>Lịch Dạy :</label>
-                    <input type="text" id="txtPhoneNumber" tabindex="1">
+                    <input type="text" id="txtPhoneNumber" tabindex="1" onblur="checkLD()">
                     <br>
             
                     <label>Giá tiền :</label>
-                    <input type="text" id="txtHomeTown" tabindex="1">
+                    <input type="text" id="txtHomeTown" tabindex="1" onblur="checkGT()">
                     <br>
             
                     <label id="lblGender">Giới tính:</label>
@@ -91,5 +91,65 @@
                 </p>
             </div>
     </div>
+
+    
+    
+<script>
+   function kiemtra() {
+       var Tenkhoahoc = document.getElementById("txtFullName").value;
+       var Lichday = document.getElementById("txtPhoneNumber").value;
+       var Giatien = document.getElementById("txtHomeTown").value;
+       
+       console.log(idnhanvien)
+
+   
+
+
+
+
+   }  
+   
+   function checkKH(){
+       var Tenkhoahoc = document.getElementById("txtFullName").value;
+       var reg = /[a-z]/;
+       if (reg.test(Tenkhoahoc)) {
+
+       } else {
+          alert("Nhập sai")
+       }
+   }
+
+   function checkLD(){
+        
+        var Lichday = document.getElementById("txtPhoneNumber").value;
+        var reg = /^([0-9]{2})-([0-9]{2})-([0-9]{4})$/;
+       if (reg.test(Lichday)) {
+        
+       } else {
+          alert("Nhập sai ")
+       }
+   }
+
+
+   function checkSDT(){
+       var Giatien = document.getElementById("txtHomeTown").value;
+       var reg = /^\d+$/;
+       if (reg.test(Giatien)) {
+
+       } else {
+          alert("Nhập sai")
+       }
+   }
+
+   
+
+
+       
+
+
+    
+
+   
+</script>
 </body>
 </html>

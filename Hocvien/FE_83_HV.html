@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cats Sport Academy</title>
-    <link rel="stylesheet" href="./assets/css/FE_83_HV.css">
+    <link rel="stylesheet" href="./assets/css/FE_100_HV.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,7 +20,7 @@
                  <ul id="nav"> <!--ul#nav>li*5 -->
                     <a ><img class="logo" src="./assets/image/logo.jpg" alt="abc"></a>
                     <li><a href="#">HOME</a></li>
-                    <li><a href="hopdong.html">Function</a></li>
+                    <li><a href="#bodys">Function</a></li>
                     <li><a href="#footer">Giới thiệu</a></li>
                 </ul>
                 <!-- End : nav -->
@@ -40,15 +40,15 @@
                     <h3>Cập nhật điểm cho học viên</h3>
 
                     <label>Tên học viên :</label>
-                    <input class ="form_st_input" type="text" id="txtFullName" tabindex="1" placeholder="Seng Phet" disabled>
+                    <input class ="form_st_input" type="text" id="txtFullName" tabindex="1" onblur="checkHV()" placeholder="Seng Phet" disabled>
                     <br>
             
                     <label>Ngày sinh :</label>
-                    <input class ="form_st_input" type="text" id="txtEmailAddress" tabindex="1" placeholder="05/09/1990" disabled>
+                    <input class ="form_st_input" type="text" id="txtEmailAddress" tabindex="1" onblur="checkNS()" placeholder="05/09/1990" disabled>
                     <br>
             
                     <label>Địa chỉ :</label>
-                    <input class ="form_st_input" type="text" id="txtPhoneNumber" tabindex="1" placeholder="Giải phóng" disabled>
+                    <input class ="form_st_input" type="text" id="txtPhoneNumber" tabindex="1" onblur="checkDC()" placeholder="Giải phóng" disabled>
                     <br>
             
                     <label>Giới tính :</label> 
@@ -56,11 +56,11 @@
                     <br>
             
                     <label>Email :</label>
-                    <input class ="form_st_input" type="text" id="txtHomeTown" tabindex="1" placeholder="*****@gmail.com" disabled>
+                    <input class ="form_st_input" type="text" id="txtEmail" tabindex="1" onblur="checkE()" placeholder="*****@gmail.com" disabled>
                     <br>
 
                     <label>Số điện thoại :</label>
-                    <input class ="form_st_input" type="text" id="txtHomeTown" tabindex="1" placeholder="0366******" disabled>
+                    <input class ="form_st_input" type="text" id="txtSođienthoai" tabindex="1" onblur="checkSDT()" placeholder="0366******" disabled>
                     <br>
 
                     <label>Điểm đánh giá :</label>
@@ -70,39 +70,41 @@
                     <label>Mật khẩu :</label>
                     <input class ="form_st_input" type="text" id="txtHomeTown" tabindex="1" placeholder="05******" disabled>
                     <br>
-
+            
                     <label for="">&nbsp;</label>
-                    <button class="btn-save js-buy-ticket ">Feddback </button>
-                    <label for="">&nbsp;</label>
-                    <button  class="btn-save" onclick="enableInputs()">Sửa</button>
-                    <label for="">&nbsp;</label>
-                    <button  class="btn-save" onclick="disableInputs()">Hoàn Thành</button>
+                    <button class="btn-save  ">Lưu</button>
                 </div>
             
                 
             </div>
 
-            <!-- <div class="list-student">
+            <div class="list-student">
                 <h3>Danh sách Hợp đồng</h3>
                 <table width="100%" border="1" cellpadding="0" cellpadding="0">
                     <tr>
-                        <th>STT</th>
-                        <th>Tên khóa học</th>
-                        <th>Thời gian</th>
-                        <th>Lịch dạy</th>
-                        <th>Giá Tiền </th>
-                        <th>EDIT </th> 
+                        <th>Tên học viên</th>
+                        <th>Ngày sinh</th>
+                        <th>Địa chỉ</th>
+                        <th>Giới tính</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Điểm đánh giá</th>
+                        <th>Mật khẩu</th>
+                        <th>EDIT </th>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>Football basic </td>
-                        <td>NV_72</td>
-                        <td>Mai Hồng Quân</td>
-                        <td>15000vnđ</td>
+                        <td>Sengphet</td>
+                        <td>05/09/1990</td>
+                        <td>Giải phóng</td>
+                        <td>Nam</td>
+                        <td>seng1234@gmail.com</td>
+                        <td>0366553258</td>
+                        <td>khá</td>
+                        <td>12345678</td>
                         <td> <button class="btn-update "> Sửa </button> </td>    
                     </tr>
                 </table>
-            </div> -->
+            </div>
 
 
             <div id="footer">
@@ -122,7 +124,7 @@
         </div>
 
 
-   <div class="modal js-modal">
+   <!-- <div class="modal js-modal">
         <div class="modal-container">
             <div class="modal-close js-modal-close ">
                 <i class="ti-close"></i>
@@ -130,7 +132,7 @@
 
             <header class="modal-header">
                 <i class="modal-heading-icon ti-bag" ></i>
-                Thêm FeedBack 
+                Thêm 
             </header>
 
             <div class="modal-body">
@@ -139,21 +141,35 @@
                     <i class="ti-user"></i>
                         Họ và Tên:
                 </label>
-                <select name="cars" class="modal-select">
-                    <option value="volvo"> Thầy Huấn  </option>
-                    <option value="saab"> Thầy Nhật </option >
-                    <option value="mercedes"> Thầy Tokuda</option>
-                    <option value="audi"> Thầy seng </option>
-                  </select>
+               <input id="HVT-quantity" type="text" class="modal-input" placeholder="Họ và tên ?">
+
+
+                <label for="DC-quantity" class="modal-label">
+                    <i class="ti-email"></i>
+                        Địa chỉ Email:
+                </label>
+                <input id="DC-quantity" type="text" class="modal-input" placeholder="Địa chỉ ?">
+                
+                <label for="SDT-quantity" class="modal-label">
+                    <i class="ti-headphone-alt"></i>
+                        Số điện thoại:
+                </label>
+                <input id="SDT-quantity" type="text" class="modal-input" placeholder="Số điện thoại ?">
+
+                <label for="QQ-quantity" class="modal-label">
+                    <i class="ti-home"></i>
+                        Quê quán:
+                </label>
+                <input id="QQ-quantity" type="text" class="modal-input" placeholder="Quê quán ?">
 
                 <label for="Date-quantity" class="modal-label">
                     <i class="ti-alarm-clock"></i>
-                        Feedback :
+                        Date :
                 </label>
                 <input id="Date-quantity" type="text" class="modal-input" placeholder="Ngày ?">
 
 
-                <button id="buy-tickets" class=" js-buy-tickets">
+                <button id="buy-tickets">
                    Hoàn thành  <i class="ti-check"></i>
                 </button>
 
@@ -169,13 +185,8 @@
         const buyBtns = document.querySelectorAll('.js-buy-ticket')
         const modal = document.querySelector('.js-modal')
         const modalClose = document.querySelector('.js-modal-close')
-        const modalbutton = document.querySelector('.js-buy-tickets')
-
         function showBuy(){
             modal.classList.add('open')
-        }
-        function showButton(){
-            alert('Đã thêm thành công')
         }
 
         function hideBuy(){
@@ -185,25 +196,77 @@
         for (const buyBtn of buyBtns) {
             buyBtn.addEventListener('click', showBuy)
         }
-        modalbutton.addEventListener('click',showButton)
+
         modalClose.addEventListener('click', hideBuy)
+    </script> -->
 
-        // Lưu phần tử input có thuộc tính disabled vào biến
-        let myInputs = document.getElementsByClassName("form_st_input");
-
-    // Bật thuộc tính disabled của phần tử input
-    function enableInputs() {
-    for (let i = 0; i < myInputs.length; i++) {
-        myInputs[i].disabled = false;
-    }
-}
-
-    // Tắt thuộc tính disabled của phần tử input
-    function disableInputs() {
-    for (let i = 0; i < myInputs.length; i++) {
-        myInputs[i].disabled = true;
-    }
-}
-    </script>
+        
+    <script>
+        function kiemtra() {
+            var Tenhocvien = document.getElementById("txtFullName").value;
+            var Ngaysinh= document.getElementById("txtEmailAddress").value;
+            var Diachi = document.getElementById("txtPhoneNumber").value;
+            var Email = document.getElementById("txtEmail").value;
+            var Sođienthoai = document.getElementById("txtSodienthoai").value;
+            
+            console.log(idnhanvien)
+    
+        
+    
+    
+    
+    
+        }  
+        
+        function checkHV(){
+            var Tenhocvien = document.getElementById("txtFullName").value;
+            var reg = /[a-z]/;
+            if (reg.test(Tenhocvien8)) {
+    
+            } else {
+                alert("Nhập sai")
+            }
+        }
+    
+        function checkNS(){
+            var Ngaysinh = document.getElementById("txtEmailAddress").value;
+            var reg = /^([0-9]{2})-([0-9]{2})-([0-9]{4})$/;
+            if (reg.test(Ngaysinh)) {
+    
+            } else {
+                alert("Nhập sai")
+            }
+        }
+    
+        function checkDC(){
+            var Diachi = document.getElementById("txtPhoneNumber").value;
+            var reg = /[a-z]/;
+            if (reg.test(Diachi)){
+    
+            } else {
+                alert("Nhập sai")
+            }
+        }
+    
+        function checkE(){
+            var Email = document.getElementById("txtEmail").value;
+            var reg = /^[^\s@]+@gmail\.com$/;
+            if (reg.test(Email)) {
+    
+            } else {
+                alert("Nhập sai")
+            }
+        }
+    
+        function checkSDT(){
+            var Sođienthoai = document.getElementById("txtSođienthoai").value;
+            var reg = /^\d+$/;
+            if (reg.test(Sođienthoai)) {
+    
+            } else {
+                alert("Nhập sai")
+            }
+        }
+        </script>
 </body>
 </html>

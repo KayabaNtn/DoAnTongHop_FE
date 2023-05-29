@@ -38,19 +38,19 @@
                     <h3>Thêm sửa xoá thu chi</h3>
             
                     <label>Tên Vật tư :</label>
-                    <input type="text" id="txtFullName" tabindex="1">
+                    <input type="text" id="txtFullName" tabindex="1" > 
                     <br>
             
                     <label>Giá Vật tư :</label>
-                    <input type="text" id="txtEmailAddress" tabindex="1">
+                    <input type="text" id="txtEmailAddress" tabindex="1" onblur="checkGVT()">
                     <br>
             
                     <label>Số lượng :</label>
-                    <input type="text" id="txtPhoneNumber" tabindex="1">
+                    <input type="text" id="txtPhoneNumber" tabindex="1" onblur="checkSL()">
                     <br>
             
                     <label>Thành tiền :</label>
-                    <input type="text" id="txtHomeTown" tabindex="1">
+                    <input type="text" id="txtHomeTown" tabindex="1" onblur="checkTT()">
                     <br>
             
                     <label for="">&nbsp;</label>
@@ -184,5 +184,131 @@
                 event.stopPropagation()
             })
     </script>
+
+
+    <script>
+        function kiemtra() {
+            var Giavattu = document.getElementById("txtEmailAddress").value;
+            var Soluong = document.getElementById("txtPhoneNumber").value;
+            var Thanhtien = document.getElementById("txtHomeTown").value;
+            //var error = document.getElementById("lblError");
+            console.log(idnhanvien)
+
+        //     var reg = /^\d+$/;
+        //     if (reg.test(HovaTen) && reg.test(ĐiachiEmail) && reg.test(Sođienthoai) && reg.test(date)) {
+
+        //     } else {
+        //        alert("Sai cmmm ,nhap cung nguu")
+        //     }
+
+
+
+
+        }  
+        
+        function checkGVT(){
+            var Giavattu = document.getElementById("txtEmailAddress").value;
+            var reg = /^\d+$/;
+            if (reg.test(Giavattu)) {
+
+            } else {
+                alert("Nhập sai")
+            }
+        }
+
+        function checkSL(){
+            var Soluong = document.getElementById("txtPhoneNumber").value;
+            var reg = /^\d+$/;
+            if (reg.test(Soluong)) {
+
+            } else {
+                alert("Nhập sai z")
+            }
+        }
+
+        function checkTT(){
+            var Thanhtien = document.getElementById("txtHomeTown").value;
+            var reg = /^\d+$/;
+            if (reg.test(Thanhtien)) {
+
+            } else {
+                alert("Nhập sai")
+            }
+        }
+
+    
+    </script>
+
+
+<!-- onblur="checkD()" 
+<script>
+   function kiemtra() {
+       var HovaTen = document.getElementById("txtFullName").value;
+       var ĐiachiEmail = document.getElementById("txtEmailAddress").value;
+       var Sođienthoai = document.getElementById("txtPhoneNumber").value;
+       var Quequan = document.getElementById("txtHomeTown").value;
+       var date = document.getElementById("txtHomeTown").value;
+       
+       console.log(idnhanvien)
+
+   
+
+
+
+
+   }  
+   
+   function checkHT(){
+       var HovaTen = document.getElementById("txtFullName").value;
+       var reg = /[a-z]/;
+       if (reg.test(HovaTen)) {
+
+       } else {
+          alert("Nhập sai")
+       }
+   }
+
+   function checkDC(){
+       var ĐiachiEmail = document.getElementById("txtEmailAddress").value;
+       var reg = /^[^\s@]+@gmail\.com$/;
+       if (reg.test(ĐiachiEmail)) {
+
+       } else {
+          alert("Nhập sai z")
+       }
+   }
+
+   function checkSDT(){
+       var Sođienthoai = document.getElementById("txtPhoneNumber").value;
+       var reg = /^\d+$/;
+       if (reg.test(Sođienthoai)) {
+
+       } else {
+          alert("Nhập sai")
+       }
+   }
+
+   function checkQQ(){
+       var Quequan = document.getElementById("txtHomeTown").value;
+       var reg = /[a-z]/;
+       if (reg.test(Quequan)) {
+
+       } else {
+          alert("Nhập sai")
+       }
+   }
+
+   function checkD(){
+       var date = document.getElementById("txtDate").value;
+       var reg = /^([0-9]{2})-([0-9]{2})-([0-9]{4})$/;
+       if (reg.test(date)){
+
+       } else {
+           alert("Nhập sai")
+       }
+   }
+</script> -->
+
+
 </body>
 </html>

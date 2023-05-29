@@ -70,28 +70,43 @@
             <input id="txtPass" tabindex="8" type="text">
             <br>
 
-            <label >&nbsp;</label>
-            <button class="btn-save js-save" onclick="getValue()"  >Lưu lại</button>
-            <label >&nbsp;</label>
-            <button class="btn-save search " onclick="getValue1()"  >Tìm Kiếm </button>
-
+            <div style="display: flex; width: 100%">
+                <label >&nbsp;</label>
+                <button class=" js-save" onclick="getValue()"  >Lưu lại</button>
+                <label >&nbsp;</label>
+                <button class=" search "  onclick="getValue1()"  >Tìm Kiếm </button>
+            </div>
+            <div style="display: flex; width: 100%">
+                <label >&nbsp;</label>
+                <button class=" js-save" onclick="getValue()"  >Lưu lại</button>
+                <label >&nbsp;</label>
+                <button class=" search "  onclick="getValue1()"  >Tìm Kiếm </button>
+            </div>
         </div>
 
 
     </div>
     <div class="list-student">
         <h3>Danh sách sinh viên</h3>
-        <table border="1" cellpadding="0" cellpadding="0" width="100%">
+<!--        // Tạo table để gán ID-->
+        <table  id="table-container">
+            <thead>
             <tr>
                 <th>STT</th>
-                <th>Họ và tên</th>
-                <th>Giới tính</th>
+                <th>Tên</th>
                 <th>Ngày sinh</th>
                 <th>Địa chỉ</th>
-                <th>Số điện thoại</th>
+                <th>Giới tính</th>
                 <th>Email</th>
+                <th>SDT</th>
+                <th>Điểm</th>
                 <th>Mật khẩu</th>
+                <th>Thao tác</th>
             </tr>
+            </thead>
+            <tbody>
+            <!-- Các hàng dữ liệu sẽ được thêm vào đây -->
+            </tbody>
         </table>
     </div>
 
@@ -135,9 +150,6 @@
     }
 
 
-
-
-
     function getValue() {
         // Lấy tham chiếu đến phần tử input
         var inputName = document.getElementById("txtFullName").value;
@@ -172,8 +184,6 @@
     }
 
 
-
-
     // Example POST method implementation:
     async function Searchs(url = "") {
         // Default options are marked with *
@@ -194,6 +204,7 @@
     }
 
 
+    ////      Lấy dữ liệu search
     function getValue1() {
         // Lấy tham chiếu đến phần tử input
         var inputName = document.getElementById("txtFullName").value;
@@ -201,6 +212,9 @@
         var inputQuequan = document.getElementById("txtHomeTown").value;
         var inputEmail = document.getElementById("txtEmailAddress").value;
         var inputPhoneNB = document.getElementById("txtPhoneNumber").value;
+
+        // Tạo bảng table tên đéo gì cũng được
+        const table = document.createElement('tableTest');
 
 
         let data = {
@@ -217,9 +231,124 @@
         let urlWithQuery = 'http://localhost:8889/HocVien/search??' + queryString;
 
         Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
-            alert("Thành công")
-            console.log(data); // JSON data parsed by `data.json()` call
-        }));
+
+            // // Xử lý phần đổ dữ liệu
+            // //////////////////////////////////////////////////////////////////////////////
+            //
+            // // Tạo bảng table tên đéo gì cũng được
+            // const table = document.createElement('tableTest');
+            //
+            // // Tạo hàng tiêu đề
+            // const headerRow = document.createElement('tr');
+            // const headers = ['STT','Tên học viên','Ngày sinh', 'Địa chỉ', 'Giới tính', 'Email', 'Số điện thoại', 'Điểm đánh giá', 'Mật khẩu'];
+            // headers.forEach(headerText => {
+            //     const header = document.createElement('th');
+            //     header.textContent = headerText;
+            //     headerRow.appendChild(header);
+            // });
+            // table.appendChild(headerRow);
+            //
+            // // Điền dữ liệu vào các hàng
+            // data.forEach(item => {
+            //     const row = document.createElement('tr');
+            //
+            //     // Tạo cột cho tiêu đề STT
+            //     const stt = document.createElement('td');
+            //     stt.textContent = item.stt;
+            //     row.appendChild(stt);
+            //
+            //     // Tạo cột cho tiêu đề Họ tên
+            //     const hoten = document.createElement('td');
+            //     hoten.textContent = item.tenHv;
+            //     row.appendChild(hoten);
+            //
+            //
+            //     // const ageCell = document.createElement('td');
+            //     // ageCell.textContent = item.age;
+            //     // row.appendChild(ageCell);
+            //     //
+            //     // const addressCell = document.createElement('td');
+            //     // addressCell.textContent = item.address;
+            //     // row.appendChild(addressCell);
+            //
+            //     table.appendChild(row);
+            // });
+            //
+            // // Thêm bảng vào một phần tử HTML có sẵn trong trang
+            // const tableContainer = document.getElementById('table-container');
+            // tableContainer.appendChild(table);
+
+            // Cách 2:
+            const table = document.getElementById("table-container");
+            const tbody = table.getElementsByTagName("tbody")[0];
+
+            // Xóa các hàng hiện tại
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild);
+            }
+
+            // Thêm dữ liệu từ API vào bảng
+            data.forEach(function(item) {
+                const row = document.createElement("tr");
+                const cell1 = document.createElement("td");
+                const cell2 = document.createElement("td");
+                const cell3 = document.createElement("td");
+                const cell4 = document.createElement("td");
+                const cell5 = document.createElement("td");
+                const cell6 = document.createElement("td");
+                const cell7 = document.createElement("td");
+                const cell8 = document.createElement("td");
+                const cell9 = document.createElement("td");
+                const cell10 = document.createElement("td");
+
+                const editButton = document.createElement("button");
+                const deleteButton = document.createElement("button");
+
+                cell1.textContent = item.stt;
+                cell2.textContent = item.tenHv;
+                cell3.textContent = item.ngaySinh;
+                cell4.textContent = item.diaChi;
+                cell5.textContent = item.gioiTinh;
+                cell6.textContent = item.email;
+                cell7.textContent = item.sdt;
+                cell8.textContent = item.diemDanhGia;
+                cell9.textContent = item.matKhau;
+                editButton.textContent = "Sửa";
+                deleteButton.textContent = "Xóa";
+
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                row.appendChild(cell3);
+                row.appendChild(cell4);
+                row.appendChild(cell5);
+                row.appendChild(cell6);
+                row.appendChild(cell7);
+                row.appendChild(cell8);
+                row.appendChild(cell9);
+                row.appendChild(cell10);
+
+                cell10.appendChild(editButton);
+                cell10.appendChild(deleteButton);
+
+
+                tbody.appendChild(row);
+
+                // Gắn sự kiện click vào nút "Sửa"
+                editButton.addEventListener("click", function() {
+                    // Lấy dữ liệu từ hàng chứa nút "Sửa"
+                    const rowData = Array.from(row.children).map(cell => cell.textContent);
+                    const name = rowData[0];
+                    const age = rowData[1];
+                    const address = rowData[2];
+
+                    // Thực hiện các hành động khác với dữ liệu đã lấy được
+                    console.log("Dữ liệu:", name, age, address);
+                    location.reload()
+                });
+
+            });
+        })
+       );
     }
 
 

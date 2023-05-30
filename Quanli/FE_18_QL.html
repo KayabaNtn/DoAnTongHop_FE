@@ -5,7 +5,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Cats Sport AcademyThe Band</title>
-    <link href="./assets/css/quanli.css" rel="stylesheet">
+    <link href="./assets/css/FE_18_QL.css" rel="stylesheet">
     <link href="./assets/css/responsive.css" rel="stylesheet">
     <link href="./assets/fonts/themify-icons.css" rel="stylesheet">
 </head>
@@ -17,8 +17,13 @@
         <!-- Begin : nav -->
         <ul id="nav"> <!--ul#nav>li*5 -->
             <img alt="abc" class="logo" src="./assets/image/logo.jpg">
-            <li><a href="#">HOME</a></li>
-            <li><a href="#bodys">Function</a></li>
+            <li><a href="#bodys">HOME</a></li>
+            <li><a href="./FE_24_QL.html">Sinh Viên </a></li>
+            <li><a href="./FE_36_QL.html">Hợp Đồng </a></li>
+            <li><a href="./FE_42_QL.html">Phiếu Đăng Kí </a></li>
+            <li><a href="./FE_54_QL.html">Feed-Back </a></li>
+            <li><a href="./FE_18_QL.html">Khóa Học </a></li>
+            <li><a href="./FE_48_QL.html">Vật tư </a></li>
             <li><a href="#footer">Giới thiệu</a></li>
         </ul>
         <!-- End : nav -->
@@ -38,28 +43,23 @@
             <h3>Thông tin khoá học</h3>
 
             <label>Tên khoá học:</label>
-            <input id="txtFullName" tabindex="1" type="text">
+            <input id="KH" tabindex="1" type="text">
             <br>
 
             <label>Thời gian :</label>
-            <input id="txtEmailAddress" tabindex="1" type="text">
+            <input id="Date" tabindex="1" type="text">
             <br>
 
             <label>Lịch Dạy :</label>
-            <input id="txtPhoneNumber" tabindex="1" type="text">
+            <input id="LichDay" tabindex="1" type="text">
             <br>
 
             <label>Giá tiền :</label>
-            <input id="txtHomeTown" tabindex="1" type="text">
-            <br>
-
-            <label id="lblGender">Giới tính:</label>
-            <input id="male" name="gender" tabindex="1" type="radio" value="1"> Nam
-            <input id="female" name="gender" tabindex="1" type="radio" value="2"> Nữ
+            <input id="GiaTien" tabindex="1" type="text">
             <br>
 
             <label for="">&nbsp;</label>
-            <button class="btn-save">Lưu lại</button>
+            <button class="btn-save save" onclick="getValue()">Thêm </button>
 
         </div>
 
@@ -81,7 +81,6 @@
             <a href=""><i class="ti-facebook"></i></a>
             <a href=""><i class="ti-instagram"></i></a>
             <a href=""><i class="ti-youtube"></i></a>
-            <a href=""><i class="ti-printerest"></i></a>
             <a href=""><i class="ti-twitter"></i></a>
             <a href=""><i class="ti-linkedin"></i></a>
         </div>
@@ -91,5 +90,52 @@
         </p>
     </div>
 </div>
+
+<script>
+        const Save = document.querySelector(" .save");
+    
+
+    // Example POST method implementation:
+    async function Saves(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+
+    function getValue() {
+        // Lấy tham chiếu đến phần tử input
+        var inputName = document.getElementById("KH").value;
+        var inputDate = document.getElementById("Date").value;
+        var inputLichDay= document.getElementById("LichDay").value;
+        var inputGiaTien = document.getElementById("GiaTien").value;
+      
+      
+
+        Save.addEventListener('click', Saves("", {
+            tenKh: inputName,
+            thoiGian: inputDate,
+            lichDay: inputLichDay,
+            giaTien: inputGiaTien,
+        }).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
+
+
+    }
+</script>
 </body>
 </html>

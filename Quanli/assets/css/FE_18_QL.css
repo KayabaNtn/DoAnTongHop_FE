@@ -134,9 +134,9 @@ div.form-student label {
 }
 
 div.form-student input[type="text"], .btn-save {
-    margin-bottom: 10px;
-    width: 40%   ;
-    padding: 5px;
+    margin-bottom: 14px;
+    width: 40%;
+    padding: 8px;
 }
 
 .btn-save {

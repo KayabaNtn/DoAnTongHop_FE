@@ -71,30 +71,25 @@
             <label>Mật Khẩu :</label>
             <input id="txtPass" tabindex="8" type="text">
             <br>
+            <label>&nbsp;</label>
+            <button class=" btn-save js-save js-buy-ticket-them">Thêm</button>
+            <div class="btn-search">
+                <button class=" btn-save search " onclick="getValue1()">Tìm Kiếm</button>
+                <button class=" btn-save js-buy-ticket ">Sửa</button>
+            </div>
 
-            <div style="display: flex; width: 100%">
-                <label >&nbsp;</label>
-                <button class=" js-save" onclick="getValue()"  >Lưu lại</button>
-                <label >&nbsp;</label>
-                <button class=" search "  onclick="getValue1()"  >Tìm Kiếm </button>
-            </div>
-            <div style="display: flex; width: 100%">
-                <label >&nbsp;</label>
-                <button class=" js-save" onclick="getValue()"  >Lưu lại</button>
-                <label >&nbsp;</label>
-                <button class=" search "  onclick="getValue1()"  >Tìm Kiếm </button>
-            </div>
         </div>
 
 
     </div>
     <div class="list-student">
         <h3>Danh sách Học viên</h3>
-<!--        // Tạo table để gán ID-->
-        <table  id="table-container">
+        <!--        // Tạo table để gán ID-->
+        <table id="table-container">
             <thead>
             <tr>
                 <th>STT</th>
+                <th>ID</th>
                 <th>Tên</th>
                 <th>Ngày sinh</th>
                 <th>Địa chỉ</th>
@@ -127,7 +122,227 @@
         </p>
     </div>
 </div>
+<div class="modal js-modal">
+    <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close ">
+            <i class="ti-close"></i>
+        </div>
 
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+            Sửa Đổi
+        </header>
+
+        <div class="modal-body">
+
+            <div class="modal-body-left">
+                <label class="modal-label" for="modal-IDHV">
+                    <i class="ti-star"></i>
+                    ID Học Viên :
+                </label>
+                <input class="modal-input" id="modal-IDHV" placeholder="ID Học Viên ?" type="text">
+
+                <label class="modal-label" for="modal-tenHV">
+                    <i class="ti-headphone-alt"></i>
+                    Tên Học Viên :
+                </label>
+                <input class="modal-input" id="modal-tenHV" placeholder=" Tên Học Viên ?" type="text">
+
+                <label class="modal-label" for="modal-Date">
+                    <i class="ti-home"></i>
+                    Ngày Sinh :
+                </label>
+                <input class="modal-input" id="modal-Date" placeholder="Ngày Sinh ?" type="text">
+
+                <label class="modal-label" for="modal-DiaChi">
+                    <i class="ti-user"></i>
+                    Địa Chỉ :
+                </label>
+                <input class="modal-input" id="modal-DiaChi" placeholder=" Địa Chỉ ?" type="text">
+
+                <label class="modal-label" for="modal-gioiTinh">
+                    <i class="ti-user"></i>
+                    Giới Tính :
+                </label>
+                <input class="modal-input" id="modal-gioiTinh" placeholder="  Giới Tính ?" type="text">
+
+            </div>
+            <div class="modal-body-right">
+                <label class="modal-label" for="modal-Email">
+                    <i class="ti-user"></i>
+                    Email :
+                </label>
+                <input class="modal-input" id="modal-Email" placeholder="  Email  ?" type="text">
+
+                <label class="modal-label" for="modal-sdt">
+                    <i class="ti-user"></i>
+                    Số Điện Thoại :
+                </label>
+                <input class="modal-input" id="modal-sdt" placeholder=" Số Điện Thoại ?" type="text">
+
+                <label class="modal-label" for="modal-feedback">
+                    <i class="ti-user"></i>
+                    Điểm đánh giá :
+                </label>
+                <input class="modal-input" id="modal-feedback" placeholder=" Điểm đánh giá ?" type="text">
+
+                <label class="modal-label" for="modal-matKhau">
+                    <i class="ti-user"></i>
+                    Mật khẩu :
+                </label>
+                <input class="modal-input" id="modal-matKhau" placeholder=" Mật khẩu ?" type="text">
+
+            </div>
+            <button class="" id="buy-tickets">
+                Sửa <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
+
+<div class="modal js-modal-them">
+    <div class="modal-container js-modal-container-them">
+        <div class="modal-close js-modal-close-them ">
+            <i class="ti-close"></i>
+        </div>
+
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+            Thêm
+        </header>
+
+        <div class="modal-body">
+
+            <div class="modal-body-left">
+                <label class="modal-label" for="modal-IDHV">
+                    <i class="ti-star"></i>
+                    ID Học Viên :
+                </label>
+                <input class="modal-input" id="modal-IDHV" placeholder="ID Học Viên ?" type="text">
+
+                <label class="modal-label" for="modal-tenHV">
+                    <i class="ti-headphone-alt"></i>
+                    Tên Học Viên :
+                </label>
+                <input class="modal-input" id="modal-tenHV" placeholder=" Tên Học Viên ?" type="text">
+
+                <label class="modal-label" for="modal-Date">
+                    <i class="ti-home"></i>
+                    Ngày Sinh :
+                </label>
+                <input class="modal-input" id="modal-Date" placeholder="Ngày Sinh ?" type="text">
+
+                <label class="modal-label" for="modal-DiaChi">
+                    <i class="ti-user"></i>
+                    Địa Chỉ :
+                </label>
+                <input class="modal-input" id="modal-DiaChi" placeholder=" Địa Chỉ ?" type="text">
+
+                <label class="modal-label" for="modal-gioiTinh">
+                    <i class="ti-user"></i>
+                    Giới Tính :
+                </label>
+                <input class="modal-input" id="modal-gioiTinh" placeholder="  Giới Tính ?" type="text">
+
+            </div>
+            <div class="modal-body-right">
+                <label class="modal-label" for="modal-Email">
+                    <i class="ti-user"></i>
+                    Email :
+                </label>
+                <input class="modal-input" id="modal-Email" placeholder="  Email  ?" type="text">
+
+                <label class="modal-label" for="modal-sdt">
+                    <i class="ti-user"></i>
+                    Số Điện Thoại :
+                </label>
+                <input class="modal-input" id="modal-sdt" placeholder=" Số Điện Thoại ?" type="text">
+
+                <label class="modal-label" for="modal-feedback">
+                    <i class="ti-user"></i>
+                    Điểm đánh giá :
+                </label>
+                <input class="modal-input" id="modal-feedback" placeholder=" Điểm đánh giá ?" type="text">
+
+                <label class="modal-label" for="modal-matKhau">
+                    <i class="ti-user"></i>
+                    Mật khẩu :
+                </label>
+                <input class="modal-input" id="modal-matKhau" placeholder=" Mật khẩu ?" type="text">
+
+            </div>
+            <button class="" id="buy-tickets">
+                Thêm <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const Them = document.querySelectorAll('.js-buy-ticket-them')
+    const modal1 = document.querySelector('.js-modal-them')
+    const modalClose1 = document.querySelector('.js-modal-close-them')
+    const modalContainer1 = document.querySelector('.js-modal-container-them')
+
+
+    function showBuy() {
+        modal1.classList.add('open')
+    }
+
+    function hideBuy() {
+        modal1.classList.remove('open')
+    }
+
+    for (const buyBtn of Them) {
+        buyBtn.addEventListener('click', showBuy)
+    }
+
+    modalClose1.addEventListener('click', hideBuy)
+
+    modal1.addEventListener('click', hideBuy)
+
+    modalContainer1.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+</script>
+
+<script>
+    const buyBtns = document.querySelectorAll('.js-buy-ticket')
+    const modal = document.querySelector('.js-modal')
+    const modalClose = document.querySelector('.js-modal-close')
+    const modalContainer = document.querySelector('.js-modal-container')
+
+
+    function showBuy() {
+        modal.classList.add('open')
+    }
+
+    function hideBuy() {
+        modal.classList.remove('open')
+    }
+
+    for (const buyBtn of buyBtns) {
+        buyBtn.addEventListener('click', showBuy)
+    }
+
+    modalClose.addEventListener('click', hideBuy)
+
+    modal.addEventListener('click', hideBuy)
+
+    modalContainer.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+</script>
 <script>
     const Save = document.querySelector(" .js-save");
     const Search = document.querySelector(" .search");
@@ -156,7 +371,7 @@
         // Lấy tham chiếu đến phần tử input
         var inputName = document.getElementById("txtFullName").value;
         var inputDate = document.getElementById("txtNgaySinh").value;
-        var inputDiachi= document.getElementById("txtHomeTown").value;
+        var inputDiachi = document.getElementById("txtHomeTown").value;
         var radios = document.getElementsByName('gender');
         var selectedGender;
         for (var i = 0; i < radios.length; i++) {
@@ -165,7 +380,7 @@
                 break;
             }
         }
-        var inputEmail= document.getElementById("txtEmailAddress").value;
+        var inputEmail = document.getElementById("txtEmailAddress").value;
         var inputNumber = document.getElementById("txtPhoneNumber").value;
         var inputMatKhau = document.getElementById("txtPass").value;
 
@@ -174,9 +389,9 @@
             ngaySinh: inputDate,
             diaChi: inputDiachi,
             gioiTinh: selectedGender,
-            email :inputEmail,
-            sdt :inputNumber,
-            matKhau:inputMatKhau,
+            email: inputEmail,
+            sdt: inputNumber,
+            matKhau: inputMatKhau,
         }).then((data) => {
             alert("Thành công")
             console.log(data); // JSON data parsed by `data.json()` call
@@ -221,12 +436,12 @@
 
         let data = {
             tenHv: inputName,
-            ngaySinh : inputNgaySinh,
+            ngaySinh: inputNgaySinh,
             pageBegin: 0,
             pageEnd: 5,
             diaChi: inputQuequan,
             email: inputEmail,
-            sdt : inputPhoneNB
+            sdt: inputPhoneNB
 
         }
         let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
@@ -234,125 +449,151 @@
 
         Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
 
-            // // Xử lý phần đổ dữ liệu
-            // //////////////////////////////////////////////////////////////////////////////
-            //
-            // // Tạo bảng table tên đéo gì cũng được
-            // const table = document.createElement('tableTest');
-            //
-            // // Tạo hàng tiêu đề
-            // const headerRow = document.createElement('tr');
-            // const headers = ['STT','Tên học viên','Ngày sinh', 'Địa chỉ', 'Giới tính', 'Email', 'Số điện thoại', 'Điểm đánh giá', 'Mật khẩu'];
-            // headers.forEach(headerText => {
-            //     const header = document.createElement('th');
-            //     header.textContent = headerText;
-            //     headerRow.appendChild(header);
-            // });
-            // table.appendChild(headerRow);
-            //
-            // // Điền dữ liệu vào các hàng
-            // data.forEach(item => {
-            //     const row = document.createElement('tr');
-            //
-            //     // Tạo cột cho tiêu đề STT
-            //     const stt = document.createElement('td');
-            //     stt.textContent = item.stt;
-            //     row.appendChild(stt);
-            //
-            //     // Tạo cột cho tiêu đề Họ tên
-            //     const hoten = document.createElement('td');
-            //     hoten.textContent = item.tenHv;
-            //     row.appendChild(hoten);
-            //
-            //
-            //     // const ageCell = document.createElement('td');
-            //     // ageCell.textContent = item.age;
-            //     // row.appendChild(ageCell);
-            //     //
-            //     // const addressCell = document.createElement('td');
-            //     // addressCell.textContent = item.address;
-            //     // row.appendChild(addressCell);
-            //
-            //     table.appendChild(row);
-            // });
-            //
-            // // Thêm bảng vào một phần tử HTML có sẵn trong trang
-            // const tableContainer = document.getElementById('table-container');
-            // tableContainer.appendChild(table);
+                // // Xử lý phần đổ dữ liệu
+                // //////////////////////////////////////////////////////////////////////////////
+                //
+                // // Tạo bảng table tên đéo gì cũng được
+                // const table = document.createElement('tableTest');
+                //
+                // // Tạo hàng tiêu đề
+                // const headerRow = document.createElement('tr');
+                // const headers = ['STT','Tên học viên','Ngày sinh', 'Địa chỉ', 'Giới tính', 'Email', 'Số điện thoại', 'Điểm đánh giá', 'Mật khẩu'];
+                // headers.forEach(headerText => {
+                //     const header = document.createElement('th');
+                //     header.textContent = headerText;
+                //     headerRow.appendChild(header);
+                // });
+                // table.appendChild(headerRow);
+                //
+                // // Điền dữ liệu vào các hàng
+                // data.forEach(item => {
+                //     const row = document.createElement('tr');
+                //
+                //     // Tạo cột cho tiêu đề STT
+                //     const stt = document.createElement('td');
+                //     stt.textContent = item.stt;
+                //     row.appendChild(stt);
+                //
+                //     // Tạo cột cho tiêu đề Họ tên
+                //     const hoten = document.createElement('td');
+                //     hoten.textContent = item.tenHv;
+                //     row.appendChild(hoten);
+                //
+                //
+                //     // const ageCell = document.createElement('td');
+                //     // ageCell.textContent = item.age;
+                //     // row.appendChild(ageCell);
+                //     //
+                //     // const addressCell = document.createElement('td');
+                //     // addressCell.textContent = item.address;
+                //     // row.appendChild(addressCell);
+                //
+                //     table.appendChild(row);
+                // });
+                //
+                // // Thêm bảng vào một phần tử HTML có sẵn trong trang
+                // const tableContainer = document.getElementById('table-container');
+                // tableContainer.appendChild(table);
 
-            // Cách 2:
-            const table = document.getElementById("table-container");
-            const tbody = table.getElementsByTagName("tbody")[0];
+                // Cách 2:
+                const table = document.getElementById("table-container");
+                const tbody = table.getElementsByTagName("tbody")[0];
 
-            // Xóa các hàng hiện tại
-            while (tbody.firstChild) {
-                tbody.removeChild(tbody.firstChild);
-            }
+                // Xóa các hàng hiện tại
+                while (tbody.firstChild) {
+                    tbody.removeChild(tbody.firstChild);
+                }
 
-            // Thêm dữ liệu từ API vào bảng
-            data.forEach(function(item) {
-                const row = document.createElement("tr");
-                const cell1 = document.createElement("td");
-                const cell2 = document.createElement("td");
-                const cell3 = document.createElement("td");
-                const cell4 = document.createElement("td");
-                const cell5 = document.createElement("td");
-                const cell6 = document.createElement("td");
-                const cell7 = document.createElement("td");
-                const cell8 = document.createElement("td");
-                const cell9 = document.createElement("td");
-                const cell10 = document.createElement("td");
+                // Thêm dữ liệu từ API vào bảng
+                data.forEach(function (item) {
+                    const row = document.createElement("tr");
+                    const cell1 = document.createElement("td");
+                    const cell2 = document.createElement("td");
+                    const cell3 = document.createElement("td");
+                    const cell4 = document.createElement("td");
+                    const cell5 = document.createElement("td");
+                    const cell6 = document.createElement("td");
+                    const cell7 = document.createElement("td");
+                    const cell8 = document.createElement("td");
+                    const cell9 = document.createElement("td");
+                    const cell10 = document.createElement("td");
+                    const cell11 = document.createElement("td");
 
-                const editButton = document.createElement("button");
-                const deleteButton = document.createElement("button");
+                    const editButton = document.createElement("button");
+                    const deleteButton = document.createElement("button");
 
-                cell1.textContent = item.stt;
-                cell2.textContent = item.tenHv;
-                cell3.textContent = item.ngaySinh;
-                cell4.textContent = item.diaChi;
-                cell5.textContent = item.gioiTinh;
-                cell6.textContent = item.email;
-                cell7.textContent = item.sdt;
-                cell8.textContent = item.diemDanhGia;
-                cell9.textContent = item.matKhau;
-                editButton.textContent = "Sửa";
-                deleteButton.textContent = "Xóa";
+                    cell1.textContent = item.stt;
+                    cell2.textContent = item.idHv;
+                    cell3.textContent = item.tenHv;
+                    cell4.textContent = item.ngaySinh;
+                    cell5.textContent = item.diaChi;
+                    cell6.textContent = item.gioiTinh;
+                    cell7.textContent = item.email;
+                    cell8.textContent = item.sdt;
+                    cell9.textContent = item.diemDanhGia;
+                    cell10.textContent = item.matKhau;
+                    editButton.textContent = "Sửa";
+                    deleteButton.textContent = "Xóa";
 
-                row.appendChild(cell1);
-                row.appendChild(cell2);
-                row.appendChild(cell3);
-                row.appendChild(cell4);
-                row.appendChild(cell5);
-                row.appendChild(cell6);
-                row.appendChild(cell7);
-                row.appendChild(cell8);
-                row.appendChild(cell9);
-                row.appendChild(cell10);
+                    row.appendChild(cell1);
+                    row.appendChild(cell2);
+                    row.appendChild(cell3);
+                    row.appendChild(cell4);
+                    row.appendChild(cell5);
+                    row.appendChild(cell6);
+                    row.appendChild(cell7);
+                    row.appendChild(cell8);
+                    row.appendChild(cell9);
+                    row.appendChild(cell10);
+                    row.appendChild(cell11);
 
-                cell10.appendChild(editButton);
-                cell10.appendChild(deleteButton);
+                    cell11.appendChild(editButton);
+                    cell11.appendChild(deleteButton);
 
 
-                tbody.appendChild(row);
+                    tbody.appendChild(row);
 
-                // Gắn sự kiện click vào nút "Sửa"
-                editButton.addEventListener("click", function() {
-                    // Lấy dữ liệu từ hàng chứa nút "Sửa"
-                    const rowData = Array.from(row.children).map(cell => cell.textContent);
-                    const name = rowData[0];
-                    const age = rowData[1];
-                    const address = rowData[2];
+                    // Gắn sự kiện click vào nút "Sửa"
+                    editButton.addEventListener("click", function () {
+                        // Lấy dữ liệu từ hàng chứa nút "Sửa"
+                        const rowData = Array.from(row.children).map(cell => cell.textContent);
+                        const name = rowData[0];
+                        const age = rowData[1];
+                        const address = rowData[2];
 
-                    // Thực hiện các hành động khác với dữ liệu đã lấy được
-                    console.log("Dữ liệu:", name, age, address);
-                    location.reload()
+                        const buyBtns = document.querySelectorAll('.js-buy-ticket')
+                        const modal = document.querySelector('.js-modal')
+                        const modalClose = document.querySelector('.js-modal-close')
+                        const modalContainer = document.querySelector('.js-modal-container')
+
+                        // Open modal
+                        modal.classList.add('open')
+
+                        function hideBuy() {
+                            modal.classList.remove('open')
+                        }
+
+                        for (const buyBtn of buyBtns) {
+                            buyBtn.addEventListener('click', showBuy)
+                        }
+
+                        modalClose.addEventListener('click', hideBuy)
+
+                        modal.addEventListener('click', hideBuy)
+
+                        modalContainer.addEventListener('click', function (event) {
+                            event.stopPropagation()
+                        })
+
+                        // Thực hiện các hành động khác với dữ liệu đã lấy được
+                        console.log("Dữ liệu:", name, age, address);
+                        // location.reload()
+                    });
+
                 });
-
-            });
-        })
-       );
+            })
+        );
     }
-
 
 
 </script>

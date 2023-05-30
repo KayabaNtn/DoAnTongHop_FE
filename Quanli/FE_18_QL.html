@@ -58,8 +58,14 @@
             <input id="GiaTien" tabindex="1" type="text">
             <br>
 
-            <label for="">&nbsp;</label>
+            <label >&nbsp;</label>
             <button class="btn-save save" onclick="getValue()">Thêm </button>
+            
+            <button class="btn-save Search" onclick="getValue1()">Tìm Kiếm  </button>
+            
+            <button class="btn-save js-buy-ticket">
+                Sửa 
+            </button>
 
         </div>
 
@@ -90,6 +96,90 @@
         </p>
     </div>
 </div>
+<div class="modal js-modal">
+    <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close ">
+            <i class="ti-close"></i>
+        </div>
+
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+            Sửa Đổi
+        </header>
+
+        <div class="modal-body">
+
+            <label class="modal-label" for="modal-IDKH">
+                <i class="ti-star"></i>
+                ID Khóa Học :
+            </label>
+            <input class="modal-input" id="modal-IDKH" placeholder=" ID Khóa Học ?" type="text">
+
+            <label class="modal-label" for="modal-tenKh">
+                <i class="ti-headphone-alt"></i>
+                Tên Khóa học :
+            </label>
+            <input class="modal-input" id="modal-tenKh" placeholder=" Giá Vật Tư: ?" type="text">
+
+            <label class="modal-label" for="modal-thoiGian">
+                <i class="ti-home"></i>
+               Thời Gian :
+            </label>
+            <input class="modal-input" id="modal-thoiGian" placeholder="Số Lượng ?" type="text">
+
+            <label class="modal-label" for="modal-lichDay">
+                <i class="ti-user"></i>
+                Lịch Dạy  :
+            </label>
+            <input class="modal-input" id="modal-lichDay" placeholder=" ID Nhân Viên ?" type="text">
+
+            <label class="modal-label" for="modal-giaTien">
+                <i class="ti-user"></i>
+                Giá tiền :
+            </label>
+            <input class="modal-input" id="modal-giaTien" placeholder=" ID Nhân Viên ?" type="text">
+
+            <button class="" id="buy-tickets" >
+                Sửa  <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
+
+
+
+<script>
+    const buyBtns = document.querySelectorAll('.js-buy-ticket')
+    const modal = document.querySelector('.js-modal')
+    const modalClose = document.querySelector('.js-modal-close')
+    const modalContainer = document.querySelector('.js-modal-container')
+
+
+    function showBuy() {
+        modal.classList.add('open')
+    }
+
+    function hideBuy() {
+        modal.classList.remove('open')
+    }
+
+    for (const buyBtn of buyBtns) {
+        buyBtn.addEventListener('click', showBuy)
+    }
+
+    modalClose.addEventListener('click', hideBuy)
+
+    modal.addEventListener('click', hideBuy)
+
+    modalContainer.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+</script>
 
 <script>
         const Save = document.querySelector(" .save");
@@ -137,5 +227,57 @@
 
     }
 </script>
+
+<script>
+   const Search = document.querySelector(" .Search");
+
+
+// Example POST method implementation:
+async function Searchs(url = "") {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: "GET", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        //body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
+
+
+function getValue1() {
+    // Lấy tham chiếu đến phần tử input
+    var inputName = document.getElementById("KH").value;
+        var inputDate = document.getElementById("Date").value;
+        var inputLichDay= document.getElementById("LichDay").value;
+        var inputGiaTien = document.getElementById("GiaTien").value;
+    
+
+    let data = {
+        tenKh: inputName,
+            thoiGian: inputDate,
+            lichDay: inputLichDay,
+            giaTien: inputGiaTien,
+        pageBegin: 0,
+        pageEnd: 5,
+    }
+    let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+    let urlWithQuery = '??' + queryString;
+
+    Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+        alert("Thành công")
+        console.log(data); // JSON data parsed by `data.json()` call
+    }));
+}
+</script>
+
+
 </body>
 </html>

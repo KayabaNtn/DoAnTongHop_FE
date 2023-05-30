@@ -63,7 +63,7 @@
             <br>
 
             <label for="">&nbsp;</label>
-            <button class="btn-save Search " onclick="getValue1">Tìm</button>
+            <button class="btn-save Search " onclick="getSearch()">Tìm</button>
             <label for="">&nbsp;</label>
             <button class="btn-save js-buy-ticket ">Thêm</button>
         </div>
@@ -123,13 +123,6 @@
 
         <div class="modal-body">
 
-            <label class="modal-label" for="vatTu">
-                <i class="ti-user"></i>
-               ID Vật Tư:
-            </label>
-            <input class="modal-input" id="vatTu" placeholder=" ID Vật Tư ?" type="text">
-
-
             <label class="modal-label" for="nameVt">
                 <i class="ti-star"></i>
                 Tên Vật tư :
@@ -148,20 +141,14 @@
             </label>
             <input class="modal-input" id="soLuong" placeholder="Số Lượng ?" type="text">
 
-            <label class="modal-label" for="thanhTien">
-                <i class="ti-money"></i>
-                Thành Tiền:
-            </label>
-            <input class="modal-input" id="thanhTien" placeholder="Thành Tiền ?" type="text">
-
             <label class="modal-label" for="nhanVien">
                 <i class="ti-user"></i>
-               ID Nhân Viên :
+                ID Nhân Viên :
             </label>
             <input class="modal-input" id="nhanVien" placeholder=" ID Nhân Viên ?" type="text">
 
-            <button id="buy-tickets" class="save" onclick="getValue()">
-                Hoàn thành <i class="ti-check"></i>
+            <button class="save" id="buy-tickets" onclick="addValue()">
+                Thêm <i class="ti-check"></i>
             </button>
 
         </div>
@@ -201,8 +188,8 @@
 </script>
 
 <script>
- const Save = document.querySelector(" .save");
-    
+    const Save = document.querySelector(" .save");
+
 
     // Example POST method implementation:
     async function Saves(url = "", data = {}) {
@@ -223,30 +210,26 @@
         return response.json(); // parses JSON response into native JavaScript objects
     }
 
-
-    function getValue() {
+    // Nhật test được rồi
+    function addValue() {
         // Lấy tham chiếu đến phần tử input
-        var inputvatTu = document.getElementById("vatTu").value;
         var inputnameVt = document.getElementById("nameVt").value;
-        var inputgiaVt= document.getElementById("giaVt").value;
+        var inputgiaVt = document.getElementById("giaVt").value;
         var inputsoLuong = document.getElementById("soLuong").value;
-        var inputthanhTien = document.getElementById("thanhTien").value;
         var inputnhanVien = document.getElementById("nhanVien").value;
 
-      
-      
-
-        Save.addEventListener('click', Saves("", {
-            idVt: inputvatTu,
+        Save.addEventListener('click', Saves("http://localhost:8889/VatTu/insert", {
             tenVt: inputnameVt,
             giaVt: inputgiaVt,
             soLuong: inputsoLuong,
-            thanhTien: inputthanhTien,
             idNv: inputnhanVien,
 
         }).then((data) => {
             alert("Thành công")
-            console.log(data); // JSON data parsed by `data.json()` call
+            document.getElementById("nameVt").value = null;
+            document.getElementById("giaVt").value = null;
+            document.getElementById("soLuong").value = null;
+            document.getElementById("nhanVien").value = null;
         }));
 
 
@@ -257,55 +240,52 @@
     const Search = document.querySelector(" .Search");
 
 
-// Example POST method implementation:
-async function Searchs(url = "") {
-    // Default options are marked with *
-    const response = await fetch(url, {
-        method: "GET", // *GET, POST, PUT, DELETE, etc.
-        mode: "cors", // no-cors, *cors, same-origin
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: "follow", // manual, *follow, error
-        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        //body: JSON.stringify(data), // body data type must match "Content-Type" header
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
-}
-
-
-function getValue1() {
-    // Lấy tham chiếu đến phần tử input
-    var inputIDNV = document.getElementById("IDNV").value;
-    var inputIDVT = document.getElementById("IDVT").value;
-    var inputGIAVT = document.getElementById("GIAVT").value;
-    var inputSOLUONG = document.getElementById("SOLUONG").value;
-    var inputTHANHTIEN = document.getElementById("THANHTIEN").value;
-    
-
-
-
-
-    let data = {
-        idHv: inputIDHV,
-        idVt: inputIDVT,
-        pageBegin: 0,
-        pageEnd: 5,
-        giaVt: inputGIAVT,
-        soLuong: inputSOLUONG,
-        thanhTien:inputTHANHTIEN,
+    // Example POST method implementation:
+    async function Searchs(url = "") {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            //body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
     }
-    let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
-    let urlWithQuery = '??' + queryString;
 
-    Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
-        alert("Thành công")
-        console.log(data); // JSON data parsed by `data.json()` call
-    }));
-}
+    // Nhật test được rồi
+    function getSearch() {
+        // Lấy tham chiếu đến phần tử input
+        var inputIDNV = document.getElementById("IDNV").value;
+        var inputIDVT = document.getElementById("IDVT").value;
+        var inputGIAVT = document.getElementById("GIAVT").value;
+        var inputSOLUONG = document.getElementById("SOLUONG").value;
+        var inputTHANHTIEN = document.getElementById("THANHTIEN").value;
+
+
+        let data = {
+            idHv: inputIDNV,
+            idVt: inputIDVT,
+            pageBegin: 0,
+            pageEnd: 5,
+            giaVt: inputGIAVT,
+            soLuong: inputSOLUONG,
+            thanhTien: inputTHANHTIEN,
+        }
+        let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+        let urlWithQuery = 'http://localhost:8889/VatTu/search??' + queryString;
+
+        Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
+    }
 </script>
 </body>
 </html>

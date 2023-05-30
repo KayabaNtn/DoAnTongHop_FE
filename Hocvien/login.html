@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="wrapper">
-    <form action="" id="form-login">
+    <div id="form-login">
         <h1 class="form-heading">Form đăng nhập</h1>
         <div class="form-group">
             <i class="far fa-user"></i>
@@ -23,20 +23,17 @@
                 <i class="far fa-eye"></i>
             </div>
         </div>
-        <button class="form-submit js-DangNhap"  onclick="DangNhap1()">Đăng nhập</button>
+        <button class="form-submit jsDangNhap jsDangNhap1"  onclick="DangNhapNhanVien()">Đăng nhập</button>
 
         <div class="form-QMK"><a href="#">Quên mật khẩu </a></div>
 
-    </form>
+    </div>
 </div>
 
 <script>
 
-
-        const DangNhap = document.querySelector(" .js-DangNhap")
-        const inputEmail = document.getElementById("dangNhap").value;
-        const inputPass = document.getElementById("matKhau").value;
-
+        const DangNhap = document.querySelector(" .jsDangNhap")
+        const DangNhap1 = document.querySelector(" .jsDangNhap1")
         async function DangNhaps(url = "", data = {}) {
             // Default options are marked with *
             const response = await fetch(url, {
@@ -56,15 +53,32 @@
         }
 
 
-        function DangNhap1 () {
+        function DangNhapNhanVien () {
+            console.log("Ấn đăng nhập thành công")
             const inputEmail  = document.getElementById("dangNhap").value;
             const inputPass = document.getElementById("matKhau").value;
-            DangNhap.addEventListener('click', DangNhaps("http://localhost:8889/DangNhap/nhanVienDangNhap", {
+
+            DangNhap.addEventListener('click', DangNhaps("http://localhost:8889/DangNhap/nhanVienDangNhap",{
                 email: inputEmail,
-                matKhau: inputPass,
+                matKhau: inputPass
+            })
+                .then(responseData => {
+                    if(responseData[0].role ===1){
+                        // chuyển hướng đến form quản lý
+                    }else if (responseData[0].role === 2){
+                        // chuyển hướng đến form nhân viên
+                    } else {
+                        alert("Thông tin sai, vui lòng nhập lại")
+                    }
+                }));
+
+            DangNhap1.addEventListener('click', DangNhaps("http://localhost:8889/DangNhap/hocVienDangNhap",{
+                email: inputEmail,
+                matKhau: inputPass
             }).then((res) => {
-                alert("Thành công")
-                console.log(res); // JSON data parsed by `data.json()` call
+                if(res[0].email != null){
+                    // sẽ chuyển hướng đến form cho học viên
+                }
             }));
 
         }
@@ -72,6 +86,4 @@
 </script>
 
 </body>
-<!--<script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
-<!--<script src="assets/js/app.js"></script>-->
 </html>

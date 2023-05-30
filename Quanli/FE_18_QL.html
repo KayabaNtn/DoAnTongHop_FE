@@ -60,6 +60,8 @@
 
             <label for="">&nbsp;</label>
             <button class="btn-save save" onclick="getValue()">Thêm </button>
+            <label for="">&nbsp;</label>
+            <button class="btn-save Search" onclick="getValue1()">Tìm Kiếm  </button>
 
         </div>
 
@@ -137,5 +139,57 @@
 
     }
 </script>
+
+<script>
+   const Search = document.querySelector(" .Search");
+
+
+// Example POST method implementation:
+async function Searchs(url = "") {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: "GET", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        //body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
+
+
+function getValue1() {
+    // Lấy tham chiếu đến phần tử input
+    var inputName = document.getElementById("KH").value;
+        var inputDate = document.getElementById("Date").value;
+        var inputLichDay= document.getElementById("LichDay").value;
+        var inputGiaTien = document.getElementById("GiaTien").value;
+    
+
+    let data = {
+        tenKh: inputName,
+            thoiGian: inputDate,
+            lichDay: inputLichDay,
+            giaTien: inputGiaTien,
+        pageBegin: 0,
+        pageEnd: 5,
+    }
+    let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+    let urlWithQuery = '??' + queryString;
+
+    Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+        alert("Thành công")
+        console.log(data); // JSON data parsed by `data.json()` call
+    }));
+}
+</script>
+
+
 </body>
 </html>

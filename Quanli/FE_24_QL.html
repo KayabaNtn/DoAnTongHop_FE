@@ -71,19 +71,13 @@
             <label>Mật Khẩu :</label>
             <input id="txtPass" tabindex="8" type="text">
             <br>
-
-            <div style="display: flex; width: 100%">
                 <label >&nbsp;</label>
-                <button class=" js-save" onclick="getValue()"  >Lưu lại</button>
-                <label >&nbsp;</label>
-                <button class=" search "  onclick="getValue1()"  >Tìm Kiếm </button>
+                <button class=" btn-save js-save js-buy-ticket-them" onclick="getValue()"  >Thêm</button>
+                <div class="btn-search">
+                <button class=" btn-save search "  onclick="getValue1()"  >Tìm Kiếm </button>
+                <button class=" btn-save js-buy-ticket "   >Sửa  </button>
             </div>
-            <div style="display: flex; width: 100%">
-                <label >&nbsp;</label>
-                <button class=" js-save" onclick="getValue()"  >Lưu lại</button>
-                <label >&nbsp;</label>
-                <button class=" search "  onclick="getValue1()"  >Tìm Kiếm </button>
-            </div>
+          
         </div>
 
 
@@ -127,7 +121,227 @@
         </p>
     </div>
 </div>
+<div class="modal js-modal">
+    <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close ">
+            <i class="ti-close"></i>
+        </div>
 
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+            Sửa Đổi
+        </header>
+
+        <div class="modal-body">
+
+            <div class="modal-body-left">
+                <label class="modal-label" for="modal-IDHV">
+                    <i class="ti-star"></i>
+                    ID Học Viên :
+                </label>
+                <input class="modal-input" id="modal-IDHV" placeholder="ID Học Viên ?" type="text">
+    
+                <label class="modal-label" for="modal-tenHV">
+                    <i class="ti-headphone-alt"></i>
+                    Tên Học Viên :
+                </label>
+                <input class="modal-input" id="modal-tenHV" placeholder=" Tên Học Viên ?" type="text">
+    
+                <label class="modal-label" for="modal-Date">
+                    <i class="ti-home"></i>
+                   Ngày Sinh :
+                </label>
+                <input class="modal-input" id="modal-Date" placeholder="Ngày Sinh ?" type="text">
+    
+                <label class="modal-label" for="modal-DiaChi">
+                    <i class="ti-user"></i>
+                    Địa Chỉ  :
+                </label>
+                <input class="modal-input" id="modal-DiaChi" placeholder=" Địa Chỉ ?" type="text">
+    
+                <label class="modal-label" for="modal-gioiTinh">
+                    <i class="ti-user"></i>
+                   Giới Tính :
+                </label>
+                <input class="modal-input" id="modal-gioiTinh" placeholder="  Giới Tính ?" type="text">
+    
+            </div>
+            <div class="modal-body-right">
+                <label class="modal-label" for="modal-Email">
+                    <i class="ti-user"></i>
+                   Email :
+                </label>
+                <input class="modal-input" id="modal-Email" placeholder="  Email  ?" type="text">            
+    
+                <label class="modal-label" for="modal-sdt">
+                    <i class="ti-user"></i>
+                   Số Điện Thoại :
+                </label>
+                <input class="modal-input" id="modal-sdt" placeholder=" Số Điện Thoại ?" type="text">
+    
+                <label class="modal-label" for="modal-feedback">
+                    <i class="ti-user"></i>
+                   Điểm đánh giá  :
+                </label>
+                <input class="modal-input" id="modal-feedback" placeholder=" Điểm đánh giá ?" type="text">
+    
+                <label class="modal-label" for="modal-matKhau">
+                    <i class="ti-user"></i>
+                   Mật khẩu  :
+                </label>
+                <input class="modal-input" id="modal-matKhau" placeholder=" Mật khẩu ?" type="text">
+    
+            </div>
+            <button class="" id="buy-tickets" >
+                Sửa  <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
+
+<div class="modal js-modal-them">
+    <div class="modal-container js-modal-container-them">
+        <div class="modal-close js-modal-close-them ">
+            <i class="ti-close"></i>
+        </div>
+
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+           Thêm 
+        </header>
+
+        <div class="modal-body">
+
+            <div class="modal-body-left">
+                <label class="modal-label" for="modal-IDHV">
+                    <i class="ti-star"></i>
+                    ID Học Viên :
+                </label>
+                <input class="modal-input" id="modal-IDHV" placeholder="ID Học Viên ?" type="text">
+    
+                <label class="modal-label" for="modal-tenHV">
+                    <i class="ti-headphone-alt"></i>
+                    Tên Học Viên :
+                </label>
+                <input class="modal-input" id="modal-tenHV" placeholder=" Tên Học Viên ?" type="text">
+    
+                <label class="modal-label" for="modal-Date">
+                    <i class="ti-home"></i>
+                   Ngày Sinh :
+                </label>
+                <input class="modal-input" id="modal-Date" placeholder="Ngày Sinh ?" type="text">
+    
+                <label class="modal-label" for="modal-DiaChi">
+                    <i class="ti-user"></i>
+                    Địa Chỉ  :
+                </label>
+                <input class="modal-input" id="modal-DiaChi" placeholder=" Địa Chỉ ?" type="text">
+    
+                <label class="modal-label" for="modal-gioiTinh">
+                    <i class="ti-user"></i>
+                   Giới Tính :
+                </label>
+                <input class="modal-input" id="modal-gioiTinh" placeholder="  Giới Tính ?" type="text">
+    
+            </div>
+            <div class="modal-body-right">
+                <label class="modal-label" for="modal-Email">
+                    <i class="ti-user"></i>
+                   Email :
+                </label>
+                <input class="modal-input" id="modal-Email" placeholder="  Email  ?" type="text">            
+    
+                <label class="modal-label" for="modal-sdt">
+                    <i class="ti-user"></i>
+                   Số Điện Thoại :
+                </label>
+                <input class="modal-input" id="modal-sdt" placeholder=" Số Điện Thoại ?" type="text">
+    
+                <label class="modal-label" for="modal-feedback">
+                    <i class="ti-user"></i>
+                   Điểm đánh giá  :
+                </label>
+                <input class="modal-input" id="modal-feedback" placeholder=" Điểm đánh giá ?" type="text">
+    
+                <label class="modal-label" for="modal-matKhau">
+                    <i class="ti-user"></i>
+                   Mật khẩu  :
+                </label>
+                <input class="modal-input" id="modal-matKhau" placeholder=" Mật khẩu ?" type="text">
+    
+            </div>
+            <button class="" id="buy-tickets" >
+                Thêm  <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const Them = document.querySelectorAll('.js-buy-ticket-them')
+      const modal1 = document.querySelector('.js-modal-them')
+      const modalClose1 = document.querySelector('.js-modal-close-them')
+      const modalContainer1 = document.querySelector('.js-modal-container-them')
+  
+  
+      function showBuy() {
+        modal1.classList.add('open')
+      }
+  
+      function hideBuy() {
+        modal1.classList.remove('open')
+      }
+  
+      for (const buyBtn of Them) {
+          buyBtn.addEventListener('click', showBuy)
+      }
+  
+      modalClose1.addEventListener('click', hideBuy)
+  
+      modal1.addEventListener('click', hideBuy)
+  
+      modalContainer1.addEventListener('click', function (event) {
+          event.stopPropagation()
+      })
+  </script>
+
+<script>
+  const buyBtns = document.querySelectorAll('.js-buy-ticket')
+    const modal = document.querySelector('.js-modal')
+    const modalClose = document.querySelector('.js-modal-close')
+    const modalContainer = document.querySelector('.js-modal-container')
+
+
+    function showBuy() {
+        modal.classList.add('open')
+    }
+
+    function hideBuy() {
+        modal.classList.remove('open')
+    }
+
+    for (const buyBtn of buyBtns) {
+        buyBtn.addEventListener('click', showBuy)
+    }
+
+    modalClose.addEventListener('click', hideBuy)
+
+    modal.addEventListener('click', hideBuy)
+
+    modalContainer.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+</script>
 <script>
     const Save = document.querySelector(" .js-save");
     const Search = document.querySelector(" .search");

@@ -1,10 +1,10 @@
-#main{
+#main {
     padding: 0;
     margin: -2px;
     box-sizing: border-box;
 
-
 }
+
 html {
     scroll-behavior: smooth;
     font-family: Arial, Helvetica, sans-serif;
@@ -15,8 +15,9 @@ html {
     display: flex;
     flex-direction: column;
 }
+
 #header {
-    height:70px;
+    height: 70px;
     position: fixed;
     top: 0;
     left: 0;
@@ -26,7 +27,7 @@ html {
     display: flex;
 }
 
-#nav{
+#nav {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -34,11 +35,10 @@ html {
     height: 70px;
 }
 
-#nav .logo {
+.logo {
     width: 70px;
-    height:70px;
+    height: 70px;
     /* object-fit: contain; */
-
 }
 
 #nav {
@@ -49,7 +49,7 @@ html {
     display: inline-block;
 }
 
-#nav  li  {
+#nav li {
 
     position: relative;
 }
@@ -59,18 +59,15 @@ html {
     text-transform: uppercase; /* tất cả các chữ viết hoa */
 }
 
-#nav li a  {
+#nav li a {
 
     text-decoration: none; /* gạch chân */
-    line-height: 70px;/* Tip nhỏ : muốn căn giữa chữ thì cho chiều cao của chữ bằng chiều cao thẻ bên ngoài */
+    line-height: 70px; /* Tip nhỏ : muốn căn giữa chữ thì cho chiều cao của chữ bằng chiều cao thẻ bên ngoài */
     padding: 0px 24px;
     display: block; /* Thành phần hiển thị như 1 khối */
 }
 
-
-
-
-#nav > li:hover > a  {
+#nav > li:hover > a {
     color: #000;
     background-color: #ccc;
 }
@@ -104,17 +101,16 @@ html {
 #header .search-icon {
     color: #fff;
     font-size: 20px;
-    line-height:70px;
+    line-height: 70px;
 }
 
 
-div.form-student  {
+div.form-student {
     width: 40%;
     border: 1px solid #ccc;
     height: 100%;
-    margin: 25px;
-    padding: 10px;
-    float: left;
+    padding-top: 10px;
+    margin: auto;
     list-style: none;
     overflow: hidden;
 }
@@ -123,53 +119,61 @@ div.form-student h3 {
     padding: 0;
     margin-top: 0;
     margin-bottom: 15px;
-
+    text-align: center;
 
 }
 
 div.form-student label {
-    width:25%;
+    width: 25%;
     float: left;
     text-align: center;
 }
 
 div.form-student input[type="text"], .btn-save {
-    margin-bottom: 14px;
-    width: 40%;
-    padding: 8px;
+    margin-bottom: 10px;
+    width: 55%;
+    padding: 10px;
 }
 
 .btn-save {
     margin-top: 15px;
-    margin-left: 10px;
 }
 
-#bodys div.list-student{
-    width: 50%;
-    height: 100%;
+div.list-student {
+    width: 80%;
+    height: 50%;
     border: 1px solid #ccc;
-    margin: 25px;
     padding: 15px;
     float: left;
     list-style: none;
+    margin: auto;
+    padding-top: 10px;
 
 }
+
+div.list-student {
+    text-align: center;
+}
+
 
 div.list-student h3 {
     padding: 0;
     margin-top: 0;
     margin-bottom: 10px;
-
+    text-align: center;
 }
 
 #bodys {
+
     padding: 0;
     margin: 0;
     /* margin-top: 75px; */
     position: relative;
     height: 60%;
     overflow: hidden;
-    padding-top: 48px;
+    padding-top: 80px;
+    padding-bottom: 25px;
+
 }
 
 #footer {
@@ -178,22 +182,22 @@ div.list-student h3 {
     height: 1000px;
 }
 
-#footer .socials-list{
+#footer .socials-list {
     font-size: 24px;
 
 }
 
-#footer .socials-list a{
+#footer .socials-list a {
     color: rgba(0, 0, 0, 0.6);
     text-decoration: none;
     padding: 0 12px 0 12px;
 }
 
-#footer .socials-list a:hover{
+#footer .socials-list a:hover {
     opacity: 0.6;
 }
 
-#footer .copyright{
+#footer .copyright {
     margin-top: 15px;
     color: rgba(0, 0, 0, 0.6);
 }
@@ -202,6 +206,7 @@ div.list-student h3 {
     color: rgba(0, 0, 0, 0.6);
 
 }
+
 .modal {
     position: fixed;
     top: 0;
@@ -292,4 +297,15 @@ div.list-student h3 {
 
 .modal-footer {
     color: #2196F3;
+}
+
+
+.modal-body-left{
+    float: left;
+    margin-left: 25px;
+}
+
+.modal-body-right{
+    float: left;
+    margin-left: 20%;
 }

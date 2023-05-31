@@ -73,10 +73,9 @@
             <br>
             <label>&nbsp;</label>
             <button class=" btn-save js-save js-buy-ticket-them">Thêm</button>
-            <div class="btn-search">
-                <button class=" btn-save search " onclick="getValue1()">Tìm Kiếm</button>
-                <button class=" btn-save js-buy-ticket ">Sửa</button>
-            </div>
+            <label>&nbsp;</label>
+            <button class=" btn-save search " onclick="getValue1()">Tìm Kiếm</button>
+
 
         </div>
 
@@ -122,6 +121,9 @@
         </p>
     </div>
 </div>
+
+
+<!-- Modal sửa-->
 <div class="modal js-modal">
     <div class="modal-container js-modal-container">
         <div class="modal-close js-modal-close ">
@@ -136,35 +138,30 @@
         <div class="modal-body">
 
             <div class="modal-body-left">
-                <label class="modal-label" for="modal-IDHV">
-                    <i class="ti-star"></i>
-                    ID Học Viên :
-                </label>
-                <input class="modal-input" id="modal-IDHV" placeholder="ID Học Viên ?" type="text">
 
                 <label class="modal-label" for="modal-tenHV">
                     <i class="ti-headphone-alt"></i>
                     Tên Học Viên :
                 </label>
-                <input class="modal-input" id="modal-tenHV" placeholder=" Tên Học Viên ?" type="text">
+                <input class="modal-input" id="editTenHocVien" placeholder=" Tên Học Viên ?" type="text">
 
                 <label class="modal-label" for="modal-Date">
                     <i class="ti-home"></i>
                     Ngày Sinh :
                 </label>
-                <input class="modal-input" id="modal-Date" placeholder="Ngày Sinh ?" type="text">
+                <input class="modal-input" id="editNgaySinh" placeholder="Ngày Sinh ?" type="text">
 
                 <label class="modal-label" for="modal-DiaChi">
                     <i class="ti-user"></i>
                     Địa Chỉ :
                 </label>
-                <input class="modal-input" id="modal-DiaChi" placeholder=" Địa Chỉ ?" type="text">
+                <input class="modal-input" id="editDiaChi" placeholder=" Địa Chỉ ?" type="text">
 
                 <label class="modal-label" for="modal-gioiTinh">
                     <i class="ti-user"></i>
                     Giới Tính :
                 </label>
-                <input class="modal-input" id="modal-gioiTinh" placeholder="  Giới Tính ?" type="text">
+                <input class="modal-input" id="editGioiTinh" placeholder="  Giới Tính ?" type="text">
 
             </div>
             <div class="modal-body-right">
@@ -172,25 +169,25 @@
                     <i class="ti-user"></i>
                     Email :
                 </label>
-                <input class="modal-input" id="modal-Email" placeholder="  Email  ?" type="text">
+                <input class="modal-input" id="editEmail" placeholder="  Email  ?" type="text">
 
                 <label class="modal-label" for="modal-sdt">
                     <i class="ti-user"></i>
                     Số Điện Thoại :
                 </label>
-                <input class="modal-input" id="modal-sdt" placeholder=" Số Điện Thoại ?" type="text">
+                <input class="modal-input" id="editSoDienThoai" placeholder=" Số Điện Thoại ?" type="text">
 
                 <label class="modal-label" for="modal-feedback">
                     <i class="ti-user"></i>
                     Điểm đánh giá :
                 </label>
-                <input class="modal-input" id="modal-feedback" placeholder=" Điểm đánh giá ?" type="text">
+                <input class="modal-input" id="editDiemDanhGia" placeholder=" Điểm đánh giá ?" type="text">
 
                 <label class="modal-label" for="modal-matKhau">
                     <i class="ti-user"></i>
                     Mật khẩu :
                 </label>
-                <input class="modal-input" id="modal-matKhau" placeholder=" Mật khẩu ?" type="text">
+                <input class="modal-input" id="editMatKhau" placeholder=" Mật khẩu ?" type="text">
 
             </div>
             <button class="" id="buy-tickets">
@@ -205,6 +202,8 @@
     </div>
 </div>
 
+
+<!--// Modal thêm-->
 <div class="modal js-modal-them">
     <div class="modal-container js-modal-container-them">
         <div class="modal-close js-modal-close-them ">
@@ -219,11 +218,6 @@
         <div class="modal-body">
 
             <div class="modal-body-left">
-                <label class="modal-label" for="modal-IDHV">
-                    <i class="ti-star"></i>
-                    ID Học Viên :
-                </label>
-                <input class="modal-input" id="modal-IDHV" placeholder="ID Học Viên ?" type="text">
 
                 <label class="modal-label" for="modal-tenHV">
                     <i class="ti-headphone-alt"></i>
@@ -557,9 +551,15 @@
                     editButton.addEventListener("click", function () {
                         // Lấy dữ liệu từ hàng chứa nút "Sửa"
                         const rowData = Array.from(row.children).map(cell => cell.textContent);
-                        const name = rowData[0];
-                        const age = rowData[1];
-                        const address = rowData[2];
+                        const editID = rowData[1];
+                        const editTen = rowData[2];
+                        const editNgaySinh = rowData[3];
+                        const editDiaChi = rowData[4];
+                        const editGioiTinh = rowData[5];
+                        const editEmail = rowData[6];
+                        const editSDT = rowData[7];
+                        const editDiem = rowData[8];
+                        const editMatKhau = rowData[9];
 
                         const buyBtns = document.querySelectorAll('.js-buy-ticket')
                         const modal = document.querySelector('.js-modal')
@@ -585,8 +585,18 @@
                             event.stopPropagation()
                         })
 
+                        // Lấy dữ liệu của các ô để cho vào modal Sửa
+                        document.getElementById("editTenHocVien").value = editTen;
+                        document.getElementById("editEmail").value = editEmail;
+                        document.getElementById("editDiaChi").value = editDiaChi;
+                        document.getElementById("editGioiTinh").value = editGioiTinh;
+                        document.getElementById("editMatKhau").value = editMatKhau;
+                        document.getElementById("editDiemDanhGia").value = editDiem;
+                        document.getElementById("editNgaySinh").value = editNgaySinh;
+                        document.getElementById("editSoDienThoai").value = editSDT;
+
                         // Thực hiện các hành động khác với dữ liệu đã lấy được
-                        console.log("Dữ liệu:", name, age, address);
+
                         // location.reload()
                     });
 

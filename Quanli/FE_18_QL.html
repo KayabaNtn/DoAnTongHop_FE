@@ -59,7 +59,7 @@
             <br>
 
             <label >&nbsp;</label>
-            <button class="btn-save save" onclick="getValue()">Thêm </button>
+            <button class="btn-save  js-buy-ticket-them" >Thêm </button>
             
             <button class="btn-save Search" onclick="getValue1()">Tìm Kiếm  </button>
             
@@ -119,25 +119,25 @@
                 <i class="ti-headphone-alt"></i>
                 Tên Khóa học :
             </label>
-            <input class="modal-input" id="modal-tenKh" placeholder=" Giá Vật Tư: ?" type="text">
+            <input class="modal-input" id="modal-tenKh" placeholder=" Tên Khóa học ?" type="text">
 
             <label class="modal-label" for="modal-thoiGian">
                 <i class="ti-home"></i>
                Thời Gian :
             </label>
-            <input class="modal-input" id="modal-thoiGian" placeholder="Số Lượng ?" type="text">
+            <input class="modal-input" id="modal-thoiGian" placeholder="Thời Gian ?" type="text">
 
             <label class="modal-label" for="modal-lichDay">
                 <i class="ti-user"></i>
                 Lịch Dạy  :
             </label>
-            <input class="modal-input" id="modal-lichDay" placeholder=" ID Nhân Viên ?" type="text">
+            <input class="modal-input" id="modal-lichDay" placeholder=" Lịch Dạy  ?" type="text">
 
             <label class="modal-label" for="modal-giaTien">
                 <i class="ti-user"></i>
                 Giá tiền :
             </label>
-            <input class="modal-input" id="modal-giaTien" placeholder=" ID Nhân Viên ?" type="text">
+            <input class="modal-input" id="modal-giaTien" placeholder="  Giá tiền ?" type="text">
 
             <button class="" id="buy-tickets" >
                 Sửa  <i class="ti-check"></i>
@@ -150,8 +150,81 @@
         </footer>
     </div>
 </div>
+<div class="modal js-modal-them">
+    <div class="modal-container js-modal-container-them">
+        <div class="modal-close js-modal-close-them ">
+            <i class="ti-close"></i>
+        </div>
 
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+           Thêm 
+        </header>
 
+        <div class="modal-body">
+           
+            <label class="modal-label" for="modal-tenKh-them">
+                <i class="ti-headphone-alt"></i>
+                Tên Khóa học :
+            </label>
+            <input class="modal-input" id="modal-tenKh-them" placeholder=" Giá Vật Tư: ?" type="text">
+
+            <label class="modal-label" for="modal-thoiGian-them">
+                <i class="ti-home"></i>
+               Thời Gian :
+            </label>
+            <input class="modal-input" id="modal-thoiGian-them" placeholder="Số Lượng ?" type="text">
+
+            <label class="modal-label" for="modal-lichDay-them">
+                <i class="ti-user"></i>
+                Lịch Dạy  :
+            </label>
+            <input class="modal-input" id="modal-lichDay-them" placeholder=" ID Nhân Viên ?" type="text">
+
+            <label class="modal-label" for="modal-giaTien-them">
+                <i class="ti-user"></i>
+                Giá tiền :
+            </label>
+            <input class="modal-input" id="modal-giaTien-them" placeholder=" ID Nhân Viên ?" type="text">
+            <button class="save" onclick="getValue()" id="buy-tickets" >
+                Thêm  <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const Them = document.querySelectorAll('.js-buy-ticket-them')
+      const modal1 = document.querySelector('.js-modal-them')
+      const modalClose1 = document.querySelector('.js-modal-close-them')
+      const modalContainer1 = document.querySelector('.js-modal-container-them')
+  
+  
+      function showBuy() {
+        modal1.classList.add('open')
+      }
+  
+      function hideBuy() {
+        modal1.classList.remove('open')
+      }
+  
+      for (const buyBtn of Them) {
+          buyBtn.addEventListener('click', showBuy)
+      }
+  
+      modalClose1.addEventListener('click', hideBuy)
+  
+      modal1.addEventListener('click', hideBuy)
+  
+      modalContainer1.addEventListener('click', function (event) {
+          event.stopPropagation()
+      })
+  </script>
 
 <script>
     const buyBtns = document.querySelectorAll('.js-buy-ticket')
@@ -207,10 +280,10 @@
 
     function getValue() {
         // Lấy tham chiếu đến phần tử input
-        var inputName = document.getElementById("KH").value;
-        var inputDate = document.getElementById("Date").value;
-        var inputLichDay= document.getElementById("LichDay").value;
-        var inputGiaTien = document.getElementById("GiaTien").value;
+        var inputName = document.getElementById("modal-tenKh-them").value;
+        var inputDate = document.getElementById("modal-thoiGian-them").value;
+        var inputLichDay= document.getElementById("modal-lichDay-them").value;
+        var inputGiaTien = document.getElementById("modal-giaTien-them").value;
       
       
 

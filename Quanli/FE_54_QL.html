@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cats Sport Academy</title>
+    <link href="./assets/css/FE_54_QL.css" rel="stylesheet">
+    <link href="./assets/css/responsive.css" rel="stylesheet">
+    <link href="./assets/fonts/themify-icons.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div id="main">
+
+    <div id="header">
+        <!-- Begin : nav -->
+        <ul id="nav"> <!--ul#nav>li*5 -->
+            <img alt="abc" class="logo" src="./assets/image/logo.jpg">
+            <li><a href="#bodys">HOME</a></li>
+            <li><a href="./FE_24_QL.html">Sinh Viên </a></li>
+            <li><a href="./FE_36_QL.html">Hợp Đồng </a></li>
+            <li><a href="./FE_42_QL.html">Phiếu Đăng Kí </a></li>
+            <li><a href="./FE_54_QL.html">Feed-Back </a></li>
+            <li><a href="./FE_18_QL.html">Khóa Học </a></li>
+            <li><a href="./FE_48_QL.html">Vật tư </a></li>
+            <li><a href="#footer">Giới thiệu</a></li>
+        </ul>
+        <!-- End : nav -->
+        <!-- Begin : search button -->
+        <div class="search-btn">
+            <i class="search-icon ti-search"></i>
+        </div>
+        <div class="search-btn1">
+            <p class="fix">Mai Hồng Quân <br>
+                Quản lí </p>
+        </div>
+        <!-- End : search button -->
+    </div>
+
+    <div id="bodys">
+        <div class="form-student">
+            <h3>Thông tin về các Phản hồi </h3>
+
+            <label>ID Nhân Viên :</label>
+            <input id="IDNV" tabindex="1" type="text">
+            <br>
+
+            <label>ID Học Viên :</label>
+            <input id="IDHV" tabindex="1" type="text">
+            <br>
+
+            <label>Date :</label>
+            <input id="ngayGui" tabindex="1" type="text">
+            <br>
+
+
+            <div class="btn-save1">
+                <button class="btn-save Search" onclick="SEARCH()">Tìm</button>
+            </div>
+        </div>
+
+        <div class="list-student">
+            <h3>Danh sách </h3>
+            <table border="1" cellpadding="0" cellpadding="0" width="100%">
+                <tr>
+                    <th>STT</th>
+                    <th>Huấn Luyện Viên</th>
+                    <th>Học Viên</th>
+                    <th>feedback</th>
+                    <th>Ngày gửi</th>
+                    <th>Question</th>
+                </tr>
+                <tr>
+                    <td>STT</td>
+                    <td>Mai Hồng Quân</td>
+                    <td>Mikami</td>
+                    <td>Em làm rất tốt</td>
+                    <td>29/5/2023</td>
+                    <td>
+                        <button class="btn-update"> Sửa</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <div id="footer">
+        <div class="socials-list">
+            <a href=""><i class="ti-facebook"></i></a>
+            <a href=""><i class="ti-instagram"></i></a>
+            <a href=""><i class="ti-youtube"></i></a>
+            <a href=""><i class="ti-printerest"></i></a>
+            <a href=""><i class="ti-twitter"></i></a>
+            <a href=""><i class="ti-linkedin"></i></a>
+        </div>
+        <p class="copyright">
+            Powered by <a href="#"> Cats Sport Academy
+        </a>
+        </p>
+    </div>
+</div>
+
+
+<script>
+
+    const Search = document.querySelector(" .Search");
+
+
+    // Example POST method implementation:
+    async function Searchs(url = "") {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            //body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+
+    function SEARCH() {
+        // Lấy tham chiếu đến phần tử input
+        var inputIDNV = document.getElementById("IDNV").value;
+        var inputIDHV = document.getElementById("IDHV").value;
+        var inputngayGui = document.getElementById("ngayGui").value;
+
+
+        let data = {
+            idHv: inputIDHV,
+            idHlv: inputIDNV,
+            pageBegin: 0,
+            pageEnd: 5,
+            feedBack: null,
+            ngayGui: inputngayGui
+        }
+        let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+        let urlWithQuery = 'http://localhost:8889/Feedback/search??' + queryString;
+
+        Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
+    }
+
+
+</script>
+
+</body>
+</html>

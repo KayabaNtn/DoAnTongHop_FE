@@ -139,7 +139,7 @@
 
             <div class="modal-body-left">
 
-                <label class="modal-label" for="modal-tenHV">
+                <label class="modal-label" for="editTenHocVien">
                     <i class="ti-headphone-alt"></i>
                     Tên Học Viên :
                 </label>
@@ -181,7 +181,7 @@
                     <i class="ti-user"></i>
                     Điểm đánh giá :
                 </label>
-                <input class="modal-input" id="editDiemDanhGia" placeholder=" Điểm đánh giá ?" type="text">
+                <input class="modal-input" disabled id="editDiemDanhGia" placeholder=" Điểm đánh giá ?" type="text">
 
                 <label class="modal-label" for="modal-matKhau">
                     <i class="ti-user"></i>
@@ -190,7 +190,7 @@
                 <input class="modal-input" id="editMatKhau" placeholder=" Mật khẩu ?" type="text">
 
             </div>
-            <button class="" id="buy-tickets">
+            <button class="buttonEdit" id="buy-tickets" onclick="suaHocVien()">
                 Sửa <i class="ti-check"></i>
             </button>
 
@@ -219,58 +219,58 @@
 
             <div class="modal-body-left">
 
-                <label class="modal-label" for="modal-tenHV">
+                <label class="modal-label" for="addTenHv">
                     <i class="ti-headphone-alt"></i>
                     Tên Học Viên :
                 </label>
-                <input class="modal-input" id="modal-tenHV" placeholder=" Tên Học Viên ?" type="text">
+                <input class="modal-input" id="addTenHv" placeholder=" Tên Học Viên ?" type="text">
 
-                <label class="modal-label" for="modal-Date">
+                <label class="modal-label" for="addNgaySinh">
                     <i class="ti-home"></i>
                     Ngày Sinh :
                 </label>
-                <input class="modal-input" id="modal-Date" placeholder="Ngày Sinh ?" type="text">
+                <input class="modal-input" id="addNgaySinh" placeholder="Ngày Sinh ?" type="text">
 
-                <label class="modal-label" for="modal-DiaChi">
+                <label class="modal-label" for="addDiaChi">
                     <i class="ti-user"></i>
                     Địa Chỉ :
                 </label>
-                <input class="modal-input" id="modal-DiaChi" placeholder=" Địa Chỉ ?" type="text">
+                <input class="modal-input" id="addDiaChi" placeholder=" Địa Chỉ ?" type="text">
 
-                <label class="modal-label" for="modal-gioiTinh">
+                <label class="modal-label" for="addGioiTinh">
                     <i class="ti-user"></i>
                     Giới Tính :
                 </label>
-                <input class="modal-input" id="modal-gioiTinh" placeholder="  Giới Tính ?" type="text">
+                <input class="modal-input" id="addGioiTinh" placeholder="  Giới Tính ?" type="text">
 
             </div>
             <div class="modal-body-right">
-                <label class="modal-label" for="modal-Email">
+                <label class="modal-label" for="addEmail">
                     <i class="ti-user"></i>
                     Email :
                 </label>
-                <input class="modal-input" id="modal-Email" placeholder="  Email  ?" type="text">
+                <input class="modal-input" id="addEmail" placeholder="  Email  ?" type="text">
 
-                <label class="modal-label" for="modal-sdt">
+                <label class="modal-label" for="addSDT">
                     <i class="ti-user"></i>
                     Số Điện Thoại :
                 </label>
-                <input class="modal-input" id="modal-sdt" placeholder=" Số Điện Thoại ?" type="text">
+                <input class="modal-input" id="addSDT" placeholder=" Số Điện Thoại ?" type="text">
 
-                <label class="modal-label" for="modal-feedback">
+                <label class="modal-label" for="addDiemDanhGia">
                     <i class="ti-user"></i>
                     Điểm đánh giá :
                 </label>
-                <input class="modal-input" id="modal-feedback" placeholder=" Điểm đánh giá ?" type="text">
+                <input class="modal-input" id="addDiemDanhGia" placeholder=" Điểm đánh giá ?" type="text">
 
-                <label class="modal-label" for="modal-matKhau">
+                <label class="modal-label" for="addMatKhau">
                     <i class="ti-user"></i>
                     Mật khẩu :
                 </label>
-                <input class="modal-input" id="modal-matKhau" placeholder=" Mật khẩu ?" type="text">
+                <input class="modal-input" id="addMatKhau" placeholder=" Mật khẩu ?" type="text">
 
             </div>
-            <button class="" id="buy-tickets">
+            <button class="addHocVien JShideModalThem" id="buy-tickets" onclick="addHocVien()">
                 Thêm <i class="ti-check"></i>
             </button>
 
@@ -338,9 +338,16 @@
     })
 </script>
 <script>
-    const Save = document.querySelector(" .js-save");
+    const Save = document.querySelector(" .addHocVien");
     const Search = document.querySelector(" .search");
+    var luuIDHv;
+    function showModelThem() {
+        modal1.classList.add('open')
+    }
 
+    function hideModalThem1() {
+        modal1.classList.remove('open')
+    }
     // Example POST method implementation:
     async function Saves(url = "", data = {}) {
         // Default options are marked with *
@@ -361,11 +368,16 @@
     }
 
 
-    function getValue() {
+    function addHocVien() {
         // Lấy tham chiếu đến phần tử input
-        var inputName = document.getElementById("txtFullName").value;
-        var inputDate = document.getElementById("txtNgaySinh").value;
-        var inputDiachi = document.getElementById("txtHomeTown").value;
+        var inputName = document.getElementById("addTenHv").value;
+        var inputDate = document.getElementById("addNgaySinh").value;
+        var inputDiachi = document.getElementById("addDiaChi").value;
+        var inputGioiTinh = document.getElementById("addGioiTinh").value;
+        var inputEmail = document.getElementById("addEmail").value;
+        var inputSDT = document.getElementById("addSDT").value;
+        var inputDiemDanhGia = document.getElementById("addDiemDanhGia").value;
+        var inputMatKhau = document.getElementById("addMatKhau").value;
         var radios = document.getElementsByName('gender');
         var selectedGender;
         for (var i = 0; i < radios.length; i++) {
@@ -374,21 +386,19 @@
                 break;
             }
         }
-        var inputEmail = document.getElementById("txtEmailAddress").value;
-        var inputNumber = document.getElementById("txtPhoneNumber").value;
-        var inputMatKhau = document.getElementById("txtPass").value;
-
+        // Nhật test thành công chức năng thêm rồi
         Save.addEventListener('click', Saves("http://localhost:8889/HocVien/insert", {
             tenHv: inputName,
             ngaySinh: inputDate,
             diaChi: inputDiachi,
-            gioiTinh: selectedGender,
+            gioiTinh: inputGioiTinh,
             email: inputEmail,
-            sdt: inputNumber,
+            sdt: inputSDT,
             matKhau: inputMatKhau,
+
         }).then((data) => {
-            alert("Thành công")
-            console.log(data); // JSON data parsed by `data.json()` call
+            alert("Thêm học viên thành công")
+            hideModalThem1()
         }));
 
 
@@ -551,7 +561,7 @@
                     editButton.addEventListener("click", function () {
                         // Lấy dữ liệu từ hàng chứa nút "Sửa"
                         const rowData = Array.from(row.children).map(cell => cell.textContent);
-                        const editID = rowData[1];
+                        luuIDHv = rowData[1];
                         const editTen = rowData[2];
                         const editNgaySinh = rowData[3];
                         const editDiaChi = rowData[4];
@@ -595,6 +605,7 @@
                         document.getElementById("editNgaySinh").value = editNgaySinh;
                         document.getElementById("editSoDienThoai").value = editSDT;
 
+
                         // Thực hiện các hành động khác với dữ liệu đã lấy được
 
                         // location.reload()
@@ -603,6 +614,60 @@
                 });
             })
         );
+    }
+
+
+</script>
+
+<script>
+
+    // Xử lý nút sửa ở Modal sửa
+
+    const buttonSua = document.querySelector('.buttonEdit');
+    async function Update(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "PUT", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    function hideModalSua() {
+        modal.classList.remove('open')
+    }
+    function suaHocVien(){
+        const editTenHv1 = document.getElementById("editTenHocVien").value ;
+        const editEmail1 = document.getElementById("editEmail").value;
+        const editDiaChi1 = document.getElementById("editDiaChi").value;
+        const editGioiTinh1 = document.getElementById("editGioiTinh").value ;
+        const editMatKhau1 = document.getElementById("editMatKhau").value ;
+        const editDiemDanhGia1 = document.getElementById("editDiemDanhGia").value ;
+        const editNgaySinh1 = document.getElementById("editNgaySinh").value ;
+        const editSDT1 = document.getElementById("editSoDienThoai").value ;
+
+        buttonSua.addEventListener('click', Update('http://localhost:8889/HocVien/update', {
+            idHv: luuIDHv,
+            tenHv: editTenHv1 ,
+            ngaySinh: editNgaySinh1,
+            diaChi:editDiaChi1 ,
+            gioiTinh: editGioiTinh1,
+            email: editEmail1,
+            sdt: editSDT1,
+            matKhau: editMatKhau1
+        }).then((data) => {
+            alert("Sửa học viên thành công")
+            hideModalSua()
+        }));
     }
 
 

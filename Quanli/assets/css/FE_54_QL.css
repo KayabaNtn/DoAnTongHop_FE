@@ -311,3 +311,16 @@ div.list-student {
 .modal-footer {
     color: #2196F3;
 }
+.modal-body-left{
+    float: left;
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.modal-body-right{
+    float: left;
+    margin-left: 20%;
+}
+input[type="radio"] {
+    transform: scale(1.5); /* Phóng to 1.5 lần */
+  }

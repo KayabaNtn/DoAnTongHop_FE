@@ -59,9 +59,9 @@
             <br>
 
             <label >&nbsp;</label>
-            <button class="btn-save  js-buy-ticket-them" >Thêm </button>
-            
-            <button class="btn-save Search" onclick="getValue1()">Tìm Kiếm  </button>
+            <button class="btn-save save js-buy-ticket-them" onclick="getValue()">Thêm </button>
+
+            <button class="btn-save Search" onclick="SEARCH()">Tìm Kiếm  </button>
             
             <button class="btn-save js-buy-ticket">
                 Sửa 
@@ -119,27 +119,27 @@
                 <i class="ti-headphone-alt"></i>
                 Tên Khóa học :
             </label>
-            <input class="modal-input" id="modal-tenKh" placeholder=" Tên Khóa học ?" type="text">
+            <input class="modal-input" id="modal-tenKh" placeholder=" Tên khóa học: ?" type="text">
 
             <label class="modal-label" for="modal-thoiGian">
                 <i class="ti-home"></i>
                Thời Gian :
             </label>
-            <input class="modal-input" id="modal-thoiGian" placeholder="Thời Gian ?" type="text">
+            <input class="modal-input" id="modal-thoiGian" placeholder="Thời gian ?" type="text">
 
             <label class="modal-label" for="modal-lichDay">
                 <i class="ti-user"></i>
                 Lịch Dạy  :
             </label>
-            <input class="modal-input" id="modal-lichDay" placeholder=" Lịch Dạy  ?" type="text">
+            <input class="modal-input" id="modal-lichDay" placeholder="Lịch dạy ?" type="text">
 
             <label class="modal-label" for="modal-giaTien">
                 <i class="ti-user"></i>
                 Giá tiền :
             </label>
-            <input class="modal-input" id="modal-giaTien" placeholder="  Giá tiền ?" type="text">
+            <input class="modal-input" id="modal-giaTien" placeholder="Giá tiền ?" type="text">
 
-            <button class="" id="buy-tickets" >
+            <button class="" id="" >
                 Sửa  <i class="ti-check"></i>
             </button>
 
@@ -150,6 +150,7 @@
         </footer>
     </div>
 </div>
+
 <div class="modal js-modal-them">
     <div class="modal-container js-modal-container-them">
         <div class="modal-close js-modal-close-them ">
@@ -158,11 +159,11 @@
 
         <header class="modal-header">
             <i class="modal-heading-icon ti-bag"></i>
-           Thêm 
+           Thêm
         </header>
 
         <div class="modal-body">
-           
+
             <label class="modal-label" for="modal-tenKh-them">
                 <i class="ti-headphone-alt"></i>
                 Tên Khóa học :
@@ -186,7 +187,8 @@
                 Giá tiền :
             </label>
             <input class="modal-input" id="modal-giaTien-them" placeholder=" ID Nhân Viên ?" type="text">
-            <button class="save" onclick="getValue()" id="buy-tickets" >
+
+            <button class="save" onclick="getValue()" class="" id="buy-tickets" >
                 Thêm  <i class="ti-check"></i>
             </button>
 
@@ -225,6 +227,7 @@
           event.stopPropagation()
       })
   </script>
+
 
 <script>
     const buyBtns = document.querySelectorAll('.js-buy-ticket')
@@ -325,7 +328,7 @@ async function Searchs(url = "") {
 }
 
 
-function getValue1() {
+function SEARCH() {
     // Lấy tham chiếu đến phần tử input
     var inputName = document.getElementById("KH").value;
         var inputDate = document.getElementById("Date").value;

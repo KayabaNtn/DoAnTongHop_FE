@@ -63,9 +63,11 @@
             <br>
 
             <label for="">&nbsp;</label>
-            <button class="btn-save Search " onclick="getSearch()">Tìm</button>
+            <button class="btn-save Search " onclick="SEARCH()">Tìm</button>
             <label for="">&nbsp;</label>
             <button class="btn-save js-buy-ticket ">Thêm</button>
+            <label for="">&nbsp;</label>
+            <button class="btn-save js-buy-ticket-them ">Sửa</button>
         </div>
 
 
@@ -158,6 +160,80 @@
         </footer>
     </div>
 </div>
+
+<div class="modal js-modal-them">
+    <div class="modal-container js-modal-container-them">
+        <div class="modal-close js-modal-close-them ">
+            <i class="ti-close"></i>
+        </div>
+
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+            Sửa
+        </header>
+
+        <div class="modal-body">
+
+            <label>ID Nhân Viên :</label>
+            <input id="update-IDNV" tabindex="1" type="text" class="modal-input">
+            <br>
+
+            <label>ID Vật tư :</label>
+            <input id="update-IDVT" tabindex="1" type="text"   class="modal-input">
+            <br>
+
+            <label>Giá Vật Tư :</label>
+            <input id="update-GIAVT" tabindex="1" type="text"  class="modal-input">
+            <br>
+
+            <label>Số lượng :</label>
+            <input id="update-SOLUONG" tabindex="1" type="text"  class="modal-input">
+            <br>
+
+            <label>Thành tiền :</label>
+            <input id="update-THANHTIEN" tabindex="1" type="text"  class="modal-input">
+            <br>
+
+
+            <button class="" id="buy-tickets" >
+                Sửa  <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const Them = document.querySelectorAll('.js-buy-ticket-them')
+      const modal1 = document.querySelector('.js-modal-them')
+      const modalClose1 = document.querySelector('.js-modal-close-them')
+      const modalContainer1 = document.querySelector('.js-modal-container-them')
+  
+  
+      function showBuy() {
+        modal1.classList.add('open')
+      }
+  
+      function hideBuy() {
+        modal1.classList.remove('open')
+      }
+  
+      for (const buyBtn of Them) {
+          buyBtn.addEventListener('click', showBuy)
+      }
+  
+      modalClose1.addEventListener('click', hideBuy)
+  
+      modal1.addEventListener('click', hideBuy)
+  
+      modalContainer1.addEventListener('click', function (event) {
+          event.stopPropagation()
+      })
+  </script>
 
 <script>
     const buyBtns = document.querySelectorAll('.js-buy-ticket')
@@ -260,7 +336,7 @@
     }
 
     // Nhật test được rồi
-    function getSearch() {
+    function SEARCH() {
         // Lấy tham chiếu đến phần tử input
         var inputIDNV = document.getElementById("IDNV").value;
         var inputIDVT = document.getElementById("IDVT").value;

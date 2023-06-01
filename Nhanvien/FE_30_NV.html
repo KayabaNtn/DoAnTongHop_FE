@@ -21,8 +21,11 @@
         <!-- Begin : nav -->
         <ul id="nav"> <!--ul#nav>li*5 -->
             <a><img alt="abc" class="logo" src="./assets/image/logo.jpg"></a>
-            <li><a href="#">HOME</a></li>
-            <li><a href="hopdong.html">Function</a></li>
+            <li><a href="#bodys">HOME</a></li>
+            <li><a href="../Nhanvien/FE_30_NV.html">Nhân Viên</a></li>
+            <li><a href="../Nhanvien/FE_73_NV.html">Cập Nhật</a></li>
+            <li><a href="../Nhanvien/FE_78_NV.html">Khóa Học</a></li>
+            <li><a href="../Nhanvien/FE_88_NV.html">Đánh Giá</a></li>
             <li><a href="#footer">Giới thiệu</a></li>
         </ul>
         <!-- End : nav -->
@@ -74,9 +77,15 @@
              <br>
 
             <label for="">&nbsp;</label>
-            <button class="btn-save Search" onclick="getValue1()">Tìm</button>
-            <label for="">&nbsp;</label>
-            <button class="btn-save js-buy-ticket  ">Thêm</button>
+            <button class="btn-save Search" onclick="SEARCH()">Tìm</button>
+          <div class="btn-search">
+             
+            <button class="btn-save save js-buy-ticket-them  ">Thêm</button>
+
+            <button class="btn-save js-buy-ticket">
+                Sửa 
+            </button>
+          </div>
         </div>
 
 
@@ -143,64 +152,64 @@
 
          <header class="modal-header">
              <i class="modal-heading-icon ti-bag" ></i>
-             Thêm
+             Sửa 
          </header>
 
          <div class="modal-body">
             <div class=" modal-body-left">
              <label>Tên nhân viên:</label>
-             <input id="modal-tenNv" tabindex="1" type="text"  class="modal-input">
+             <input id="modal-tenNv-update" tabindex="1" type="text"  class="modal-input">
              <br>
  
-             <label id="lblGender">Giới tính:</label>
-             <input id="male" name="gender" tabindex="4" type="radio" value="Nam "> Nam
-             <input id="female" name="gender" tabindex="5" type="radio" value="Nữ "> Nữ
+             <label id="lblGender-update">Giới tính:</label>
+             <input id="male" name="gender-update" tabindex="4" type="radio" value="Nam "> Nam
+             <input id="female" name="gender-update" tabindex="5" type="radio" value="Nữ "> Nữ
              <br>
              <br>
  
  
              <label>Ngày sinh :</label>
-             <input id="modal-Date" tabindex="3" type="text" class="modal-input">
+             <input id="modal-Date-update" tabindex="3" type="text" class="modal-input">
              <br>
  
              <label>Địa Chỉ :</label>
-             <input id="modal-HomeTown" tabindex="4" type="text" class="modal-input">
+             <input id="modal-HomeTown-update" tabindex="4" type="text" class="modal-input">
              <br>
  
              <label>Số điện thoại :</label>
-             <input id="modal-Sdt" tabindex="5" type="text" class="modal-input">
+             <input id="modal-Sdt-update" tabindex="5" type="text" class="modal-input">
              <br>
  
              <label>Email :</label>
-             <input id="modal-email" tabindex="6" type="text" class="modal-input">
+             <input id="modal-email-update" tabindex="6" type="text" class="modal-input">
              <br>
             </div>
             <div class=" modal-body-right">
                 <label>Trình độ :</label>
-             <input id="modal-trinhDo" tabindex="7" type="text" class="modal-input">
+             <input id="modal-trinhDo-update" tabindex="7" type="text" class="modal-input">
              <br>
  
              <label>Kinh Ngiệm :</label>
-             <input id="modal-kinhNgiem" tabindex="8" type="text" class="modal-input">
+             <input id="modal-kinhNgiem-update" tabindex="8" type="text" class="modal-input">
              <br>
  
              <label>Lương :</label>
-             <input id="modal-Luong" tabindex="9" type="text" class="modal-input">
+             <input id="modal-Luong-update" tabindex="9" type="text" class="modal-input">
              <br>
  
              <label>Mật khẩu :</label>
-             <input id="modal-matKhau" tabindex="10" type="text" class="modal-input">
+             <input id="modal-matKhau-update" tabindex="10" type="text" class="modal-input">
              <br>
  
              <label>Role :</label>
-             <input id="modal-Role" tabindex="11" type="text" class="modal-input">
+             <input id="modal-Role-update" tabindex="11" type="text" class="modal-input">
              <br>
 
             </div>
              
 
              <button id="buy-tickets" class="save" onclick="getValue()">
-                Thêm  <i class="ti-check"></i>
+                Sửa  <i class="ti-check"></i>
              </button>
 
          </div>
@@ -210,6 +219,81 @@
          </footer>
      </div>
  </div>
+
+ <div class="modal js-modal-them">
+    <div class="modal-container js-modal-container-them">
+        <div class="modal-close js-modal-close-them ">
+            <i class="ti-close"></i>
+        </div>
+
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+          Thêm 
+        </header>
+
+        <div class="modal-body">
+
+            <div class=" modal-body-left">
+                <label>Tên nhân viên:</label>
+                <input id="modal-tenNv" tabindex="1" type="text"  class="modal-input">
+                <br>
+    
+                <label id="lblGender">Giới tính:</label>
+                <input id="male" name="gender" tabindex="4" type="radio" value="Nam "> Nam
+                <input id="female" name="gender" tabindex="5" type="radio" value="Nữ "> Nữ
+                <br>
+                <br>
+    
+    
+                <label>Ngày sinh :</label>
+                <input id="modal-Date" tabindex="3" type="text" class="modal-input">
+                <br>
+    
+                <label>Địa Chỉ :</label>
+                <input id="modal-HomeTown" tabindex="4" type="text" class="modal-input">
+                <br>
+    
+                <label>Số điện thoại :</label>
+                <input id="modal-Sdt" tabindex="5" type="text" class="modal-input">
+                <br>
+    
+                <label>Email :</label>
+                <input id="modal-email" tabindex="6" type="text" class="modal-input">
+                <br>
+               </div>
+               <div class=" modal-body-right">
+                   <label>Trình độ :</label>
+                <input id="modal-trinhDo" tabindex="7" type="text" class="modal-input">
+                <br>
+    
+                <label>Kinh Ngiệm :</label>
+                <input id="modal-kinhNgiem" tabindex="8" type="text" class="modal-input">
+                <br>
+    
+                <label>Lương :</label>
+                <input id="modal-Luong" tabindex="9" type="text" class="modal-input">
+                <br>
+    
+                <label>Mật khẩu :</label>
+                <input id="modal-matKhau" tabindex="10" type="text" class="modal-input">
+                <br>
+    
+                <label>Role :</label>
+                <input id="modal-Role" tabindex="11" type="text" class="modal-input">
+                <br>
+   
+               </div>
+            <button class="" id="buy-tickets" >
+                Thêm  <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
 
  <script>
      const buyBtns = document.querySelectorAll('.js-buy-ticket')
@@ -229,7 +313,33 @@
 
      modalClose.addEventListener('click', hideBuy)
  </script>
-
+<script>
+    const Them = document.querySelectorAll('.js-buy-ticket-them')
+      const modal1 = document.querySelector('.js-modal-them')
+      const modalClose1 = document.querySelector('.js-modal-close-them')
+      const modalContainer1 = document.querySelector('.js-modal-container-them')
+  
+  
+      function showBuy() {
+        modal1.classList.add('open')
+      }
+  
+      function hideBuy() {
+        modal1.classList.remove('open')
+      }
+  
+      for (const buyBtn of Them) {
+          buyBtn.addEventListener('click', showBuy)
+      }
+  
+      modalClose1.addEventListener('click', hideBuy)
+  
+      modal1.addEventListener('click', hideBuy)
+  
+      modalContainer1.addEventListener('click', function (event) {
+          event.stopPropagation()
+      })
+  </script>
  <!-- Thêm -->
  <script>
     const Save = document.querySelector(" .save");
@@ -297,7 +407,7 @@ function getValue() {
 
 }
 </script>
-<!-- serach  -->
+
 <script>
      const Search = document.querySelector(" .Search");
 
@@ -322,7 +432,7 @@ async function Searchs(url = "") {
 }
 
 
-function getValue1() {
+function SEARCH() {
     // Lấy tham chiếu đến phần tử input
     var inputtenNv = document.getElementById("search-tenNv").value;
     var inputDate= document.getElementById("search-Date").value;

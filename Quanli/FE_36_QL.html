@@ -63,9 +63,11 @@
             <br>
 
             <label >&nbsp;</label>
-            <button class="btn-save Search" onclick="getValue1()">Tìm</button>
+            <button class="btn-save Search" onclick="SEARCH()">Tìm</button>
             <label >&nbsp;</label>
             <button class="btn-save js-HD-themOpen  " >Thêm</button>
+            <label >&nbsp;</label>
+            <button class="btn-save js-buy-ticket-sua  " >Sửa</button>
         </div>
 
 
@@ -113,6 +115,97 @@
         </p>
     </div>
 </div>
+
+<div class="modal js-modal-them">
+    <div class="modal-container js-modal-container-them">
+        <div class="modal-close js-modal-close-them ">
+            <i class="ti-close"></i>
+        </div>
+
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+            Sửa
+        </header>
+
+        <div class="modal-body">
+
+            <label class="modal-label" for="update-ID-KH">
+                <i class="ti-user"></i>
+                ID Khách Hàng:
+            </label>
+            <input class="modal-input" id="update-ID-KH" placeholder="ID Khách Hàng ?" type="text">
+
+
+            <label class="modal-label" for="update-ID-LH">
+                <i class="ti-email"></i>
+                ID Lớp học:
+            </label>
+            <input class="modal-input" id="update-ID-LH" placeholder="ID Lớp học ?" type="text">
+
+            <label class="modal-label" for="update-ID-HV">
+                <i class="ti-headphone-alt"></i>
+                ID Học Viên :
+            </label>
+            <input class="modal-input" id="update-ID-HV" placeholder="ID Học Viên  ?" type="text">
+
+            <label class="modal-label" for="update-ID-NV">
+                <i class="ti-headphone-alt"></i>
+                ID Nhân Viên :
+            </label>
+            <input class="modal-input" id="update-ID-NV" placeholder="ID Nhân Viên  ?" type="text">
+
+            <label class="modal-label" for="update-hocPhi">
+                <i class="ti-home"></i>
+                Học Phí :
+            </label>
+            <input class="modal-input" id="update-hocPhi" placeholder="Học Phí ?" type="number">
+
+            <label class="modal-label" for="update-ngayKy">
+                <i class="ti-alarm-clock"></i>
+                Date :
+            </label>
+            <input class="modal-input" id="update-ngayKy" placeholder="Ngày ?" type="text">
+
+            <button class="" id="buy-tickets" >
+                Sửa  <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const Them = document.querySelectorAll('.js-buy-ticket-sua')
+      const modal1 = document.querySelector('.js-modal-them')
+      const modalClose1 = document.querySelector('.js-modal-close-them')
+      const modalContainer1 = document.querySelector('.js-modal-container-them')
+  
+  
+      function showBuy() {
+        modal1.classList.add('open')
+      }
+  
+      function hideBuy() {
+        modal1.classList.remove('open')
+      }
+  
+      for (const buyBtn of Them) {
+          buyBtn.addEventListener('click', showBuy)
+      }
+  
+      modalClose1.addEventListener('click', hideBuy)
+  
+      modal1.addEventListener('click', hideBuy)
+  
+      modalContainer1.addEventListener('click', function (event) {
+          event.stopPropagation()
+      })
+  </script>
+
 
 
 <div class="modal js-modal">
@@ -270,7 +363,7 @@
     }
 
 
-    function getValue1() {
+    function SEARCH() {
         // Lấy tham chiếu đến phần tử input
         var inputKhachHang = document.getElementById("txtKhachHang").value;
         var inputLopHoc = document.getElementById("txtLopHoc").value;

@@ -89,6 +89,9 @@ html {
     text-align: center;
 }
 
+
+ 
+
 .fix {
     margin: 0;
 }
@@ -106,7 +109,7 @@ html {
 
 
 div.form-student {
-    width: 40%;
+    width:50%;
     border: 1px solid #ccc;
     height: 100%;
     padding-top: 10px;
@@ -115,31 +118,39 @@ div.form-student {
     overflow: hidden;
 }
 
-div.form-student h3 {
+div.form-student h2 {
     padding: 0;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     text-align: center;
+    
 
 }
 
 div.form-student label {
     width: 25%;
     float: left;
-    text-align: center;
+    text-align: left;
+    
 }
 
 div.form-student input[type="text"], .btn-save {
     margin-bottom: 10px;
-    width: 57%;
+    width: 55%;
     padding: 10px;
 }
 
 .btn-save {
     margin-top: 15px;
-    width: 59.5%;
 }
-
+.btn-search{
+    display: flex;
+   
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px;
+  
+ }
 div.list-student {
     width: 80%;
     height: 50%;
@@ -166,7 +177,7 @@ div.list-student h3 {
 
 #bodys {
 
-    padding: 0;
+    padding:0;
     margin: 0;
     /* margin-top: 75px; */
     position: relative;
@@ -299,17 +310,34 @@ div.list-student h3 {
 .modal-footer {
     color: #2196F3;
 }
+
+
+
 .modal-body-left{
     float: left;
     margin-left: 25px;
     margin-bottom: 15px;
+   
 }
 
 .modal-body-right{
     float: left;
     margin-left: 20%;
 }
+
+.form-thongtin-left{
+    float: left;
+    width:48%;
+    margin-left: 4%;
+}
+
+.form-thongtin-right{
+    float: left;
+    width: 46%;
+    margin-left: 2%;
+}
 input[type="radio"] {
     transform: scale(1.5); /* Phóng to 1.5 lần */
     margin-right: 10px; /* Khoảng cách 10px giữa các input */
+    margin-left : 10px; /* Khoảng cách 10px giữa các input */
   }

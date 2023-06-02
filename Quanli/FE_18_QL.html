@@ -58,26 +58,34 @@
             <input id="GiaTien" tabindex="1" type="text">
             <br>
 
-            <label >&nbsp;</label>
-            <button class="btn-save save js-buy-ticket-them" onclick="getValue()">Thêm </button>
+            <label>&nbsp;</label>
+            <button class="btn-save save js-buy-ticket-them">Thêm</button>
 
-            <button class="btn-save Search" onclick="SEARCH()">Tìm Kiếm  </button>
-            
-            <button class="btn-save js-buy-ticket">
-                Sửa 
-            </button>
+            <button class="btn-save Search" onclick="SEARCH()">Tìm Kiếm</button>
+            <label>&nbsp;</label>
+            <!--            <button class="btn-save js-buy-ticket">-->
+            <!--                Sửa-->
+            <!--            </button>-->
 
         </div>
 
         <div class="list-student">
-            <h3>Danh sách sinh viên</h3>
-            <table border="1" cellpadding="0" cellpadding="0" width="100%">
+            <h3>Danh sách khóa học</h3>
+            <table id="table-container">
+                <thead>
                 <tr>
-                    <td>Tên khoá học</td>
-                    <td>Thời gian</td>
-                    <td>Lịch Dạy</td>
-                    <td>Giá tiền</td>
+                    <th>STT</th>
+                    <th>ID khóa học</th>
+                    <th>Tên khóa học</th>
+                    <th>Thời gian</th>
+                    <th>Lịch dạy</th>
+                    <th>Giá tiền</th>
+                    <th>Thao tác</th>
                 </tr>
+                </thead>
+                <tbody>
+                <!-- Các hàng dữ liệu sẽ được thêm vào đây -->
+                </tbody>
             </table>
         </div>
     </div>
@@ -109,38 +117,38 @@
 
         <div class="modal-body">
 
-            <label class="modal-label" for="modal-IDKH">
+            <label class="modal-label" for="updateIdKh">
                 <i class="ti-star"></i>
                 ID Khóa Học :
             </label>
-            <input class="modal-input" id="modal-IDKH" placeholder=" ID Khóa Học ?" type="text">
+            <input class="modal-input" disabled id="updateIdKh" placeholder=" ID Khóa Học ?" type="text">
 
-            <label class="modal-label" for="modal-tenKh">
+            <label class="modal-label" for="updateTenKh">
                 <i class="ti-headphone-alt"></i>
                 Tên Khóa học :
             </label>
-            <input class="modal-input" id="modal-tenKh" placeholder=" Tên khóa học: ?" type="text">
+            <input class="modal-input" id="updateTenKh" placeholder=" Tên khóa học: ?" type="text">
 
-            <label class="modal-label" for="modal-thoiGian">
+            <label class="modal-label" for="updateThoiGian">
                 <i class="ti-home"></i>
-               Thời Gian :
+                Thời Gian :
             </label>
-            <input class="modal-input" id="modal-thoiGian" placeholder="Thời gian ?" type="text">
+            <input class="modal-input" id="updateThoiGian" placeholder="Thời gian ?" type="text">
 
-            <label class="modal-label" for="modal-lichDay">
+            <label class="modal-label" for="updateLichDay">
                 <i class="ti-user"></i>
-                Lịch Dạy  :
+                Lịch Dạy :
             </label>
-            <input class="modal-input" id="modal-lichDay" placeholder="Lịch dạy ?" type="text">
+            <input class="modal-input" id="updateLichDay" placeholder="Lịch dạy ?" type="text">
 
-            <label class="modal-label" for="modal-giaTien">
+            <label class="modal-label" for="updateGiaTien">
                 <i class="ti-user"></i>
                 Giá tiền :
             </label>
-            <input class="modal-input" id="modal-giaTien" placeholder="Giá tiền ?" type="text">
+            <input class="modal-input" id="updateGiaTien" placeholder="Giá tiền ?" type="text">
 
-            <button class="" id="" >
-                Sửa  <i class="ti-check"></i>
+            <button class="buttonEdit" id="buy-tickets" onclick="suaKhoaHoc()">
+                Sửa <i class="ti-check"></i>
             </button>
 
         </div>
@@ -159,7 +167,7 @@
 
         <header class="modal-header">
             <i class="modal-heading-icon ti-bag"></i>
-           Thêm
+            Thêm
         </header>
 
         <div class="modal-body">
@@ -168,28 +176,28 @@
                 <i class="ti-headphone-alt"></i>
                 Tên Khóa học :
             </label>
-            <input class="modal-input" id="modal-tenKh-them" placeholder=" Giá Vật Tư: ?" type="text">
+            <input class="modal-input" id="modal-tenKh-them" placeholder=" Tên khóa học ?" type="text">
 
             <label class="modal-label" for="modal-thoiGian-them">
                 <i class="ti-home"></i>
-               Thời Gian :
+                Thời Gian :
             </label>
-            <input class="modal-input" id="modal-thoiGian-them" placeholder="Số Lượng ?" type="text">
+            <input class="modal-input" id="modal-thoiGian-them" placeholder="Thời gian ?" type="text">
 
             <label class="modal-label" for="modal-lichDay-them">
                 <i class="ti-user"></i>
-                Lịch Dạy  :
+                Lịch Dạy :
             </label>
-            <input class="modal-input" id="modal-lichDay-them" placeholder=" ID Nhân Viên ?" type="text">
+            <input class="modal-input" id="modal-lichDay-them" placeholder=" Lịch dạy ?" type="text">
 
             <label class="modal-label" for="modal-giaTien-them">
                 <i class="ti-user"></i>
                 Giá tiền :
             </label>
-            <input class="modal-input" id="modal-giaTien-them" placeholder=" ID Nhân Viên ?" type="text">
+            <input class="modal-input" id="modal-giaTien-them" placeholder=" Giá tiền ?" type="text">
 
-            <button class="save" onclick="getValue()" class="" id="buy-tickets" >
-                Thêm  <i class="ti-check"></i>
+            <button class="save" class="" id="buy-tickets" onclick="getValue()">
+                Thêm <i class="ti-check"></i>
             </button>
 
         </div>
@@ -202,31 +210,31 @@
 
 <script>
     const Them = document.querySelectorAll('.js-buy-ticket-them')
-      const modal1 = document.querySelector('.js-modal-them')
-      const modalClose1 = document.querySelector('.js-modal-close-them')
-      const modalContainer1 = document.querySelector('.js-modal-container-them')
-  
-  
-      function showBuy() {
+    const modal1 = document.querySelector('.js-modal-them')
+    const modalClose1 = document.querySelector('.js-modal-close-them')
+    const modalContainer1 = document.querySelector('.js-modal-container-them')
+
+
+    function showBuy() {
         modal1.classList.add('open')
-      }
-  
-      function hideBuy() {
+    }
+
+    function hideBuy() {
         modal1.classList.remove('open')
-      }
-  
-      for (const buyBtn of Them) {
-          buyBtn.addEventListener('click', showBuy)
-      }
-  
-      modalClose1.addEventListener('click', hideBuy)
-  
-      modal1.addEventListener('click', hideBuy)
-  
-      modalContainer1.addEventListener('click', function (event) {
-          event.stopPropagation()
-      })
-  </script>
+    }
+
+    for (const buyBtn of Them) {
+        buyBtn.addEventListener('click', showBuy)
+    }
+
+    modalClose1.addEventListener('click', hideBuy)
+
+    modal1.addEventListener('click', hideBuy)
+
+    modalContainer1.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+</script>
 
 
 <script>
@@ -258,8 +266,8 @@
 </script>
 
 <script>
-        const Save = document.querySelector(" .save");
-    
+    const Save = document.querySelector(" .save");
+
 
     // Example POST method implementation:
     async function Saves(url = "", data = {}) {
@@ -285,12 +293,11 @@
         // Lấy tham chiếu đến phần tử input
         var inputName = document.getElementById("modal-tenKh-them").value;
         var inputDate = document.getElementById("modal-thoiGian-them").value;
-        var inputLichDay= document.getElementById("modal-lichDay-them").value;
+        var inputLichDay = document.getElementById("modal-lichDay-them").value;
         var inputGiaTien = document.getElementById("modal-giaTien-them").value;
-      
-      
 
-        Save.addEventListener('click', Saves("", {
+
+        Save.addEventListener('click', Saves("http://localhost:8889/KhoaHoc/themMoi", {
             tenKh: inputName,
             thoiGian: inputDate,
             lichDay: inputLichDay,
@@ -305,55 +312,230 @@
 </script>
 
 <script>
-   const Search = document.querySelector(" .Search");
+    const Search = document.querySelector(" .Search");
+    var luuIdKh;
+
+    // Example POST method implementation:
+    async function Searchs(url = "") {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            //body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
 
 
-// Example POST method implementation:
-async function Searchs(url = "") {
-    // Default options are marked with *
-    const response = await fetch(url, {
-        method: "GET", // *GET, POST, PUT, DELETE, etc.
-        mode: "cors", // no-cors, *cors, same-origin
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: "follow", // manual, *follow, error
-        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        //body: JSON.stringify(data), // body data type must match "Content-Type" header
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
-}
-
-
-function SEARCH() {
-    // Lấy tham chiếu đến phần tử input
-    var inputName = document.getElementById("KH").value;
+    function SEARCH() {
+        // Lấy tham chiếu đến phần tử input
+        var inputName = document.getElementById("KH").value;
         var inputDate = document.getElementById("Date").value;
-        var inputLichDay= document.getElementById("LichDay").value;
+        var inputLichDay = document.getElementById("LichDay").value;
         var inputGiaTien = document.getElementById("GiaTien").value;
-    
 
-    let data = {
-        tenKh: inputName,
+        let data = {
+            tenKh: inputName,
             thoiGian: inputDate,
             lichDay: inputLichDay,
             giaTien: inputGiaTien,
-        pageBegin: 0,
-        pageEnd: 5,
-    }
-    let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
-    let urlWithQuery = '??' + queryString;
+            pageBegin: 0,
+            pageEnd: 5,
+        }
+        let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+        let urlWithQuery = 'http://localhost:8889/KhoaHoc/timKiem??' + queryString;
 
-    Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
-        alert("Thành công")
-        console.log(data); // JSON data parsed by `data.json()` call
-    }));
-}
+        Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+            const table = document.getElementById("table-container");
+            const tbody = table.getElementsByTagName("tbody")[0];
+
+            // Xóa các hàng hiện tại
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild);
+            }
+
+            // Thêm dữ liệu từ API vào bảng
+            data.forEach(function (item) {
+                const row = document.createElement("tr");
+                const cell1 = document.createElement("td");
+                const cell2 = document.createElement("td");
+                const cell3 = document.createElement("td");
+                const cell4 = document.createElement("td");
+                const cell5 = document.createElement("td");
+                const cell6 = document.createElement("td");
+                const cell7 = document.createElement("td");
+
+
+                const editButton = document.createElement("button");
+                const deleteButton = document.createElement("button");
+
+                cell1.textContent = item.stt;
+                cell2.textContent = item.idKh;
+                cell3.textContent = item.tenKh;
+                cell4.textContent = item.thoiGian;
+                cell5.textContent = item.lichDay;
+                cell6.textContent = item.giaTien;
+
+                editButton.textContent = "Sửa";
+                deleteButton.textContent = "Xóa";
+
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                row.appendChild(cell3);
+                row.appendChild(cell4);
+                row.appendChild(cell5);
+                row.appendChild(cell6);
+                row.appendChild(cell7);
+
+
+                cell7.appendChild(editButton);
+                cell7.appendChild(deleteButton);
+
+
+                tbody.appendChild(row);
+
+                // Gắn sự kiện click vào nút "Sửa"
+                editButton.addEventListener("click", function () {
+                    // Lấy dữ liệu từ hàng chứa nút "Sửa"
+                    const rowData = Array.from(row.children).map(cell => cell.textContent);
+                    luuIdKh = rowData[1];
+                    const editTen = rowData[2];
+                    const editThoiGian = rowData[3];
+                    const editLichDay = rowData[4];
+                    const editGiaTien = rowData[5];
+
+                    const buyBtns = document.querySelectorAll('.js-buy-ticket')
+                    const modal = document.querySelector('.js-modal')
+                    const modalClose = document.querySelector('.js-modal-close')
+                    const modalContainer = document.querySelector('.js-modal-container')
+
+                    // Open modal
+                    modal.classList.add('open')
+
+                    function hideBuy() {
+                        modal.classList.remove('open')
+                    }
+
+                    for (const buyBtn of buyBtns) {
+                        buyBtn.addEventListener('click', showBuy)
+                    }
+
+                    modalClose.addEventListener('click', hideBuy)
+
+                    modal.addEventListener('click', hideBuy)
+
+                    modalContainer.addEventListener('click', function (event) {
+                        event.stopPropagation()
+                    })
+
+                    // Lấy dữ liệu của các ô để cho vào modal Sửa
+                    document.getElementById("updateIdKh").value = luuIdKh;
+                    document.getElementById("updateTenKh").value = editTen;
+                    document.getElementById("updateLichDay").value = editLichDay;
+                    document.getElementById("updateThoiGian").value = editThoiGian;
+                    document.getElementById("updateGiaTien").value = editGiaTien;
+
+
+                    // Thực hiện các hành động khác với dữ liệu đã lấy được
+
+                    // location.reload()
+                });
+
+                deleteButton.addEventListener("click", function () {
+                    // Lấy dữ liệu từ hàng chứa nút "Xóa"
+                    const rowData = Array.from(row.children).map(cell => cell.textContent);
+                    luuIdKh = rowData[1];
+                    async function Delete(url = "", data = {}) {
+                        // Default options are marked with *
+                        const response = await fetch(url, {
+                            method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+                            mode: "cors", // no-cors, *cors, same-origin
+                            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                            credentials: "same-origin", // include, *same-origin, omit
+                            headers: {
+                                "Content-Type": "application/json",
+                                // 'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            redirect: "follow", // manual, *follow, error
+                            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                            body: JSON.stringify(data), // body data type must match "Content-Type" header
+                        });
+                        return response.json(); // parses JSON response into native JavaScript objects
+                    }
+
+                    Delete('http://localhost:8889/KhoaHoc/xoa', {
+                        idKh: luuIdKh
+                    }).then((res) => {
+                        alert("Đã xóa thành công")
+                        location.reload()
+                    })
+
+                });
+
+            });
+        }));
+    }
 </script>
 
+
+<script>
+
+    // Xử lý nút sửa ở Modal sửa
+
+    const buttonSua = document.querySelector('.buttonEdit');
+
+    async function Update(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "PUT", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    function hideModalSua() {
+        modal.classList.remove('open')
+    }
+
+    function suaKhoaHoc() {
+
+        var valueTenKh = document.getElementById("updateTenKh").value;
+        var valueLichDay = document.getElementById("updateLichDay").value;
+        var valueThoiGian = document.getElementById("updateThoiGian").value;
+        var valueGiaTien = document.getElementById("updateGiaTien").value;
+
+        buttonSua.addEventListener('click', Update('http://localhost:8889/KhoaHoc/capNhat', {
+            idKh: luuIdKh,
+            tenKh: valueTenKh,
+            thoiGian: valueThoiGian,
+            lichDay: valueLichDay,
+            giaTien: valueGiaTien
+        }).then((data) => {
+            alert("Sửa thành công")
+            hideModalSua()
+            location.reload()
+        }));
+    }
+
+
+</script>
 
 </body>
 </html>

@@ -453,6 +453,7 @@
                     // Lấy dữ liệu từ hàng chứa nút "Xóa"
                     const rowData = Array.from(row.children).map(cell => cell.textContent);
                     luuIdKh = rowData[1];
+
                     async function Delete(url = "", data = {}) {
                         // Default options are marked with *
                         const response = await fetch(url, {

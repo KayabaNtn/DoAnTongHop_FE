@@ -1,10 +1,11 @@
-#main{
+#main {
     padding: 0;
     margin: -2px;
     box-sizing: border-box;
 
 
 }
+
 html {
     scroll-behavior: smooth;
     font-family: Arial, Helvetica, sans-serif;
@@ -15,8 +16,9 @@ html {
     display: flex;
     flex-direction: column;
 }
+
 #header {
-    height:70px;
+    height: 70px;
     position: fixed;
     top: 0;
     left: 0;
@@ -26,7 +28,7 @@ html {
     display: flex;
 }
 
-#nav{
+#nav {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -36,7 +38,7 @@ html {
 
 #nav .logo {
     width: 70px;
-    height:70px;
+    height: 70px;
     /* object-fit: contain; */
 
 }
@@ -49,7 +51,7 @@ html {
     display: inline-block;
 }
 
-#nav  li  {
+#nav li {
 
     position: relative;
 }
@@ -59,18 +61,16 @@ html {
     text-transform: uppercase; /* tất cả các chữ viết hoa */
 }
 
-#nav li a  {
+#nav li a {
 
     text-decoration: none; /* gạch chân */
-    line-height: 70px;/* Tip nhỏ : muốn căn giữa chữ thì cho chiều cao của chữ bằng chiều cao thẻ bên ngoài */
+    line-height: 70px; /* Tip nhỏ : muốn căn giữa chữ thì cho chiều cao của chữ bằng chiều cao thẻ bên ngoài */
     padding: 0px 24px;
     display: block; /* Thành phần hiển thị như 1 khối */
 }
 
 
-
-
-#nav > li:hover > a  {
+#nav > li:hover > a {
     color: #000;
     background-color: #ccc;
 }
@@ -104,11 +104,11 @@ html {
 #header .search-icon {
     color: #fff;
     font-size: 20px;
-    line-height:70px;
+    line-height: 70px;
 }
 
 
-div.form-student  {
+div.form-student {
     width: 40%;
     border: 1px solid #ccc;
     height: 100%;
@@ -128,7 +128,7 @@ div.form-student h3 {
 }
 
 div.form-student label {
-    width:25%;
+    width: 25%;
     float: left;
     text-align: center;
 }
@@ -144,7 +144,7 @@ div.form-student input[type="text"], .btn-save {
     margin-left: 10px;
 }
 
-#bodys div.list-student{
+#bodys div.list-student {
     width: 50%;
     height: 100%;
     border: 1px solid #ccc;
@@ -178,22 +178,22 @@ div.list-student h3 {
     height: 1000px;
 }
 
-#footer .socials-list{
+#footer .socials-list {
     font-size: 24px;
 
 }
 
-#footer .socials-list a{
+#footer .socials-list a {
     color: rgba(0, 0, 0, 0.6);
     text-decoration: none;
     padding: 0 12px 0 12px;
 }
 
-#footer .socials-list a:hover{
+#footer .socials-list a:hover {
     opacity: 0.6;
 }
 
-#footer .copyright{
+#footer .copyright {
     margin-top: 15px;
     color: rgba(0, 0, 0, 0.6);
 }
@@ -202,6 +202,7 @@ div.list-student h3 {
     color: rgba(0, 0, 0, 0.6);
 
 }
+
 .modal {
     position: fixed;
     top: 0;
@@ -294,19 +295,20 @@ div.list-student h3 {
     color: #2196F3;
 }
 
-.modal-body-left{
+.modal-body-left {
     float: left;
     margin-left: 25px;
     margin-bottom: 15px;
 }
 
-.modal-body-right{
+.modal-body-right {
     float: left;
     margin-left: 20%;
 }
+
 input[type="radio"] {
     transform: scale(1.5); /* Phóng to 1.5 lần */
-  }
+}
 
 #table-container {
     width: 100%;

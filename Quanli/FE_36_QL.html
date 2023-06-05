@@ -62,12 +62,12 @@
             <input id="txtHocPhi" tabindex="5" type="text">
             <br>
 
-            <label >&nbsp;</label>
+            <label>&nbsp;</label>
             <button class="btn-save Search" onclick="SEARCH()">Tìm</button>
-            <label >&nbsp;</label>
-            <button class="btn-save js-HD-themOpen  " >Thêm</button>
-<!--            <label >&nbsp;</label>-->
-<!--            <button class="btn-save js-buy-ticket-sua  " >Sửa</button>-->
+            <label>&nbsp;</label>
+            <button class="btn-save js-HD-themOpen  ">Thêm</button>
+            <!--            <label >&nbsp;</label>-->
+            <!--            <button class="btn-save js-buy-ticket-sua  " >Sửa</button>-->
         </div>
 
 
@@ -162,8 +162,8 @@
             </label>
             <input class="modal-input" id="updateNgayKy" placeholder="Ngày ?" type="text">
 
-            <button class="" id="buy-tickets" >
-                Sửa  <i class="ti-check"></i>
+            <button class="" id="buy-tickets">
+                Sửa <i class="ti-check"></i>
             </button>
 
         </div>
@@ -337,7 +337,7 @@
         const modalClose1 = document.querySelector('.js-modal-close-them')
         const modalContainer1 = document.querySelector('.js-modal-container-them')
 
-        var luuIdHd ;
+        var luuIdHd;
 
 
         function showModalSua() {
@@ -459,15 +459,16 @@
                     //     document.getElementById("editSoDienThoai").value = editSDT;
 
 
-                        // Thực hiện các hành động khác với dữ liệu đã lấy được
+                    // Thực hiện các hành động khác với dữ liệu đã lấy được
 
-                        // location.reload()
+                    // location.reload()
                     // });
 
                     deleteButton.addEventListener("click", function () {
                         // Lấy dữ liệu từ hàng chứa nút "Xóa"
                         const rowData = Array.from(row.children).map(cell => cell.textContent);
                         luuIdHd = rowData[1];
+
                         async function Delete(url = "", data = {}) {
                             // Default options are marked with *
                             const response = await fetch(url, {
@@ -485,6 +486,7 @@
                             });
                             return response.json(); // parses JSON response into native JavaScript objects
                         }
+
                         Delete('http://localhost:8889/HopDong/delete', {
                             idHd: luuIdHd
                         }).then((res) => {

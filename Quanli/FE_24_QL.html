@@ -341,6 +341,7 @@
     const Save = document.querySelector(" .addHocVien");
     const Search = document.querySelector(" .search");
     var luuIDHv;
+
     function showModelThem() {
         modal1.classList.add('open')
     }
@@ -348,6 +349,7 @@
     function hideModalThem1() {
         modal1.classList.remove('open')
     }
+
     // Example POST method implementation:
     async function Saves(url = "", data = {}) {
         // Default options are marked with *
@@ -615,6 +617,7 @@
                         // Lấy dữ liệu từ hàng chứa nút "Xóa"
                         const rowData = Array.from(row.children).map(cell => cell.textContent);
                         luuIDHv = rowData[1];
+
                         async function Delete(url = "", data = {}) {
                             // Default options are marked with *
                             const response = await fetch(url, {
@@ -632,6 +635,7 @@
                             });
                             return response.json(); // parses JSON response into native JavaScript objects
                         }
+
                         Delete('http://localhost:8889/HocVien/delete', {
                             idHv: luuIDHv
                         }).then((res) => {
@@ -655,6 +659,7 @@
     // Xử lý nút sửa ở Modal sửa
 
     const buttonSua = document.querySelector('.buttonEdit');
+
     async function Update(url = "", data = {}) {
         // Default options are marked with *
         const response = await fetch(url, {
@@ -676,20 +681,21 @@
     function hideModalSua() {
         modal.classList.remove('open')
     }
-    function suaHocVien(){
-        const editTenHv1 = document.getElementById("editTenHocVien").value ;
+
+    function suaHocVien() {
+        const editTenHv1 = document.getElementById("editTenHocVien").value;
         const editEmail1 = document.getElementById("editEmail").value;
         const editDiaChi1 = document.getElementById("editDiaChi").value;
-        const editGioiTinh1 = document.getElementById("editGioiTinh").value ;
-        const editMatKhau1 = document.getElementById("editMatKhau").value ;
-        const editDiemDanhGia1 = document.getElementById("editDiemDanhGia").value ;
-        const editNgaySinh1 = document.getElementById("editNgaySinh").value ;
-        const editSDT1 = document.getElementById("editSoDienThoai").value ;
+        const editGioiTinh1 = document.getElementById("editGioiTinh").value;
+        const editMatKhau1 = document.getElementById("editMatKhau").value;
+        const editDiemDanhGia1 = document.getElementById("editDiemDanhGia").value;
+        const editNgaySinh1 = document.getElementById("editNgaySinh").value;
+        const editSDT1 = document.getElementById("editSoDienThoai").value;
         buttonSua.addEventListener('click', Update('http://localhost:8889/HocVien/update', {
             idHv: luuIDHv,
-            tenHv: editTenHv1 ,
+            tenHv: editTenHv1,
             ngaySinh: editNgaySinh1,
-            diaChi:editDiaChi1 ,
+            diaChi: editDiaChi1,
             gioiTinh: editGioiTinh1,
             email: editEmail1,
             sdt: editSDT1,
@@ -697,6 +703,8 @@
         }).then((data) => {
             alert("Sửa học viên thành công")
             hideModalSua()
+            location.reload()
+
         }));
     }
 

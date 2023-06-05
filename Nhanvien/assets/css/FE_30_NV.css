@@ -89,14 +89,14 @@ html {
     text-align: center;
 }
 
-.btn-search{
+.btn-search {
     display: flex;
 
-  justify-content: space-between;
-  align-items: center;
-  margin: 8px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px;
 
- }
+}
 
 
 .fix {
@@ -310,8 +310,7 @@ div.list-student h3 {
 }
 
 
-
-.modal-body-left{
+.modal-body-left {
     float: left;
     margin-left: 25px;
     margin-bottom: 15px;
@@ -321,7 +320,8 @@ div.list-student h3 {
     float: left;
     margin-left: 20%;
 }
+
 input[type="radio"] {
     transform: scale(1.5); /* Phóng to 1.5 lần */
     margin-right: 10px; /* Khoảng cách 10px giữa các input */
-  }
+}

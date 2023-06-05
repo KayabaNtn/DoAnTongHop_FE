@@ -54,7 +54,8 @@
                 Học viện thể thao Cat Sports Academy Là ngôi trường số 1 Việt Nam về đào tạo Thể thao Cấp cao, được ra
                 đời từ tâm huyết của những người đam mê nuôi dưỡng và ươm mầm tài năng thể thao trẻ Việt Nam. Với phương
                 châm “Vì một thế hệ trẻ phát triển toàn diện”, tại học viện, các học viên sẽ được đào tạo về mọi mặt Thể
-                chất – Kiến thức – Kỹ năng. Học viện thể thao Cat Sports Academy còn tự hào là một trong những trung tâm thể thao
+                chất – Kiến thức – Kỹ năng. Học viện thể thao Cat Sports Academy còn tự hào là một trong những trung tâm
+                thể thao
                 uy tín, có chất lượng giảng dạy tốt nhất với một đội ngũ chuyên gia giàu kinh nghiệm. Các học viên sẽ
                 được dẫn dắt bởi HLV Mai Hồng Quân – Cựu tuyển thủ quốc gia Việt Nam, hiện đang là Giám đốc Kỹ thuật của
                 trung tâm.
@@ -147,15 +148,17 @@
                                 <input class="form-control" id="Name" name="" placeholder="Name" required type="text">
                             </div>
                             <div class="col s-col-full col-half s-mt-8">
-                                <input class="form-control" id="Email" name="" placeholder="Email" required type="email">
+                                <input class="form-control" id="Email" name="" placeholder="Email" required
+                                       type="email">
                             </div>
                         </div>
                         <div class="row mt-8 ">
                             <div class="col col-full">
-                                <input class="form-control" id="Number" name="" placeholder="Phone number" required type="number">
+                                <input class="form-control" id="Number" name="" placeholder="Phone number" required
+                                       type="number">
                             </div>
                         </div>
-                        <button class="btn mt-16 form-submit-btn s-full-width js-Send " onclick="Send1()" > Send </button>
+                        <button class="btn mt-16 form-submit-btn s-full-width js-Send " onclick="Send1()"> Send</button>
 
                     </form>
 
@@ -190,8 +193,9 @@
 
     const Sends = document.querySelector(" .js-Send")
     const inputName = document.getElementById("Name").value;
-        const inputEmail = document.getElementById("Email").value;
-        const inputNumber = document.getElementById("Number").value;
+    const inputEmail = document.getElementById("Email").value;
+    const inputNumber = document.getElementById("Number").value;
+
     async function Send(url = "", data = {}) {
         // Default options are marked with *
         const response = await fetch(url, {
@@ -217,19 +221,19 @@
         const inputNumber = document.getElementById("Number").value;
         Sends.addEventListener('click', Send("http://localhost:8889/PhieuDangKy/insert", {
             ten: inputName,
-           email: inputEmail,
-           sdt: inputNumber,
-           ngayThem: null,
-       }).then((data) => {
-           alert("Thành công")
-           console.log(data); // JSON data parsed by `data.json()` call
-       }));
-       console.log('Dữ liệu ô input')
-       console.log(inputName);
+            email: inputEmail,
+            sdt: inputNumber,
+            ngayThem: null,
+        }).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+        }));
+        console.log('Dữ liệu ô input')
+        console.log(inputName);
         console.log(inputEmail);
         console.log(inputNumber);
 
-   }
+    }
 
 
 </script>

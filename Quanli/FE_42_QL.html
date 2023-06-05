@@ -134,8 +134,8 @@
             ngayThem: inputDate,
             email: inputEmail,
             sdt: inputNumber,
-            pageBegin : 0,
-            pageEnd : 10
+            pageBegin: 0,
+            pageEnd: 10
         }
         let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
         let urlWithQuery = 'http://localhost:8889/PhieuDangKy/search?' + queryString;
@@ -173,7 +173,8 @@
                 row.appendChild(cell5);
 
                 tbody.appendChild(row);
-        })}))
+            })
+        }))
     }
 
 

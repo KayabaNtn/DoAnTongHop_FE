@@ -138,15 +138,16 @@ div.form-student input[type="text"], .btn-save {
 .btn-save {
     margin-top: 15px;
 }
- .btn-search{
+
+.btn-search {
     display: flex;
-   
-  justify-content: space-between;
-  align-items: center;
-  margin: 8px;
-  
- }
- 
+
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px;
+
+}
+
 
 div.list-student {
     width: 80%;
@@ -276,7 +277,7 @@ div.list-student h3 {
 
 .modal-input {
     border: 1px solid #ccc;
-    width:300px;
+    width: 300px;
     padding: 10px;
     font-size: 15px;
     margin-bottom: 24px;
@@ -341,16 +342,17 @@ div.list-student h3 {
     background-color: #e9e9e9;
 }
 
-.modal-body-left{
+.modal-body-left {
     float: left;
     margin-left: 25px;
     margin-bottom: 15px;
 }
 
-.modal-body-right{
+.modal-body-right {
     float: left;
     margin-left: 20%;
 }
+
 input[type="radio"] {
     transform: scale(1.5); /* Phóng to 1.5 lần */
-  }
+}

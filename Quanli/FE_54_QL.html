@@ -63,25 +63,20 @@
 
         <div class="list-student">
             <h3>Danh sách </h3>
-            <table border="1" cellpadding="0" cellpadding="0" width="100%">
+
+            <table id="table-container">
+                <thead>
                 <tr>
                     <th>STT</th>
-                    <th>Huấn Luyện Viên</th>
-                    <th>Học Viên</th>
-                    <th>feedback</th>
+                    <th>Tên huấn luyện viên</th>
+                    <th>Tên học viên</th>
+                    <th>Feedback</th>
                     <th>Ngày gửi</th>
-                    <th>Question</th>
                 </tr>
-                <tr>
-                    <td>STT</td>
-                    <td>Mai Hồng Quân</td>
-                    <td>Mikami</td>
-                    <td>Em làm rất tốt</td>
-                    <td>29/5/2023</td>
-                    <td>
-                        <button class="btn-update"> Sửa</button>
-                    </td>
-                </tr>
+                </thead>
+                <tbody>
+                <!-- Các hàng dữ liệu sẽ được thêm vào đây -->
+                </tbody>
             </table>
         </div>
     </div>
@@ -148,8 +143,40 @@
         let urlWithQuery = 'http://localhost:8889/Feedback/search??' + queryString;
 
         Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
-            alert("Thành công")
-            console.log(data); // JSON data parsed by `data.json()` call
+            const table = document.getElementById("table-container");
+            const tbody = table.getElementsByTagName("tbody")[0];
+
+            // Xóa các hàng hiện tại
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild);
+            }
+
+            // Thêm dữ liệu từ API vào bảng
+            data.forEach(function (item) {
+                const row = document.createElement("tr");
+                const cell1 = document.createElement("td");
+                const cell2 = document.createElement("td");
+                const cell3 = document.createElement("td");
+                const cell4 = document.createElement("td");
+                const cell5 = document.createElement("td");
+
+                cell1.textContent = item.stt;
+                cell2.textContent = item.tenNv;
+                cell3.textContent = item.tenHv;
+                cell4.textContent = item.feedBack;
+                cell5.textContent = item.ngayGui;
+
+
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                row.appendChild(cell3);
+                row.appendChild(cell4);
+                row.appendChild(cell5);
+
+                tbody.appendChild(row);
+
+
+            });
         }));
     }
 

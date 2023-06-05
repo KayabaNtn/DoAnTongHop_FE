@@ -40,14 +40,14 @@
 
     <div id="bodys">
         <div class="form-student">
-            <h3>Thêm sửa xoá thu chi</h3>
+            <h3>Thêm sửa xoá vật tư</h3>
 
             <label>ID Nhân Viên :</label>
             <input id="IDNV" tabindex="1" type="text">
             <br>
 
-            <label>ID Vật tư :</label>
-            <input id="IDVT" tabindex="1" type="text">
+            <label>Tên Vật tư :</label>
+            <input id="TENVT" tabindex="1" type="text">
             <br>
 
             <label>Giá Vật Tư :</label>
@@ -75,23 +75,22 @@
 
     <div class="list-student">
         <h3>Danh sách Vật Tư</h3>
-        <table border="1" cellpadding="0" cellpadding="0" width="100%">
+        <table id="table-container">
+            <thead>
             <tr>
+                <th>STT</th>
+                <th>ID vật tư</th>
                 <th>Tên Vật tư</th>
                 <th>Giá Vật tư</th>
                 <th>Số lượng</th>
                 <th>Thành tiền</th>
-                <th>EDIT</th>
+                <th>Tên nhân viên</th>
+                <th>Thao tác</th>
             </tr>
-            <tr>
-                <td>Tên Vật tư</td>
-                <td>Giá Vật tư</td>
-                <td>Số lượng</td>
-                <td>Thành tiền</td>
-                <td>
-                    <button class="btn-update"> Sửa</button>
-                </td>
-            </tr>
+            </thead>
+            <tbody>
+            <!-- Các hàng dữ liệu sẽ được thêm vào đây -->
+            </tbody>
         </table>
     </div>
 
@@ -125,29 +124,29 @@
 
         <div class="modal-body">
 
-            <label class="modal-label" for="nameVt">
+            <label class="modal-label" for="addnameVt">
                 <i class="ti-star"></i>
                 Tên Vật tư :
             </label>
-            <input class="modal-input" id="nameVt" placeholder=" Tên Vật tư ?" type="text">
+            <input class="modal-input" id="addnameVt" placeholder=" Tên Vật tư ?" type="text">
 
-            <label class="modal-label" for="giaVt">
+            <label class="modal-label" for="addgiaVt">
                 <i class="ti-headphone-alt"></i>
                 Giá Vật Tư:
             </label>
-            <input class="modal-input" id="giaVt" placeholder=" Giá Vật Tư: ?" type="text">
+            <input class="modal-input" id="addgiaVt" placeholder=" Giá Vật Tư: ?" type="text">
 
-            <label class="modal-label" for="soLuong">
+            <label class="modal-label" for="addsoLuong">
                 <i class="ti-home"></i>
                 Số Lượng:
             </label>
-            <input class="modal-input" id="soLuong" placeholder="Số Lượng ?" type="text">
+            <input class="modal-input" id="addsoLuong" placeholder="Số Lượng ?" type="text">
 
-            <label class="modal-label" for="nhanVien">
+            <label class="modal-label" for="addnhanVien">
                 <i class="ti-user"></i>
                 ID Nhân Viên :
             </label>
-            <input class="modal-input" id="nhanVien" placeholder=" ID Nhân Viên ?" type="text">
+            <input class="modal-input" id="addnhanVien" placeholder=" ID Nhân Viên ?" type="text">
 
             <button class="save" id="buy-tickets" onclick="addValue()">
                 Thêm <i class="ti-check"></i>
@@ -174,29 +173,20 @@
 
         <div class="modal-body">
 
-            <label>ID Nhân Viên :</label>
-            <input id="update-IDNV" tabindex="1" type="text" class="modal-input">
-            <br>
-
-            <label>ID Vật tư :</label>
-            <input id="update-IDVT" tabindex="1" type="text"   class="modal-input">
+            <label>Tên Vật tư :</label>
+            <input class="modal-input" id="update-TENVT" tabindex="1" type="text">
             <br>
 
             <label>Giá Vật Tư :</label>
-            <input id="update-GIAVT" tabindex="1" type="text"  class="modal-input">
+            <input class="modal-input" id="update-GIAVT" tabindex="1" type="text">
             <br>
 
             <label>Số lượng :</label>
-            <input id="update-SOLUONG" tabindex="1" type="text"  class="modal-input">
+            <input class="modal-input" id="update-SOLUONG" tabindex="1" type="text">
             <br>
 
-            <label>Thành tiền :</label>
-            <input id="update-THANHTIEN" tabindex="1" type="text"  class="modal-input">
-            <br>
-
-
-            <button class="" id="buy-tickets" >
-                Sửa  <i class="ti-check"></i>
+            <button class="buttonEdit" id="buy-tickets" onclick="suaVatTu()">
+                Sửa <i class="ti-check"></i>
             </button>
 
         </div>
@@ -209,31 +199,32 @@
 
 <script>
     const Them = document.querySelectorAll('.js-buy-ticket-them')
-      const modal1 = document.querySelector('.js-modal-them')
-      const modalClose1 = document.querySelector('.js-modal-close-them')
-      const modalContainer1 = document.querySelector('.js-modal-container-them')
-  
-  
-      function showBuy() {
+    const modal1 = document.querySelector('.js-modal-them')
+    const modalClose1 = document.querySelector('.js-modal-close-them')
+    const modalContainer1 = document.querySelector('.js-modal-container-them')
+    var luuIdVt;
+
+
+    function showBuySua() {
         modal1.classList.add('open')
-      }
-  
-      function hideBuy() {
+    }
+
+    function hideBuySua() {
         modal1.classList.remove('open')
-      }
-  
-      for (const buyBtn of Them) {
-          buyBtn.addEventListener('click', showBuy)
-      }
-  
-      modalClose1.addEventListener('click', hideBuy)
-  
-      modal1.addEventListener('click', hideBuy)
-  
-      modalContainer1.addEventListener('click', function (event) {
-          event.stopPropagation()
-      })
-  </script>
+    }
+
+    for (const buyBtn of Them) {
+        buyBtn.addEventListener('click', showBuySua)
+    }
+
+    modalClose1.addEventListener('click', hideBuySua)
+
+    modal1.addEventListener('click', hideBuySua)
+
+    modalContainer1.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+</script>
 
 <script>
     const buyBtns = document.querySelectorAll('.js-buy-ticket')
@@ -242,21 +233,21 @@
     const modalContainer = document.querySelector('.js-modal-container')
 
 
-    function showBuy() {
+    function showBuyModalAdd() {
         modal.classList.add('open')
     }
 
-    function hideBuy() {
+    function hideBuyModalAdd() {
         modal.classList.remove('open')
     }
 
     for (const buyBtn of buyBtns) {
-        buyBtn.addEventListener('click', showBuy)
+        buyBtn.addEventListener('click', showBuyModalAdd)
     }
 
-    modalClose.addEventListener('click', hideBuy)
+    modalClose.addEventListener('click', hideBuyModalAdd)
 
-    modal.addEventListener('click', hideBuy)
+    modal.addEventListener('click', hideBuyModalAdd)
 
     modalContainer.addEventListener('click', function (event) {
         event.stopPropagation()
@@ -289,10 +280,10 @@
     // Nhật test được rồi
     function addValue() {
         // Lấy tham chiếu đến phần tử input
-        var inputnameVt = document.getElementById("nameVt").value;
-        var inputgiaVt = document.getElementById("giaVt").value;
-        var inputsoLuong = document.getElementById("soLuong").value;
-        var inputnhanVien = document.getElementById("nhanVien").value;
+        var inputnameVt = document.getElementById("addnameVt").value;
+        var inputgiaVt = document.getElementById("addgiaVt").value;
+        var inputsoLuong = document.getElementById("addsoLuong").value;
+        var inputnhanVien = document.getElementById("addnhanVien").value;
 
         Save.addEventListener('click', Saves("http://localhost:8889/VatTu/insert", {
             tenVt: inputnameVt,
@@ -302,10 +293,11 @@
 
         }).then((data) => {
             alert("Thành công")
-            document.getElementById("nameVt").value = null;
-            document.getElementById("giaVt").value = null;
-            document.getElementById("soLuong").value = null;
-            document.getElementById("nhanVien").value = null;
+            document.getElementById("addnameVt").value = null;
+            document.getElementById("addgiaVt").value = null;
+            document.getElementById("addsoLuong").value = null;
+            document.getElementById("addnhanVien").value = null;
+            hideBuyModalAdd()
         }));
 
 
@@ -339,10 +331,14 @@
     function SEARCH() {
         // Lấy tham chiếu đến phần tử input
         var inputIDNV = document.getElementById("IDNV").value;
-        var inputIDVT = document.getElementById("IDVT").value;
+        var inputIDVT = document.getElementById("TENVT").value;
         var inputGIAVT = document.getElementById("GIAVT").value;
         var inputSOLUONG = document.getElementById("SOLUONG").value;
         var inputTHANHTIEN = document.getElementById("THANHTIEN").value;
+
+
+        // Tạo bảng table tên đéo gì cũng được
+        const table = document.createElement('tableTest');
 
 
         let data = {
@@ -358,10 +354,164 @@
         let urlWithQuery = 'http://localhost:8889/VatTu/search??' + queryString;
 
         Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
-            alert("Thành công")
-            console.log(data); // JSON data parsed by `data.json()` call
+            const table = document.getElementById("table-container");
+            const tbody = table.getElementsByTagName("tbody")[0];
+
+            // Xóa các hàng hiện tại
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild);
+            }
+
+            // Thêm dữ liệu từ API vào bảng
+            data.forEach(function (item) {
+                const row = document.createElement("tr");
+                const cell1 = document.createElement("td");
+                const cell2 = document.createElement("td");
+                const cell3 = document.createElement("td");
+                const cell4 = document.createElement("td");
+                const cell5 = document.createElement("td");
+                const cell6 = document.createElement("td");
+                const cell7 = document.createElement("td");
+                const cell8 = document.createElement("td");
+
+
+                const editButton = document.createElement("button");
+                const deleteButton = document.createElement("button");
+
+                cell1.textContent = item.stt;
+                cell2.textContent = item.idVt;
+                cell3.textContent = item.tenVt;
+                cell4.textContent = item.giaVt;
+                cell5.textContent = item.soLuong;
+                cell6.textContent = item.thanhTien;
+                cell7.textContent = item.tenNv;
+
+                editButton.textContent = "Sửa";
+                deleteButton.textContent = "Xóa";
+
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                row.appendChild(cell3);
+                row.appendChild(cell4);
+                row.appendChild(cell5);
+                row.appendChild(cell6);
+                row.appendChild(cell7);
+                row.appendChild(cell8);
+
+                cell8.appendChild(editButton);
+                cell8.appendChild(deleteButton);
+
+
+                tbody.appendChild(row);
+
+                // Gắn sự kiện click vào nút "Sửa"
+                editButton.addEventListener("click", function () {
+                    // Lấy dữ liệu từ hàng chứa nút "Sửa"
+                    const rowData = Array.from(row.children).map(cell => cell.textContent);
+                    luuIdVt = rowData[1];
+                    const editTen = rowData[2];
+                    const editGia = rowData[3];
+                    const editSoLuong = rowData[4];
+
+                    const buyBtns = document.querySelectorAll('.js-buy-ticket')
+                    const modal = document.querySelector('.js-modal')
+                    const modalClose = document.querySelector('.js-modal-close')
+                    const modalContainer = document.querySelector('.js-modal-container')
+
+                    // Open modal
+                    modal1.classList.add('open')
+
+                    // Lấy dữ liệu của các ô để cho vào modal Sửa
+                    document.getElementById("update-TENVT").value = editTen;
+                    document.getElementById("update-GIAVT").value = editGia;
+                    document.getElementById("update-SOLUONG").value = editSoLuong;
+
+                    // Thực hiện các hành động khác với dữ liệu đã lấy được
+
+                    // location.reload()
+                });
+
+                deleteButton.addEventListener("click", function () {
+                    // Lấy dữ liệu từ hàng chứa nút "Xóa"
+                    const rowData = Array.from(row.children).map(cell => cell.textContent);
+                    luuIdVt = rowData[1];
+
+                    async function Delete(url = "", data = {}) {
+                        // Default options are marked with *
+                        const response = await fetch(url, {
+                            method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+                            mode: "cors", // no-cors, *cors, same-origin
+                            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                            credentials: "same-origin", // include, *same-origin, omit
+                            headers: {
+                                "Content-Type": "application/json",
+                                // 'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            redirect: "follow", // manual, *follow, error
+                            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                            body: JSON.stringify(data), // body data type must match "Content-Type" header
+                        });
+                        return response.json(); // parses JSON response into native JavaScript objects
+                    }
+
+                    Delete('http://localhost:8889/VatTu/delete', {
+                        idVt: luuIdVt
+                    }).then((res) => {
+                        alert("Đã xóa thành công")
+                        location.reload()
+                    })
+
+                    // location.reload()
+                });
+
+            });
         }));
     }
+</script>
+
+
+<script>
+    // UPdate vật tư
+
+    const buttonSua = document.querySelector('.buttonEdit');
+
+    async function Update(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "PUT", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    function suaVatTu() {
+
+        const updateTenVt = document.getElementById("update-TENVT").value;
+        const updateGiaVt = document.getElementById("update-GIAVT").value;
+        const updateSoLuong = document.getElementById("update-SOLUONG").value;
+
+        buttonSua.addEventListener('click', Update('http://localhost:8889/VatTu/update', {
+            idVt: luuIdVt,
+            tenVt: updateTenVt,
+            giaVt: updateGiaVt,
+            soLuong: updateSoLuong,
+        }).then((data) => {
+            alert("Sửa vật tư thành công")
+            hideBuySua()
+            location.reload()
+
+        }));
+    }
+
 </script>
 </body>
 </html>

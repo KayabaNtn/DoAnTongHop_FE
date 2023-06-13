@@ -34,7 +34,6 @@
 
     const DangNhap = document.querySelector(" .jsDangNhap")
     const DangNhap1 = document.querySelector(" .jsDangNhap1")
-
     async function DangNhaps(url = "", data = {}) {
         // Default options are marked with *
         const response = await fetch(url, {
@@ -58,7 +57,6 @@
 
         const inputEmail = document.getElementById("dangNhap").value;
         const inputPass = document.getElementById("matKhau").value;
-
         DangNhap1.addEventListener('click', DangNhaps("http://localhost:8889/DangNhap/hocVienDangNhap", {
             email: inputEmail,
             matKhau: inputPass
@@ -66,6 +64,7 @@
             if (res.length != 0) {
                 // sẽ chuyển hướng đến form cho học viên
                 window.location.href = "../HocVien/FE_83_HV.html";
+                localStorage.setItem('user', inputEmail)
             } else {
                 DangNhap.addEventListener('click', DangNhaps("http://localhost:8889/DangNhap/nhanVienDangNhap", {
                     email: inputEmail,
@@ -77,11 +76,15 @@
                         if (responseData[0].role == '1') {
                             // chuyển hướng đến form quản lý
                             window.location.href = "../Quanli/FE_24_QL.html";
+                            localStorage.setItem('user', inputEmail)
                         } else if (responseData[0].role == '2') {
                             // chuyển hướng đến form nhân viên
                             window.location.href = "../Nhanvien/FE_30_NV.html";
+                            localStorage.setItem('user', inputEmail)
+
                         } else {
                             alert("Sai thông tin, vui lòng nhập lại")
+                            localStorage.setItem('user', null)
                         }
                     }));
             }

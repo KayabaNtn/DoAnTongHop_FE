@@ -22,7 +22,8 @@
         <ul id="nav"> <!--ul#nav>li*5 -->
             <a><img alt="abc" class="logo" src="./assets/image/logo.jpg"></a>
             <li><a href="#">HOME</a></li>
-            <li><a href="hopdong.html">Function</a></li>
+            <li><a href="../Hocvien/FE_106_HV.html">FeedBack</a></li>
+            <li><a href="../Hocvien/FE_100_HV.html">Thông tin Cá nhân</a></li>
             <li><a href="#footer">Giới thiệu</a></li>
         </ul>
         <!-- End : nav -->
@@ -39,61 +40,37 @@
 
     <div id="bodys">
         <div class="form-student">
-            <h3>Thông tin Hợp đồng</h3>
+            <h3>Đánh Giá Nhân Viên</h3>
 
-            <label>Họ và Tên:</label>
-            <input class="form_st_input" disabled id="txtFullName" placeholder="Mai Hồng Quân" tabindex="1" type="text">
+            <label>ID FeedBack</label>
+            <input  id="idFb" placeholder="Nhập ID FeedBack" tabindex="1" type="text">
             <br>
 
-            <label>Địa chỉ Email:</label>
-            <input class="form_st_input" disabled id="txtEmailAddress" placeholder="Thanh Hóa" tabindex="1" type="text">
+            <label>ID Huấn Luyện Viên</label>
+            <input  id="idHlv" placeholder="Nhập ID Huấn Luyện Viên" tabindex="2" type="text">
             <br>
 
-            <label>Số điện thoại:</label>
-            <input class="form_st_input" disabled id="txtPhoneNumber" placeholder="0945****" tabindex="1" type="text">
+            <label>ID Học Viên :</label>
+            <input  id="idHv" placeholder="Nhập ID Học Viên  " tabindex="3" type="text">
             <br>
 
-            <label>Quê quán:</label>
-            <input class="form_st_input" disabled id="txtHomeTown" placeholder="Thanh Hóa" tabindex="1" type="text">
+            <label>FeedBack:</label>
+            <input  id="feedBack" placeholder="Nhập FeedBack" tabindex="4" type="text">
             <br>
 
-            <label>Date :</label>
-            <input class="form_st_input" disabled id="txtHomeTown" placeholder="0 9 45" tabindex="1" type="text">
+            <label>Ngày Gửi :</label>
+            <input  id="ngayGui" placeholder="Nhập Ngày " tabindex="5" type="text">
             <br>
+
 
             <label for="">&nbsp;</label>
-            <button class="btn-save js-buy-ticket ">Feddback</button>
-            <label for="">&nbsp;</label>
-            <button class="btn-save" onclick="enableInputs()">Sửa</button>
-            <label for="">&nbsp;</label>
-            <button class="btn-save" onclick="disableInputs()">Hoàn Thành</button>
+            <button class="btn-save save" onclick="getValue()">Gửi FeedBack</button>
         </div>
 
 
     </div>
 
-    <!-- <div class="list-student">
-        <h3>Danh sách Hợp đồng</h3>
-        <table width="100%" border="1" cellpadding="0" cellpadding="0">
-            <tr>
-                <th>STT</th>
-                <th>Tên khóa học</th>
-                <th>Thời gian</th>
-                <th>Lịch dạy</th>
-                <th>Giá Tiền </th>
-                <th>EDIT </th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Football basic </td>
-                <td>NV_72</td>
-                <td>Mai Hồng Quân</td>
-                <td>15000vnđ</td>
-                <td> <button class="btn-update "> Sửa </button> </td>
-            </tr>
-        </table>
-    </div> -->
-
+   
 
     <div id="footer">
         <div class="socials-list">
@@ -112,89 +89,55 @@
 </div>
 
 
-<div class="modal js-modal">
-    <div class="modal-container">
-        <div class="modal-close js-modal-close ">
-            <i class="ti-close"></i>
-        </div>
 
-        <header class="modal-header">
-            <i class="modal-heading-icon ti-bag"></i>
-            Thêm FeedBack
-        </header>
-
-        <div class="modal-body">
-
-            <label class="modal-label" for="HVT-quantity">
-                <i class="ti-user"></i>
-                Họ và Tên:
-            </label>
-            <select class="modal-select" name="cars">
-                <option value="volvo"> Thầy Huấn</option>
-                <option value="saab"> Thầy Nhật</option>
-                <option value="mercedes"> Thầy Tokuda</option>
-                <option value="audi"> Thầy seng</option>
-            </select>
-
-            <label class="modal-label" for="Date-quantity">
-                <i class="ti-alarm-clock"></i>
-                Feedback :
-            </label>
-            <input class="modal-input" id="Date-quantity" placeholder="Ngày ?" type="text">
-
-
-            <button class=" js-buy-tickets" id="buy-tickets">
-                Hoàn thành <i class="ti-check"></i>
-            </button>
-
-        </div>
-
-        <footer class="modal-footer">
-            <p class="modal-help">Need <a href="#">helf?</a></p>
-        </footer>
-    </div>
-</div>
 
 <script>
-    const buyBtns = document.querySelectorAll('.js-buy-ticket')
-    const modal = document.querySelector('.js-modal')
-    const modalClose = document.querySelector('.js-modal-close')
-    const modalbutton = document.querySelector('.js-buy-tickets')
+    const Save = document.querySelector(" .save");
 
-    function showBuy() {
-        modal.classList.add('open')
-    }
 
-    function showButton() {
-        alert('Đã thêm thành công')
-    }
+// Example POST method implementation:
+async function Saves(url = "", data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
 
-    function hideBuy() {
-        modal.classList.remove('open')
-    }
 
-    for (const buyBtn of buyBtns) {
-        buyBtn.addEventListener('click', showBuy)
-    }
-    modalbutton.addEventListener('click', showButton)
-    modalClose.addEventListener('click', hideBuy)
+function getValue() {
+    // Lấy tham chiếu đến phần tử input
+    var inputidFb = document.getElementById("idFb").value;
+    var inputidHlv = document.getElementById("idHlv").value;
+    var inputidHv= document.getElementById("idHv").value;
+    var inputfeedBack= document.getElementById("feedBack").value;
+    var inputngayGui = document.getElementById("ngayGui").value;
+  
+  
 
-    // Lưu phần tử input có thuộc tính disabled vào biến
-    let myInputs = document.getElementsByClassName("form_st_input");
+    Save.addEventListener('click', Saves("", {
+        idFb: inputidFb,
+        idHlv: inputidHlv,
+        idHv: inputidHv,
+        feedBack: inputfeedBack,
+        ngayGui :inputngayGui,
+    }).then((data) => {
+        alert("Thành công")
+        console.log(data); // JSON data parsed by `data.json()` call
+    }));
 
-    // Bật thuộc tính disabled của phần tử input
-    function enableInputs() {
-        for (let i = 0; i < myInputs.length; i++) {
-            myInputs[i].disabled = false;
-        }
-    }
 
-    // Tắt thuộc tính disabled của phần tử input
-    function disableInputs() {
-        for (let i = 0; i < myInputs.length; i++) {
-            myInputs[i].disabled = true;
-        }
-    }
+}
 </script>
 </body>
 </html>

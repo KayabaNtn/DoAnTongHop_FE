@@ -24,7 +24,7 @@
             <li><a href="../Hocvien/FE_ALL.html">Trang chủ</a></li>
             <li><a href="../Nhanvien/FE_30_NV.html">Nhân Viên</a></li>
             <li><a href="../Nhanvien/FE_78_NV.html">Khóa Học</a></li>
-            <li><a href="../Nhanvien/FE_88_NV.html">Đánh Giá</a></li>
+            <!-- <li><a href="../Nhanvien/FE_88_NV.html">Đánh Giá</a></li> -->
             <li><a href="../Nhanvien/FE_83_NV.html">Điểm Học Viên</a></li>
             <li><a href="#footer">Giới thiệu</a></li>
         </ul>
@@ -45,43 +45,43 @@
             <h3> Thông Tin Nhân Viên</h3>
 
             <label>Tên nhân viên:</label>
-            <input class="modal-input" id="search-tenNv" tabindex="1" type="text">
+            <input class="modal-input form_st_input" disabled id="search-tenNv" tabindex="1" type="text">
             <br>
 
             <label>Ngày sinh :</label>
-            <input class="modal-input" id="search-Date" tabindex="2" type="text">
+            <input class="modal-input form_st_input" disabled id="search-Date" tabindex="2" type="text">
             <br>
 
             <label>Số điện thoại :</label>
-            <input class="modal-input" id="search-Phone" tabindex="3" type="text">
+            <input class="modal-input form_st_input" disabled id="search-Phone" tabindex="3" type="text">
             <br>
 
             <label>Địa Chỉ :</label>
-            <input class="modal-input" id="search-HomeTown" tabindex="4" type="text">
+            <input class="modal-input form_st_input" disabled id="search-HomeTown" tabindex="4" type="text">
             <br>
 
             <label>Trình độ :</label>
-            <input class="modal-input" id="search-trinhDo" tabindex="5" type="text">
+            <input class="modal-input form_st_input" disabled id="search-trinhDo" tabindex="5" type="text">
             <br>
 
             <label>Email :</label>
-            <input class="modal-input" id="search-email" tabindex="6" type="text">
+            <input class="modal-input form_st_input" disabled id="search-email" tabindex="6" type="text">
             <br>
 
             <label>Kinh Ngiệm :</label>
-            <input class="modal-input" id="search-kinhNgiem" tabindex="7" type="text">
+            <input class="modal-input form_st_input" disabled id="search-kinhNgiem" tabindex="7" type="text">
             <br>
 
             <label>Role :</label>
-            <input class="modal-input" id="search-Role" tabindex="8" type="text">
+            <input class="modal-input form_st_input" disabled id="search-Role" tabindex="8" type="text">
             <br>
             <label>&nbsp;</label>
             <div class="btn-search">
-                <button class="btn-save ">Sửa</button>
+                <button class="btn-save " onclick="enableInputs()">Sửa</button>
             </div>
             <label>&nbsp;</label>
             <div class="btn-search">
-                <button class="btn-save ">
+                <button class="btn-save " onclick="disableInputs()" >
                     Lưu
                 </button>
             </div>
@@ -149,6 +149,29 @@
     );
 
 </script>
+<script>
 
+let myInputs = document.getElementsByClassName("form_st_input");
+
+modal.addEventListener('click', hideBuy)
+ modalContainer.addEventListener('click', function (event) {
+      event.stopPropagation()
+  })
+
+// Bật thuộc tính disabled của phần tử input
+function enableInputs() {
+    for (let i = 0; i < myInputs.length; i++) {
+        myInputs[i].disabled = false;
+    }
+}
+
+// Tắt thuộc tính disabled của phần tử input và chạy api update
+function disableInputs() {
+    for (let i = 0; i < myInputs.length; i++) {
+        myInputs[i].disabled = true;
+    }
+}
+
+</script>
 </body>
 </html>

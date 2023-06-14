@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cats Sport Academy</title>
+    <link href="./assets/css/FE_QLNV_QL.css" rel="stylesheet">
+    <link href="./assets/css/responsive.css" rel="stylesheet">
+    <link href="./assets/fonts/themify-icons.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+          referrerpolicy="no-referrer" rel="stylesheet"/>
+
+</head>
+<body>
+
+<div id="main">
+
+    <div id="header">
+        <!-- Begin : nav -->
+        <ul id="nav"> <!--ul#nav>li*5 -->
+            <a><img alt="abc" class="logo" src="./assets/image/logo.jpg"></a>
+            
+            <li><a href="../Hocvien/FE_ALL.html">Trang chủ</a></li>
+            <li><a href="./FE_24_QL.html">Học Viên </a></li>
+            <li><a href="./FE_QLNV_QL.html">Nhân Viên </a></li>
+            <li><a href="./FE_36_QL.html">Hợp Đồng </a></li>
+            <li><a href="./FE_42_QL.html">Phiếu Đăng Kí </a></li>
+            <li><a href="./FE_54_QL.html">Feed-Back </a></li>
+            <li><a href="./FE_18_QL.html">Khóa Học </a></li>
+            <li><a href="./FE_48_QL.html">Vật tư </a></li>
+            <li><a href="#footer">Giới thiệu</a></li>
+        </ul>
+        <!-- End : nav -->
+        <!-- Begin : search button -->
+        <div class="search-btn">
+            <i class="search-icon ti-search"></i>
+        </div>
+        <div class="search-btn1">
+            <p class="fix">Sengphet PHILAVONG<br>
+                Quản lí </p>
+        </div>
+        <!-- End : search button -->
+    </div>
+
+    <div id="bodys">
+        <div class="form-student">
+            <h3> Thông Tin Nhân Viên</h3>
+            <label>ID nhân viên:</label>
+            <input id="search-IDNv" tabindex="1" type="text"  class="modal-input">
+            <br>
+             
+            <label>Tên nhân viên:</label>
+            <input id="search-tenNv" tabindex="1" type="text"  class="modal-input">
+            <br>
+             
+            <label>Ngày sinh :</label>
+            <input id="search-Date" tabindex="2" type="text" class="modal-input">
+            <br>
+            
+            <label>Số điện thoại :</label>
+            <input id="search-Phone" tabindex="3" type="text" class="modal-input">
+            <br>
+             
+            <label>Địa Chỉ :</label>
+             <input id="search-HomeTown" tabindex="4" type="text" class="modal-input">
+             <br>
+            
+            <label>Trình độ :</label>
+            <input id="search-trinhDo" tabindex="5" type="text" class="modal-input">
+            <br>
+            
+            <label>Email :</label>
+             <input id="search-email" tabindex="6" type="text" class="modal-input">
+             <br>
+             
+            <label>Kinh Ngiệm :</label>
+             <input id="search-kinhNgiem" tabindex="7" type="text" class="modal-input">
+             <br>
+            
+            <label>Role :</label>
+             <input id="search-Role" tabindex="8" type="text" class="modal-input">
+             <br>
+
+            <label for="">&nbsp;</label>
+            <button class="btn-save Search" onclick="SEARCH()">Tìm</button>
+          <div class="btn-search">
+             
+            <button class="btn-save save js-buy-ticket-them  ">Thêm</button>
+
+            <button class="btn-save js-buy-ticket">
+                Sửa 
+            </button>
+          </div>
+        </div>
+
+
+    </div>
+
+    <div class="list-student">
+        <h3>Danh sách Hợp đồng</h3>
+        <table border="1" cellpadding="0" cellpadding="0" width="100%">
+            <tr>
+                <th>Tên nhân viên</th>
+                <th>Giới Tính</th>
+                <th>Ngày sinh</th>
+                <th>Địa chỉ</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Trình độ</th>
+                <th>Kinh Nghiệm</th>
+                <th>Lương</th>
+                <th>Mật khẩu</th>
+                <th>Role</th>
+                <th>EDIT</th>
+            </tr>
+            <tr>
+                <td>Sengphet</td>
+                <td>Nam</td>
+                <td>05/09/1990</td>
+                <td>Giải phóng</td>
+                <td></td>
+                <td>seng1234@gmail.com</td>
+                <td>khá</td>
+                <td>khá</td>
+                <td>1500000vnđ</td>
+                <td>05091990</td>
+                <td>05091990</td>
+                <td>
+                    <button class="btn-update "> Sửa</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div id="footer">
+        <div class="socials-list">
+            <a href="#"><i class="ti-facebook"></i></a>
+            <a href="#"><i class="ti-instagram"></i></a>
+            <a href="#"><i class="ti-youtube"></i></a>
+            <a href="#"><i class="ti-twitter"></i></a>
+            <a href="#"><i class="ti-linkedin"></i></a>
+        </div>
+        <p class="copyright">
+            Powered by <a href="#"> Cats Sport Academy
+        </a>
+        </p>
+    </div>
+</div>
+
+
+<div class="modal js-modal">
+     <div class="modal-container js-modal-container">
+         <div class="modal-close js-modal-close ">
+             <i class="ti-close"></i>
+         </div>
+
+         <header class="modal-header">
+             <i class="modal-heading-icon ti-bag" ></i>
+             Sửa 
+         </header>
+
+         <div class="modal-body">
+            <div class=" modal-body-left">
+                <label>ID Nhân Viên :</label>
+             <input id="modal-IDNV-update" disabled tabindex="" type="text" class="modal-input">
+             <br>
+             <label>Tên nhân viên:</label>
+             <input id="modal-tenNv-update" tabindex="1" type="text"  class="modal-input">
+             <br>
+            <br>
+             <label id="lblGender-update">Giới tính:</label>
+             <input id="male" name="gender-update" tabindex="4" type="radio" value="Nam "> Nam
+             <input id="female" name="gender-update" tabindex="5" type="radio" value="Nữ "> Nữ
+             <br>
+             <br>
+             <br>
+ 
+ 
+             <label>Ngày sinh :</label>
+             <input id="modal-Date-update" tabindex="3" type="text" class="modal-input">
+             <br>
+ 
+             <label>Địa Chỉ :</label>
+             <input id="modal-HomeTown-update" tabindex="4" type="text" class="modal-input">
+             <br>
+ 
+             <label>Số điện thoại :</label>
+             <input id="modal-Sdt-update" tabindex="5" type="text" class="modal-input">
+             <br>
+ 
+             
+            </div>
+            <div class=" modal-body-right">
+                <label>Email :</label>
+             <input id="modal-email-update" tabindex="6" type="text" class="modal-input">
+             <br>
+                <label>Trình độ :</label>
+             <input id="modal-trinhDo-update" tabindex="7" type="text" class="modal-input">
+             <br>
+ 
+             <label>Kinh Ngiệm :</label>
+             <input id="modal-kinhNgiem-update" tabindex="8" type="text" class="modal-input">
+             <br>
+ 
+             <label>Lương :</label>
+             <input id="modal-Luong-update" tabindex="9" type="text" class="modal-input">
+             <br>
+ 
+             <label>Mật khẩu :</label>
+             <input id="modal-matKhau-update" tabindex="10" type="text" class="modal-input">
+             <br>
+ 
+             <label>Role :</label>
+             <input id="modal-Role-update" tabindex="11" type="text" class="modal-input">
+             <br>
+
+            </div>
+             
+
+             <button id="buy-tickets" class="save" onclick="getValue()">
+                Sửa  <i class="ti-check"></i>
+             </button>
+
+         </div>
+
+         <footer class="modal-footer">
+             <p class="modal-help">Need <a href="#">helf?</a></p>
+         </footer>
+     </div>
+ </div>
+
+ <div class="modal js-modal-them">
+    <div class="modal-container js-modal-container-them">
+        <div class="modal-close js-modal-close-them ">
+            <i class="ti-close"></i>
+        </div>
+
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+          Thêm 
+        </header>
+
+        <div class="modal-body">
+
+            <div class=" modal-body-left">
+                <label>Tên nhân viên:</label>
+                <input id="modal-tenNv" tabindex="1" type="text"  class="modal-input">
+                <br>
+    
+                <label id="lblGender">Giới tính:</label>
+                <input id="male" name="gender" tabindex="4" type="radio" value="Nam "> Nam
+                <input id="female" name="gender" tabindex="5" type="radio" value="Nữ "> Nữ
+                <br>
+                <br>
+    
+    
+                <label>Ngày sinh :</label>
+                <input id="modal-Date" tabindex="3" type="text" class="modal-input">
+                <br>
+    
+                <label>Địa Chỉ :</label>
+                <input id="modal-HomeTown" tabindex="4" type="text" class="modal-input">
+                <br>
+    
+                <label>Số điện thoại :</label>
+                <input id="modal-Sdt" tabindex="5" type="text" class="modal-input">
+                <br>
+    
+                <label>Email :</label>
+                <input id="modal-email" tabindex="6" type="text" class="modal-input">
+                <br>
+               </div>
+               <div class=" modal-body-right">
+                   <label>Trình độ :</label>
+                <input id="modal-trinhDo" tabindex="7" type="text" class="modal-input">
+                <br>
+    
+                <label>Kinh Ngiệm :</label>
+                <input id="modal-kinhNgiem" tabindex="8" type="text" class="modal-input">
+                <br>
+    
+                <label>Lương :</label>
+                <input id="modal-Luong" tabindex="9" type="text" class="modal-input">
+                <br>
+    
+                <label>Mật khẩu :</label>
+                <input id="modal-matKhau" tabindex="10" type="text" class="modal-input">
+                <br>
+    
+                <label>Role :</label>
+                <input id="modal-Role" tabindex="11" type="text" class="modal-input">
+                <br>
+   
+               </div>
+            <button class="" id="buy-tickets" >
+                Thêm  <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
+
+ <script>
+     const buyBtns = document.querySelectorAll('.js-buy-ticket')
+     const modal = document.querySelector('.js-modal')
+     const modalClose = document.querySelector('.js-modal-close')
+     const modalContainer = document.querySelector('.js-modal-container')
+     function showBuy(){
+         modal.classList.add('open')
+     }
+
+     function hideBuy(){
+         modal.classList.remove('open')
+     }
+
+     for (const buyBtn of buyBtns) {
+         buyBtn.addEventListener('click', showBuy)
+     }
+
+     modalClose.addEventListener('click', hideBuy)
+     modal.addEventListener('click', hideBuy)
+     modalContainer.addEventListener('click', function (event) {
+          event.stopPropagation()
+      })
+ </script>
+<script>
+    const Them = document.querySelectorAll('.js-buy-ticket-them')
+      const modal1 = document.querySelector('.js-modal-them')
+      const modalClose1 = document.querySelector('.js-modal-close-them')
+      const modalContainer1 = document.querySelector('.js-modal-container-them')
+  
+  
+      function showBuy() {
+        modal1.classList.add('open')
+      }
+  
+      function hideBuy() {
+        modal1.classList.remove('open')
+      }
+  
+      for (const buyBtn of Them) {
+          buyBtn.addEventListener('click', showBuy)
+      }
+  
+      modalClose1.addEventListener('click', hideBuy)
+  
+      modal1.addEventListener('click', hideBuy)
+  
+      modalContainer1.addEventListener('click', function (event) {
+          event.stopPropagation()
+      })
+  </script>
+ <!-- Thêm -->
+ <script>
+    const Save = document.querySelector(" .save");
+
+
+// Example POST method implementation:
+async function Saves(url = "", data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
+
+
+function getValue() {
+    // Lấy tham chiếu đến phần tử input
+    var inputtenNv = document.getElementById("modal-tenNv").value;
+    var radios = document.getElementsByName('gender');
+        var selectedGender;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                selectedGender = radios[i].value;
+                break;
+            }
+        }
+    var inputDate= document.getElementById("modal-Date").value;
+    var inputHomeTown = document.getElementById("modal-HomeTown").value;
+    var inputSdt = document.getElementById("modal-Sdt").value;
+    var inputemail = document.getElementById("modal-email").value;
+    var inputtrinhDo = document.getElementById("modal-trinhDo").value;
+    var inputkinhNgiem = document.getElementById("modal-kinhNgiem").value;
+    var inputLuong = document.getElementById("modal-Luong").value;
+    var inputmatKhau = document.getElementById("modal-matKhau").value;
+    var inputRole = document.getElementById("modal-Role").value;
+
+
+    Save.addEventListener('click', Saves("", {
+      tenNv :inputtenNv ,
+      gioiTinh : selectedGender,
+      ngaySinh  :inputDate,
+      diaChi  :inputHomeTown,
+      sdt  :inputSdt,
+      trinhDo :inputtrinhDo,
+      email  :inputemail,
+      kinhNghiem :inputkinhNgiem,
+      luong  :inputLuong,
+      matKhau :inputmatKhau,
+      role :inputRole,
+    }).then((data) => {
+        alert("Thành công")
+        console.log(data); // JSON data parsed by `data.json()` call
+    }));
+
+
+}
+</script>
+
+<script>
+     const Search = document.querySelector(" .Search");
+
+
+// Example POST method implementation:
+async function Searchs(url = "") {
+    // Default options are marked with *
+    const response = await fetch(url, {
+        method: "GET", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        //body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+}
+
+
+function SEARCH() {
+    // Lấy tham chiếu đến phần tử input
+    var inputIDnv = document.getElementById("search-IDNv").value;
+    var inputtenNv = document.getElementById("search-tenNv").value;
+    var inputDate= document.getElementById("search-Date").value;
+    var inputPhone= document.getElementById("search-Phone").value;
+    var inputHomeTown= document.getElementById("search-HomeTown").value;
+    var inputtrinhDo= document.getElementById("search-trinhDo").value;
+    var inputemail= document.getElementById("search-email").value;
+    var inputkinhNgiem= document.getElementById("search-kinhNgiem").value;
+    var inputRole= document.getElementById("search-Role").value;
+    
+
+    
+   
+    
+
+    let data = {
+        idNv :inputIDnv,
+        tenNv :inputtenNv ,
+      ngaySinh  :inputDate,
+      diaChi  :inputHomeTown,
+      sdt  :inputPhone,
+      trinhDo :inputtrinhDo,
+      email  :inputemail,
+      kinhNghiem :inputkinhNgiem,
+      role :inputRole,
+        pageBegin: 0,
+        pageEnd: 5,
+    }
+    let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+    let urlWithQuery = '??' + queryString;
+
+    Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+        alert("Thành công")
+        console.log(data); // JSON data parsed by `data.json()` call
+    }));
+}
+</script>
+</body>
+</html>

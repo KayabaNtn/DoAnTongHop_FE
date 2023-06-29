@@ -21,7 +21,7 @@
         <!-- Begin : nav -->
         <ul id="nav"> <!--ul#nav>li*5 -->
             <a><img alt="abc" class="logo" src="./assets/image/logo.jpg"></a>
-            
+
             <li><a href="../Hocvien/FE_ALL.html">Trang chủ</a></li>
             <li><a href="./FE_24_QL.html">Học Viên </a></li>
             <li><a href="./FE_QLNV_QL.html">Nhân Viên </a></li>
@@ -38,8 +38,13 @@
             <i class="search-icon ti-search"></i>
         </div>
         <div class="search-btn1">
-            <p class="fix">Sengphet PHILAVONG<br>
-                Quản lí </p>
+            <p class="fix" id="quanly"><br>
+            </p>
+        </div>
+        <div class="search-btn1">
+            <ul id="nav">
+                <li><a href="../Hocvien/FE_ALL.html">Đăng xuất</a></li>
+            </ul>
         </div>
         <!-- End : search button -->
     </div>
@@ -48,51 +53,45 @@
         <div class="form-student">
             <h3> Thông Tin Nhân Viên</h3>
             <label>ID nhân viên:</label>
-            <input id="search-IDNv" tabindex="1" type="text"  class="modal-input">
+            <input class="modal-input" id="search-IDNv" tabindex="1" type="text">
             <br>
-             
+
             <label>Tên nhân viên:</label>
-            <input id="search-tenNv" tabindex="1" type="text"  class="modal-input">
+            <input class="modal-input" id="search-tenNv" tabindex="1" type="text">
             <br>
-             
+
             <label>Ngày sinh :</label>
-            <input id="search-Date" tabindex="2" type="text" class="modal-input">
+            <input class="modal-input" id="search-Date" tabindex="2" type="text">
             <br>
-            
+
             <label>Số điện thoại :</label>
-            <input id="search-Phone" tabindex="3" type="text" class="modal-input">
+            <input class="modal-input" id="search-Phone" tabindex="3" type="text">
             <br>
-             
+
             <label>Địa Chỉ :</label>
-             <input id="search-HomeTown" tabindex="4" type="text" class="modal-input">
-             <br>
-            
-            <label>Trình độ :</label>
-            <input id="search-trinhDo" tabindex="5" type="text" class="modal-input">
+            <input class="modal-input" id="search-HomeTown" tabindex="4" type="text">
             <br>
-            
+
+            <label>Trình độ :</label>
+            <input class="modal-input" id="search-trinhDo" tabindex="5" type="text">
+            <br>
+
             <label>Email :</label>
-             <input id="search-email" tabindex="6" type="text" class="modal-input">
-             <br>
-             
+            <input class="modal-input" id="search-email" tabindex="6" type="text">
+            <br>
+
             <label>Kinh Ngiệm :</label>
-             <input id="search-kinhNgiem" tabindex="7" type="text" class="modal-input">
-             <br>
-            
+            <input class="modal-input" id="search-kinhNgiem" tabindex="7" type="text">
+            <br>
+
             <label>Role :</label>
-             <input id="search-Role" tabindex="8" type="text" class="modal-input">
-             <br>
+            <input class="modal-input" id="search-Role" tabindex="8" type="text">
+            <br>
 
             <label for="">&nbsp;</label>
             <button class="btn-save Search" onclick="SEARCH()">Tìm</button>
-          <div class="btn-search">
-             
+            <label for="">&nbsp;</label>
             <button class="btn-save save js-buy-ticket-them  ">Thêm</button>
-
-            <button class="btn-save js-buy-ticket">
-                Sửa 
-            </button>
-          </div>
         </div>
 
 
@@ -100,37 +99,28 @@
 
     <div class="list-student">
         <h3>Danh sách Hợp đồng</h3>
-        <table border="1" cellpadding="0" cellpadding="0" width="100%">
+        <table id="table-container">
+            <thead>
             <tr>
-                <th>Tên nhân viên</th>
-                <th>Giới Tính</th>
+                <th>STT</th>
+                <th>ID</th>
+                <th>Tên</th>
                 <th>Ngày sinh</th>
                 <th>Địa chỉ</th>
-                <th>Số điện thoại</th>
+                <th>Giới tính</th>
                 <th>Email</th>
+                <th>SDT</th>
                 <th>Trình độ</th>
-                <th>Kinh Nghiệm</th>
+                <th>Kinh nghiệm</th>
                 <th>Lương</th>
                 <th>Mật khẩu</th>
                 <th>Role</th>
-                <th>EDIT</th>
+                <th>Thao tác</th>
             </tr>
-            <tr>
-                <td>Sengphet</td>
-                <td>Nam</td>
-                <td>05/09/1990</td>
-                <td>Giải phóng</td>
-                <td></td>
-                <td>seng1234@gmail.com</td>
-                <td>khá</td>
-                <td>khá</td>
-                <td>1500000vnđ</td>
-                <td>05091990</td>
-                <td>05091990</td>
-                <td>
-                    <button class="btn-update "> Sửa</button>
-                </td>
-            </tr>
+            </thead>
+            <tbody>
+            <!-- Các hàng dữ liệu sẽ được thêm vào đây -->
+            </tbody>
         </table>
     </div>
 
@@ -152,151 +142,73 @@
 
 
 <div class="modal js-modal">
-     <div class="modal-container js-modal-container">
-         <div class="modal-close js-modal-close ">
-             <i class="ti-close"></i>
-         </div>
-
-         <header class="modal-header">
-             <i class="modal-heading-icon ti-bag" ></i>
-             Sửa 
-         </header>
-
-         <div class="modal-body">
-            <div class=" modal-body-left">
-                <label>ID Nhân Viên :</label>
-             <input id="modal-IDNV-update" disabled tabindex="" type="text" class="modal-input">
-             <br>
-             <label>Tên nhân viên:</label>
-             <input id="modal-tenNv-update" tabindex="1" type="text"  class="modal-input">
-             <br>
-            <br>
-             <label id="lblGender-update">Giới tính:</label>
-             <input id="male" name="gender-update" tabindex="4" type="radio" value="Nam "> Nam
-             <input id="female" name="gender-update" tabindex="5" type="radio" value="Nữ "> Nữ
-             <br>
-             <br>
-             <br>
- 
- 
-             <label>Ngày sinh :</label>
-             <input id="modal-Date-update" tabindex="3" type="text" class="modal-input">
-             <br>
- 
-             <label>Địa Chỉ :</label>
-             <input id="modal-HomeTown-update" tabindex="4" type="text" class="modal-input">
-             <br>
- 
-             <label>Số điện thoại :</label>
-             <input id="modal-Sdt-update" tabindex="5" type="text" class="modal-input">
-             <br>
- 
-             
-            </div>
-            <div class=" modal-body-right">
-                <label>Email :</label>
-             <input id="modal-email-update" tabindex="6" type="text" class="modal-input">
-             <br>
-                <label>Trình độ :</label>
-             <input id="modal-trinhDo-update" tabindex="7" type="text" class="modal-input">
-             <br>
- 
-             <label>Kinh Ngiệm :</label>
-             <input id="modal-kinhNgiem-update" tabindex="8" type="text" class="modal-input">
-             <br>
- 
-             <label>Lương :</label>
-             <input id="modal-Luong-update" tabindex="9" type="text" class="modal-input">
-             <br>
- 
-             <label>Mật khẩu :</label>
-             <input id="modal-matKhau-update" tabindex="10" type="text" class="modal-input">
-             <br>
- 
-             <label>Role :</label>
-             <input id="modal-Role-update" tabindex="11" type="text" class="modal-input">
-             <br>
-
-            </div>
-             
-
-             <button id="buy-tickets" class="save" onclick="getValue()">
-                Sửa  <i class="ti-check"></i>
-             </button>
-
-         </div>
-
-         <footer class="modal-footer">
-             <p class="modal-help">Need <a href="#">helf?</a></p>
-         </footer>
-     </div>
- </div>
-
- <div class="modal js-modal-them">
-    <div class="modal-container js-modal-container-them">
-        <div class="modal-close js-modal-close-them ">
+    <div class="modal-container js-modal-container">
+        <div class="modal-close js-modal-close ">
             <i class="ti-close"></i>
         </div>
 
         <header class="modal-header">
             <i class="modal-heading-icon ti-bag"></i>
-          Thêm 
+            Sửa
         </header>
 
         <div class="modal-body">
-
             <div class=" modal-body-left">
+                <label>ID Nhân Viên :</label>
+                <input class="modal-input" disabled id="modal-IDNV-update" tabindex="" type="text">
+                <br>
                 <label>Tên nhân viên:</label>
-                <input id="modal-tenNv" tabindex="1" type="text"  class="modal-input">
+                <input class="modal-input" id="modal-tenNv-update" tabindex="1" type="text">
                 <br>
-    
-                <label id="lblGender">Giới tính:</label>
-                <input id="male" name="gender" tabindex="4" type="radio" value="Nam "> Nam
-                <input id="female" name="gender" tabindex="5" type="radio" value="Nữ "> Nữ
+                <label id="lblGender-update">Giới tính:</label>
+                <!--                <input id="male" name="gender-update" tabindex="4" type="radio" value="Nam "> Nam-->
+                <!--                <input id="female" name="gender-update" tabindex="5" type="radio" value="Nữ "> Nữ-->
+                <input class="modal-input" id="modal-gioiTinh-update" tabindex="1" type="text">
                 <br>
-                <br>
-    
-    
+
                 <label>Ngày sinh :</label>
-                <input id="modal-Date" tabindex="3" type="text" class="modal-input">
+                <input class="modal-input" id="modal-Date-update" tabindex="3" type="text">
                 <br>
-    
+
                 <label>Địa Chỉ :</label>
-                <input id="modal-HomeTown" tabindex="4" type="text" class="modal-input">
+                <input class="modal-input" id="modal-HomeTown-update" tabindex="4" type="text">
                 <br>
-    
+
                 <label>Số điện thoại :</label>
-                <input id="modal-Sdt" tabindex="5" type="text" class="modal-input">
+                <input class="modal-input" id="modal-Sdt-update" tabindex="5" type="text">
                 <br>
-    
+
+
+            </div>
+            <div class=" modal-body-right">
                 <label>Email :</label>
-                <input id="modal-email" tabindex="6" type="text" class="modal-input">
+                <input class="modal-input" id="modal-email-update" tabindex="6" type="text">
                 <br>
-               </div>
-               <div class=" modal-body-right">
-                   <label>Trình độ :</label>
-                <input id="modal-trinhDo" tabindex="7" type="text" class="modal-input">
+                <label>Trình độ :</label>
+                <input class="modal-input" id="modal-trinhDo-update" tabindex="7" type="text">
                 <br>
-    
+
                 <label>Kinh Ngiệm :</label>
-                <input id="modal-kinhNgiem" tabindex="8" type="text" class="modal-input">
+                <input class="modal-input" id="modal-kinhNgiem-update" tabindex="8" type="text">
                 <br>
-    
+
                 <label>Lương :</label>
-                <input id="modal-Luong" tabindex="9" type="text" class="modal-input">
+                <input class="modal-input" id="modal-Luong-update" tabindex="9" type="text">
                 <br>
-    
+
                 <label>Mật khẩu :</label>
-                <input id="modal-matKhau" tabindex="10" type="text" class="modal-input">
+                <input class="modal-input" id="modal-matKhau-update" tabindex="10" type="text">
                 <br>
-    
+
                 <label>Role :</label>
-                <input id="modal-Role" tabindex="11" type="text" class="modal-input">
+                <input class="modal-input" id="modal-Role-update" tabindex="11" type="text">
                 <br>
-   
-               </div>
-            <button class="" id="buy-tickets" >
-                Thêm  <i class="ti-check"></i>
+
+            </div>
+
+
+            <button class="save buttonEdit" id="buy-tickets" onclick="suaNhanVien()">
+                Sửa <i class="ti-check"></i>
             </button>
 
         </div>
@@ -307,186 +219,474 @@
     </div>
 </div>
 
- <script>
-     const buyBtns = document.querySelectorAll('.js-buy-ticket')
-     const modal = document.querySelector('.js-modal')
-     const modalClose = document.querySelector('.js-modal-close')
-     const modalContainer = document.querySelector('.js-modal-container')
-     function showBuy(){
-         modal.classList.add('open')
-     }
+<div class="modal js-modal-them">
+    <div class="modal-container js-modal-container-them">
+        <div class="modal-close js-modal-close-them ">
+            <i class="ti-close"></i>
+        </div>
 
-     function hideBuy(){
-         modal.classList.remove('open')
-     }
+        <header class="modal-header">
+            <i class="modal-heading-icon ti-bag"></i>
+            Thêm
+        </header>
 
-     for (const buyBtn of buyBtns) {
-         buyBtn.addEventListener('click', showBuy)
-     }
+        <div class="modal-body">
 
-     modalClose.addEventListener('click', hideBuy)
-     modal.addEventListener('click', hideBuy)
-     modalContainer.addEventListener('click', function (event) {
-          event.stopPropagation()
-      })
- </script>
+            <div class=" modal-body-left">
+                <label>Tên nhân viên:</label>
+                <input class="modal-input" id="modal-tenNv" tabindex="1" type="text">
+                <br>
+
+                <label id="lblGender">Giới tính:</label>
+                <!--                <input id="male" name="gender" tabindex="4" type="radio" value="Nam "> Nam-->
+                <!--                <input id="female" name="gender" tabindex="5" type="radio" value="Nữ "> Nữ-->
+                <input class="modal-input" id="modal-gioiTinh" tabindex="1" type="text">
+                <br>
+
+
+                <label>Ngày sinh :</label>
+                <input class="modal-input" id="modal-Date" tabindex="3" type="text">
+                <br>
+
+                <label>Địa Chỉ :</label>
+                <input class="modal-input" id="modal-HomeTown" tabindex="4" type="text">
+                <br>
+
+                <label>Số điện thoại :</label>
+                <input class="modal-input" id="modal-Sdt" tabindex="5" type="text">
+                <br>
+
+                <label>Email :</label>
+                <input class="modal-input" id="modal-email" tabindex="6" type="text">
+                <br>
+            </div>
+            <div class=" modal-body-right">
+                <label>Trình độ :</label>
+                <input class="modal-input" id="modal-trinhDo" tabindex="7" type="text">
+                <br>
+
+                <label>Kinh Ngiệm :</label>
+                <input class="modal-input" id="modal-kinhNgiem" tabindex="8" type="text">
+                <br>
+
+                <label>Lương :</label>
+                <input class="modal-input" id="modal-Luong" tabindex="9" type="text">
+                <br>
+
+                <label>Mật khẩu :</label>
+                <input class="modal-input" id="modal-matKhau" tabindex="10" type="text">
+                <br>
+
+                <label>Role :</label>
+                <input class="modal-input" id="modal-Role" tabindex="11" type="text">
+                <br>
+
+            </div>
+            <button class="save" id="buy-tickets" onclick="addNhanVien()">
+                Thêm <i class="ti-check"></i>
+            </button>
+
+        </div>
+
+        <footer class="modal-footer">
+            <p class="modal-help">Need <a href="#">helf?</a></p>
+        </footer>
+    </div>
+</div>
+
+<script>
+    const test = localStorage.getItem('user');
+    document.getElementById('quanly').textContent = test;
+    const modal = document.querySelector('.js-modal')
+    const modalClose = document.querySelector('.js-modal-close')
+    const modalContainer = document.querySelector('.js-modal-container')
+    var luuIdNv;
+
+    function showModalEdit() {
+        modal.classList.add('open')
+    }
+
+    function hideModalEdit() {
+        modal.classList.remove('open')
+    }
+
+    modalClose.addEventListener('click', hideModalEdit)
+    modalContainer.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+</script>
 <script>
     const Them = document.querySelectorAll('.js-buy-ticket-them')
-      const modal1 = document.querySelector('.js-modal-them')
-      const modalClose1 = document.querySelector('.js-modal-close-them')
-      const modalContainer1 = document.querySelector('.js-modal-container-them')
-  
-  
-      function showBuy() {
+    const modal1 = document.querySelector('.js-modal-them')
+    const modalClose1 = document.querySelector('.js-modal-close-them')
+    const modalContainer1 = document.querySelector('.js-modal-container-them')
+
+
+    function showBuy() {
         modal1.classList.add('open')
-      }
-  
-      function hideBuy() {
+    }
+
+    function hideBuy() {
         modal1.classList.remove('open')
-      }
-  
-      for (const buyBtn of Them) {
-          buyBtn.addEventListener('click', showBuy)
-      }
-  
-      modalClose1.addEventListener('click', hideBuy)
-  
-      modal1.addEventListener('click', hideBuy)
-  
-      modalContainer1.addEventListener('click', function (event) {
-          event.stopPropagation()
-      })
-  </script>
- <!-- Thêm -->
- <script>
+    }
+
+    for (const buyBtn of Them) {
+        buyBtn.addEventListener('click', showBuy)
+    }
+
+    modalClose1.addEventListener('click', hideBuy)
+
+    modal1.addEventListener('click', hideBuy)
+
+    modalContainer1.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+</script>
+<!-- Thêm -->
+<script>
     const Save = document.querySelector(" .save");
 
-
-// Example POST method implementation:
-async function Saves(url = "", data = {}) {
-    // Default options are marked with *
-    const response = await fetch(url, {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
-        mode: "cors", // no-cors, *cors, same-origin
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: "follow", // manual, *follow, error
-        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data), // body data type must match "Content-Type" header
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
-}
-
-
-function getValue() {
-    // Lấy tham chiếu đến phần tử input
-    var inputtenNv = document.getElementById("modal-tenNv").value;
-    var radios = document.getElementsByName('gender');
-        var selectedGender;
-        for (var i = 0; i < radios.length; i++) {
-            if (radios[i].checked) {
-                selectedGender = radios[i].value;
-                break;
-            }
-        }
-    var inputDate= document.getElementById("modal-Date").value;
-    var inputHomeTown = document.getElementById("modal-HomeTown").value;
-    var inputSdt = document.getElementById("modal-Sdt").value;
-    var inputemail = document.getElementById("modal-email").value;
-    var inputtrinhDo = document.getElementById("modal-trinhDo").value;
-    var inputkinhNgiem = document.getElementById("modal-kinhNgiem").value;
-    var inputLuong = document.getElementById("modal-Luong").value;
-    var inputmatKhau = document.getElementById("modal-matKhau").value;
-    var inputRole = document.getElementById("modal-Role").value;
+    // Example POST method implementation:
+    async function Saves(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
 
 
-    Save.addEventListener('click', Saves("", {
-      tenNv :inputtenNv ,
-      gioiTinh : selectedGender,
-      ngaySinh  :inputDate,
-      diaChi  :inputHomeTown,
-      sdt  :inputSdt,
-      trinhDo :inputtrinhDo,
-      email  :inputemail,
-      kinhNghiem :inputkinhNgiem,
-      luong  :inputLuong,
-      matKhau :inputmatKhau,
-      role :inputRole,
-    }).then((data) => {
-        alert("Thành công")
-        console.log(data); // JSON data parsed by `data.json()` call
-    }));
+    function addNhanVien() {
+        // Lấy tham chiếu đến phần tử input
+        var inputtenNv = document.getElementById("modal-tenNv").value;
+        var inputGioiTinh = document.getElementById("modal-gioiTinh").value;
+        // var radios = document.getElementsByName('gender');
+        // var selectedGender;
+        // for (var i = 0; i < radios.length; i++) {
+        //     if (radios[i].checked) {
+        //         selectedGender = radios[i].value;
+        //         break;
+        //     }
+        // }
+        var inputDate = document.getElementById("modal-Date").value;
+        var inputHomeTown = document.getElementById("modal-HomeTown").value;
+        var inputSdt = document.getElementById("modal-Sdt").value;
+        var inputemail = document.getElementById("modal-email").value;
+        var inputtrinhDo = document.getElementById("modal-trinhDo").value;
+        var inputkinhNgiem = document.getElementById("modal-kinhNgiem").value;
+        var inputLuong = document.getElementById("modal-Luong").value;
+        var inputmatKhau = document.getElementById("modal-matKhau").value;
+        var inputRole = document.getElementById("modal-Role").value;
 
-
-}
+        Save.addEventListener('click', Saves("http://localhost:8889/NhanVien/insert", {
+            tenNv: inputtenNv,
+            gioiTinh: inputGioiTinh,
+            ngaySinh: inputDate,
+            diaChi: inputHomeTown,
+            sdt: inputSdt,
+            trinhDo: inputtrinhDo,
+            email: inputemail,
+            kinhNghiem: inputkinhNgiem,
+            luong: inputLuong,
+            matKhau: inputmatKhau,
+            role: inputRole,
+        }).then((data) => {
+            alert("Thành công")
+            console.log(data); // JSON data parsed by `data.json()` call
+            hideBuy()
+            location.reload()
+        }));
+    }
 </script>
 
 <script>
-     const Search = document.querySelector(" .Search");
+    const Search = document.querySelector(" .Search");
 
 
-// Example POST method implementation:
-async function Searchs(url = "") {
-    // Default options are marked with *
-    const response = await fetch(url, {
-        method: "GET", // *GET, POST, PUT, DELETE, etc.
-        mode: "cors", // no-cors, *cors, same-origin
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: "follow", // manual, *follow, error
-        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        //body: JSON.stringify(data), // body data type must match "Content-Type" header
-    });
-    return response.json(); // parses JSON response into native JavaScript objects
-}
-
-
-function SEARCH() {
-    // Lấy tham chiếu đến phần tử input
-    var inputIDnv = document.getElementById("search-IDNv").value;
-    var inputtenNv = document.getElementById("search-tenNv").value;
-    var inputDate= document.getElementById("search-Date").value;
-    var inputPhone= document.getElementById("search-Phone").value;
-    var inputHomeTown= document.getElementById("search-HomeTown").value;
-    var inputtrinhDo= document.getElementById("search-trinhDo").value;
-    var inputemail= document.getElementById("search-email").value;
-    var inputkinhNgiem= document.getElementById("search-kinhNgiem").value;
-    var inputRole= document.getElementById("search-Role").value;
-    
-
-    
-   
-    
-
-    let data = {
-        idNv :inputIDnv,
-        tenNv :inputtenNv ,
-      ngaySinh  :inputDate,
-      diaChi  :inputHomeTown,
-      sdt  :inputPhone,
-      trinhDo :inputtrinhDo,
-      email  :inputemail,
-      kinhNghiem :inputkinhNgiem,
-      role :inputRole,
-        pageBegin: 0,
-        pageEnd: 5,
+    // Example POST method implementation:
+    async function Searchs(url = "") {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            //body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
     }
-    let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
-    let urlWithQuery = '??' + queryString;
 
-    Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
-        alert("Thành công")
-        console.log(data); // JSON data parsed by `data.json()` call
-    }));
-}
+
+    function SEARCH() {
+        // Lấy tham chiếu đến phần tử input
+        var inputIDnv = document.getElementById("search-IDNv").value;
+        var inputtenNv = document.getElementById("search-tenNv").value;
+        var inputDate = document.getElementById("search-Date").value;
+        var inputPhone = document.getElementById("search-Phone").value;
+        var inputHomeTown = document.getElementById("search-HomeTown").value;
+        var inputtrinhDo = document.getElementById("search-trinhDo").value;
+        var inputemail = document.getElementById("search-email").value;
+        var inputkinhNgiem = document.getElementById("search-kinhNgiem").value;
+        var inputRole = document.getElementById("search-Role").value;
+
+
+        let data = {
+            idNv: inputIDnv,
+            tenNv: inputtenNv,
+            ngaySinh: inputDate,
+            diaChi: inputHomeTown,
+            sdt: inputPhone,
+            trinhDo: inputtrinhDo,
+            email: inputemail,
+            kinhNghiem: inputkinhNgiem,
+            role: inputRole,
+            pageBegin: 0,
+            pageEnd: 5,
+        }
+        // let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+        // let urlWithQuery = 'http://localhost:8889/NhanVien/search??' + queryString;
+        let queryString = '';
+        for (let key in data) {
+            if (data.hasOwnProperty(key)) {
+                queryString += key + '=' + encodeURIComponent(data[key]) + '&';
+            }
+        }
+        queryString = queryString.slice(0, -1); // Loại bỏ ký tự & cuối cùng
+
+        let urlWithQuery = 'http://localhost:8889/NhanVien/search?' + queryString;
+        Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+            // Cách 2:
+            const table = document.getElementById("table-container");
+            const tbody = table.getElementsByTagName("tbody")[0];
+
+            // Xóa các hàng hiện tại
+            while (tbody.firstChild) {
+                tbody.removeChild(tbody.firstChild);
+            }
+
+            // Thêm dữ liệu từ API vào bảng
+            data.forEach(function (item) {
+                const row = document.createElement("tr");
+                const cell1 = document.createElement("td");
+                const cell2 = document.createElement("td");
+                const cell3 = document.createElement("td");
+                const cell4 = document.createElement("td");
+                const cell5 = document.createElement("td");
+                const cell6 = document.createElement("td");
+                const cell7 = document.createElement("td");
+                const cell8 = document.createElement("td");
+                const cell9 = document.createElement("td");
+                const cell10 = document.createElement("td");
+                const cell11 = document.createElement("td");
+                const cell12 = document.createElement("td");
+                const cell13 = document.createElement("td");
+                const cell14 = document.createElement("td");
+
+                const editButton = document.createElement("button");
+                const deleteButton = document.createElement("button");
+
+                cell1.textContent = item.stt;
+                cell2.textContent = item.idNv;
+                cell3.textContent = item.tenNv;
+                cell4.textContent = item.ngaySinh;
+                cell5.textContent = item.diaChi;
+                cell6.textContent = item.gioiTinh;
+                cell7.textContent = item.email;
+                cell8.textContent = item.sdt;
+                cell9.textContent = item.trinhDo;
+                cell10.textContent = item.kinhNghiem;
+                cell11.textContent = item.luong;
+                cell12.textContent = item.matKhau;
+                cell13.textContent = item.role;
+                editButton.textContent = "Sửa";
+                deleteButton.textContent = "Xóa";
+
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                row.appendChild(cell3);
+                row.appendChild(cell4);
+                row.appendChild(cell5);
+                row.appendChild(cell6);
+                row.appendChild(cell7);
+                row.appendChild(cell8);
+                row.appendChild(cell9);
+                row.appendChild(cell10);
+                row.appendChild(cell11);
+                row.appendChild(cell12);
+                row.appendChild(cell13);
+                row.appendChild(cell14);
+
+                cell14.appendChild(editButton);
+                cell14.appendChild(deleteButton);
+
+
+                tbody.appendChild(row);
+
+                // Gắn sự kiện click vào nút "Sửa"
+                editButton.addEventListener("click", function () {
+                    // Lấy dữ liệu từ hàng chứa nút "Sửa"
+                    const rowData = Array.from(row.children).map(cell => cell.textContent);
+                    luuIdNv = rowData[1];
+                    const editTen = rowData[2];
+                    const editNgaySinh = rowData[3];
+                    const editDiaChi = rowData[4];
+                    const editGioiTinh = rowData[5];
+                    const editEmail = rowData[6];
+                    const editSDT = rowData[7];
+                    const editTrinhDo = rowData[8];
+                    const editKinhNghiem = rowData[9];
+                    const editLuong = rowData[10];
+                    const editMatKhau = rowData[11];
+                    const editRole = rowData[12];
+
+
+                    // Open modal
+                    showModalEdit();
+
+                    // Lấy dữ liệu của các ô để cho vào modal Sửa
+                    document.getElementById("modal-IDNV-update").value = luuIdNv;
+                    document.getElementById("modal-tenNv-update").value = editTen;
+                    document.getElementById("modal-gioiTinh-update").value = editGioiTinh;
+                    document.getElementById("modal-Date-update").value = editNgaySinh;
+                    document.getElementById("modal-HomeTown-update").value = editDiaChi;
+                    document.getElementById("modal-Sdt-update").value = editSDT;
+                    document.getElementById("modal-email-update").value = editEmail;
+                    document.getElementById("modal-trinhDo-update").value = editTrinhDo;
+                    document.getElementById("modal-kinhNgiem-update").value = editKinhNghiem;
+                    document.getElementById("modal-Luong-update").value = editLuong;
+                    document.getElementById("modal-matKhau-update").value = editMatKhau;
+                    document.getElementById("modal-Role-update").value = editRole;
+
+                    // Thực hiện các hành động khác với dữ liệu đã lấy được
+
+                    // location.reload()
+                });
+
+                deleteButton.addEventListener("click", function () {
+                    // Lấy dữ liệu từ hàng chứa nút "Xóa"
+                    const rowData = Array.from(row.children).map(cell => cell.textContent);
+                    luuIdNv = rowData[1];
+
+                    async function Delete(url = "", data = {}) {
+                        // Default options are marked with *
+                        const response = await fetch(url, {
+                            method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+                            mode: "cors", // no-cors, *cors, same-origin
+                            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                            credentials: "same-origin", // include, *same-origin, omit
+                            headers: {
+                                "Content-Type": "application/json",
+                                // 'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            redirect: "follow", // manual, *follow, error
+                            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                            body: JSON.stringify(data), // body data type must match "Content-Type" header
+                        });
+                        return response.json(); // parses JSON response into native JavaScript objects
+                    }
+
+                    Delete('http://localhost:8889/NhanVien/delete', {
+                        idNv: luuIdNv
+                    }).then((res) => {
+                        alert("Đã xóa thành công")
+                        location.reload()
+                    })
+
+                    // location.reload()
+                });
+
+            });
+        }));
+    }
+</script>
+<script>
+    // Xử lý nút sửa ở Modal sửa
+
+    const buttonSua = document.querySelector('.buttonEdit');
+
+    async function Update(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "PUT", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    function hideModalSua() {
+        modal.classList.remove('open')
+    }
+
+    function suaNhanVien() {
+        const tenNv1 = document.getElementById("modal-tenNv-update").value;
+        const gioiTinh1 = document.getElementById("modal-gioiTinh-update").value;
+        const ngaySinh1 = document.getElementById("modal-Date-update").value;
+        const queQuan1 = document.getElementById("modal-HomeTown-update").value;
+        const sdt1 = document.getElementById("modal-Sdt-update").value;
+        const email1 = document.getElementById("modal-email-update").value;
+        const trinhDo1 = document.getElementById("modal-trinhDo-update").value;
+        const kinhNghiem1 = document.getElementById("modal-kinhNgiem-update").value;
+        const luong1 = document.getElementById("modal-Luong-update").value;
+        const matKhau1 = document.getElementById("modal-matKhau-update").value;
+        const role1 = document.getElementById("modal-Role-update").value;
+        console.log(typeof (luuIdNv))
+        console.log(typeof (tenNv1))
+        console.log(typeof (gioiTinh1))
+        console.log(typeof (ngaySinh1))
+        console.log(typeof (queQuan1))
+        console.log(typeof (sdt1))
+        console.log(typeof (email1))
+        console.log(typeof (trinhDo1))
+        console.log(typeof (kinhNghiem1))
+        console.log(typeof (luong1))
+        console.log(typeof (matKhau1))
+        console.log(typeof (role1))
+        buttonSua.addEventListener('click', Update('http://localhost:8889/NhanVien/update', {
+            idNv: luuIdNv,
+            tenNv: tenNv1,
+            gioiTinh: gioiTinh1,
+            ngaySinh: ngaySinh1,
+            diaChi: queQuan1,
+            sdt: sdt1,
+            trinhDo: trinhDo1,
+            email: email1,
+            kinhNghiem: kinhNghiem1,
+            luong: luong1,
+            matKhau: matKhau1,
+            role: role1
+        }).then((data) => {
+            alert("Sửa nhân viên thành công")
+            hideModalSua()
+            location.reload()
+
+        }));
+    }
+
 </script>
 </body>
 </html>

@@ -89,15 +89,15 @@ html {
     text-align: center;
 }
 
-.btn-search{
+.btn-search {
     display: flex;
-   
-  justify-content: space-between;
-  align-items: center;
-  margin: 8px;
-  
- }
- 
+
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px;
+
+}
+
 
 .fix {
     margin: 0;
@@ -310,19 +310,44 @@ div.list-student h3 {
 }
 
 
-
-.modal-body-left{
+.modal-body-left {
     float: left;
     margin-left: 25px;
     margin-bottom: 15px;
 }
 
-.modal-body-right{
+.modal-body-right {
     float: left;
     margin-left: 20%;
 }
+
 input[type="radio"] {
     transform: scale(1.5); /* Phóng to 1.5 lần */
     margin-right: 10px; /* Khoảng cách 10px giữa các input */
-  }
+}
+
+#table-container {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#table-container th,
+#table-container td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#table-container th {
+    background-color: #f2f2f2;
+}
+
+#table-container tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#table-container tbody tr:hover {
+    background-color: #e9e9e9;
+}
+
   

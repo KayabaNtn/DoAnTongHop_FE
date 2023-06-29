@@ -34,8 +34,13 @@
             <i class="search-icon ti-search"></i>
         </div>
         <div class="search-btn1">
-            <p class="fix">Sengphet PHILAVONG<br>
-                Quản lí </p>
+            <p class="fix" id="nhanvien"/><br>
+            </p>
+        </div>
+        <div class="search-btn1">
+            <ul id="nav">
+                <li><a href="../Hocvien/FE_ALL.html">Đăng xuất</a></li>
+            </ul>
         </div>
         <!-- End : search button -->
     </div>
@@ -45,54 +50,57 @@
             <h2>Cập nhật điểm cho học viên</h2>
 
             <label>Tên học viên :</label>
-            <input class="form_st_input" disabled id="tenHV" placeholder="Seng Phet" tabindex="1" type="text">
+            <select class="form_st_input" id="mySelect" style="width: 55%">
+                <option value="option1">Lớp bóng đá</option>
+                <option value="option2">Lớp bóng chuyền</option>
+                <option value="option3">Lớp cầu lông</option>
+            </select>
+
             <br>
 
-            <label>Ngày sinh :</label>
-            <input class="form_st_input" disabled id="Date" placeholder="05/09/1990" tabindex="2"
-                   type="text">
-            <br>
+            <!--            <label>Ngày sinh :</label>-->
+            <!--            <input class="form_st_input" disabled id="Date" placeholder="05/09/1990" tabindex="2"-->
+            <!--                   type="text">-->
+            <!--            <br>-->
 
-            <label>Địa chỉ :</label>
-            <input class="form_st_input" disabled id="diaChi" placeholder="Giải phóng" tabindex="3" type="text">
-            <br>
+            <!--            <label>Địa chỉ :</label>-->
+            <!--            <input class="form_st_input" disabled id="diaChi" placeholder="Giải phóng" tabindex="3" type="text">-->
+            <!--            <br>-->
 
-            <label id="lblGender">Giới tính : </label>
-            <input class="form_st_input" disabled id="male" name="gender" tabindex="4" type="radio"
-                value="Nam "> Nam
-            <input class="form_st_input" disabled id="female" name="gender" tabindex="4" type="radio"
-                value="Nữ "> Nữ
-            <br>
-            <br>
+            <!--            <label id="lblGender">Giới tính : </label>-->
+            <!--            <input class="form_st_input" disabled id="male" name="gender" tabindex="4" type="radio"-->
+            <!--                   value="Nam "> Nam-->
+            <!--            <input class="form_st_input" disabled id="female" name="gender" tabindex="4" type="radio"-->
+            <!--                   value="Nữ "> Nữ-->
+            <!--            <br>-->
+            <!--            <br>-->
 
-            <label>Email :</label>
-            <input class="form_st_input" disabled id="email" placeholder="*****@gmail.com" tabindex="5"
-                   type="text">
-            <br>
+            <!--            <label>Email :</label>-->
+            <!--            <input class="form_st_input" disabled id="email" placeholder="*****@gmail.com" tabindex="5"-->
+            <!--                   type="text">-->
+            <!--            <br>-->
 
-            <label>Số điện thoại :</label>
-            <input class="form_st_input" disabled id="sdt" placeholder="0366******" tabindex="6" type="text">
-            <br>
+            <!--            <label>Số điện thoại :</label>-->
+            <!--            <input class="form_st_input" disabled id="sdt" placeholder="0366******" tabindex="6" type="text">-->
+            <!--            <br>-->
 
-            <label>Điểm đánh giá :</label>
-            <input class="" disabled id="diemDG" placeholder="khá" tabindex="7" type="text">
-            <br>
+            <!--            <label>Điểm đánh giá :</label>-->
+            <!--            <input class="" disabled id="diemDG" placeholder="khá" tabindex="7" type="text">-->
+            <!--            <br>-->
 
-            <label>Mật khẩu :</label>
-            <input class="form_st_input" disabled id="matKhau" placeholder="05******" tabindex="8" type="text">
-            <br>
+            <!--            <label>Mật khẩu :</label>-->
+            <!--            <input class="form_st_input" disabled id="matKhau" placeholder="05******" tabindex="8" type="text">-->
+            <!--            <br>-->
 
             <label for="">&nbsp;</label>
-            <button class="btn-save js-buy-ticket ">Feedback</button>
+            <button class="btn-save js-buy-ticket ">In danh sách</button>
             <label for="">&nbsp;</label>
-            <button class="btn-save" onclick="enableInputs()">Sửa</button>
-            <label for="">&nbsp;</label>
-            <button class="btn-save buttonSua" onclick="disableInputs()" >Hoàn Thành</button>
+            <button class="btn-save" onclick="enableInputs()">Cập nhật điểm</button>
+
         </div>
 
 
     </div>
-
 
 
     <div id="footer">
@@ -130,7 +138,7 @@
                 ID Nhân viên :
             </label>
             <input class="modal-input" id="modal-IDHV" placeholder="ID Nhân viên ?" type="text">
-            
+
 
             <label class="modal-label" for="modal-feedback">
                 <i class="ti-alarm-clock"></i>
@@ -140,7 +148,7 @@
 
 
             <button class=" js-buy-tickets save" id="buy-tickets" onclick="getValue()">
-               Thêm FeedBack <i class="ti-check"></i>
+                Thêm FeedBack <i class="ti-check"></i>
             </button>
 
         </div>
@@ -152,17 +160,20 @@
 </div>
 
 <script>
+    const test = localStorage.getItem('user');
+    document.getElementById('nhanvien').textContent = test;
+
     const buyBtns = document.querySelectorAll('.js-buy-ticket')
     const modal = document.querySelector('.js-modal')
     const modalClose = document.querySelector('.js-modal-close')
     const modalbutton = document.querySelector('.js-buy-tickets')
     const buttonSua = document.querySelector('.buttonSua')
     const modalContainer = document.querySelector('.js-modal-container')
+
     function showBuy() {
         modal.classList.add('open')
     }
 
-  
 
     function hideBuy() {
         modal.classList.remove('open')
@@ -171,17 +182,17 @@
     for (const buyBtn of buyBtns) {
         buyBtn.addEventListener('click', showBuy)
     }
-    
+
     modalClose.addEventListener('click', hideBuy)
 
     // Lưu phần tử input có thuộc tính disabled vào biến
     let myInputs = document.getElementsByClassName("form_st_input");
 
     modal.addEventListener('click', hideBuy)
-     modalContainer.addEventListener('click', function (event) {
-          event.stopPropagation()
-      })
-    
+    modalContainer.addEventListener('click', function (event) {
+        event.stopPropagation()
+    })
+
     // Bật thuộc tính disabled của phần tử input
     function enableInputs() {
         for (let i = 0; i < myInputs.length; i++) {
@@ -196,26 +207,25 @@
         }
 
         async function Update(url = "", data = {}) {
-        // Default options are marked with *
-        const response = await fetch(url, {
-            method: "PUT", // *GET, POST, PUT, DELETE, etc.
-            mode: "cors", // no-cors, *cors, same-origin
-            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: "same-origin", // include, *same-origin, omit
-            headers: {
-                "Content-Type": "application/json",
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: "follow", // manual, *follow, error
-            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            body: JSON.stringify(data), // body data type must match "Content-Type" header
-        });
-        return response.json(); // parses JSON response into native JavaScript objects
-    }
+            // Default options are marked with *
+            const response = await fetch(url, {
+                method: "PUT", // *GET, POST, PUT, DELETE, etc.
+                mode: "cors", // no-cors, *cors, same-origin
+                cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: "same-origin", // include, *same-origin, omit
+                headers: {
+                    "Content-Type": "application/json",
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: "follow", // manual, *follow, error
+                referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(data), // body data type must match "Content-Type" header
+            });
+            return response.json(); // parses JSON response into native JavaScript objects
+        }
 
-   
-    
-        const edittenHV = document.getElementById("tenHV").value ;
+
+        const edittenHV = document.getElementById("tenHV").value;
         const editDate = document.getElementById("Date").value;
         const editdiaChi = document.getElementById("diaChi").value;
         var radios = document.getElementsByName('gender');
@@ -226,32 +236,32 @@
                 break;
             }
         }
-        const editemail = document.getElementById("email").value ;
-        const editsdt = document.getElementById("sdt").value ;
-        const editdiemDG = document.getElementById("diemDG").value ;
-        const editmatKhau = document.getElementById("matKhau").value ;
+        const editemail = document.getElementById("email").value;
+        const editsdt = document.getElementById("sdt").value;
+        const editdiemDG = document.getElementById("diemDG").value;
+        const editmatKhau = document.getElementById("matKhau").value;
 
         buttonSua.addEventListener('click', Update('http://localhost:8889/HocVien/update', {
-            tenHv  :edittenHV,
-            ngaySinh  :editDate,
-            diaChi  :editdiaChi,
-            gioiTinh  :selectedGender,
-            email  :editemail,
-            sdt  :editsdt,
-            diemDanhGia  :editdiemDG,
-            matKhau :editmatKhau,
+            tenHv: edittenHV,
+            ngaySinh: editDate,
+            diaChi: editdiaChi,
+            gioiTinh: selectedGender,
+            email: editemail,
+            sdt: editsdt,
+            diemDanhGia: editdiemDG,
+            matKhau: editmatKhau,
         }).then((data) => {
             alert("Sửa học viên thành công")
-            
+
         }));
     }
 
-    
+
 </script>
 <!-- Thêm FeedBack  -->
 <script>
-      const Save = document.querySelector(" .save");
-    
+    const Save = document.querySelector(" .save");
+
 
     // Example POST method implementation:
     async function Saves(url = "", data = {}) {
@@ -275,17 +285,15 @@
 
     function getValue() {
         // Lấy tham chiếu đến phần tử input
-    
+
         var inputfeedback = document.getElementById("modal-feedback").value;
         var inputtenHV = document.getElementById('modal-IDHV').value;
-      
-      
-      
+
 
         Save.addEventListener('click', Saves("", {
-            idHlv : inputtenHV,
+            idHlv: inputtenHV,
             feedBack: inputfeedback,
-           
+
         }).then((data) => {
             alert("Thành công")
             console.log(data); // JSON data parsed by `data.json()` call

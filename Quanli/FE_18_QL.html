@@ -33,8 +33,13 @@
             <i class="search-icon ti-search"></i>
         </div>
         <div class="search-btn1">
-            <p class="fix">Sengphet PHILAVONG <br>
-                Quản lí </p>
+            <p class="fix" id="quanly"><br>
+            </p>
+        </div>
+        <div class="search-btn1">
+            <ul id="nav">
+                <li><a href="../Hocvien/FE_ALL.html">Đăng xuất</a></li>
+            </ul>
         </div>
         <!-- End : search button -->
     </div>
@@ -210,6 +215,9 @@
 </div>
 
 <script>
+    const test = localStorage.getItem('user');
+    document.getElementById('quanly').textContent = test;
+
     const Them = document.querySelectorAll('.js-buy-ticket-them')
     const modal1 = document.querySelector('.js-modal-them')
     const modalClose1 = document.querySelector('.js-modal-close-them')
@@ -245,25 +253,6 @@
     const modalContainer = document.querySelector('.js-modal-container')
 
 
-    function showBuy() {
-        modal.classList.add('open')
-    }
-
-    function hideBuy() {
-        modal.classList.remove('open')
-    }
-
-    for (const buyBtn of buyBtns) {
-        buyBtn.addEventListener('click', showBuy)
-    }
-
-    modalClose.addEventListener('click', hideBuy)
-
-    modal.addEventListener('click', hideBuy)
-
-    modalContainer.addEventListener('click', function (event) {
-        event.stopPropagation()
-    })
 </script>
 
 <script>
@@ -305,7 +294,8 @@
             giaTien: inputGiaTien,
         }).then((data) => {
             alert("Thành công")
-            console.log(data); // JSON data parsed by `data.json()` call
+            hideBuy()
+            location.reload()
         }));
 
 
@@ -351,9 +341,17 @@
             pageBegin: 0,
             pageEnd: 5,
         }
-        let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
-        let urlWithQuery = 'http://localhost:8889/KhoaHoc/timKiem??' + queryString;
+        // let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+        // let urlWithQuery = 'http://localhost:8889/KhoaHoc/timKiem??' + queryString;
+        let queryString = '';
+        for (let key in data) {
+            if (data.hasOwnProperty(key)) {
+                queryString += key + '=' + encodeURIComponent(data[key]) + '&';
+            }
+        }
+        queryString = queryString.slice(0, -1); // Loại bỏ ký tự & cuối cùng
 
+        let urlWithQuery = 'http://localhost:8889/KhoaHoc/timKiem?' + queryString;
         Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
             const table = document.getElementById("table-container");
             const tbody = table.getElementsByTagName("tbody")[0];

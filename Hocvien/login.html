@@ -34,6 +34,7 @@
 
     const DangNhap = document.querySelector(" .jsDangNhap")
     const DangNhap1 = document.querySelector(" .jsDangNhap1")
+
     async function DangNhaps(url = "", data = {}) {
         // Default options are marked with *
         const response = await fetch(url, {
@@ -63,7 +64,7 @@
         }).then((res) => {
             if (res.length != 0) {
                 // sẽ chuyển hướng đến form cho học viên
-                window.location.href = "../HocVien/FE_83_HV.html";
+                window.location.href = "../HocVien/FE_100_HV.html";
                 localStorage.setItem('user', inputEmail)
             } else {
                 DangNhap.addEventListener('click', DangNhaps("http://localhost:8889/DangNhap/nhanVienDangNhap", {
@@ -81,7 +82,6 @@
                             // chuyển hướng đến form nhân viên
                             window.location.href = "../Nhanvien/FE_30_NV.html";
                             localStorage.setItem('user', inputEmail)
-
                         } else {
                             alert("Sai thông tin, vui lòng nhập lại")
                             localStorage.setItem('user', null)

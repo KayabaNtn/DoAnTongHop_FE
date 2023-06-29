@@ -35,7 +35,12 @@
         </div>
         <div class="search-btn1">
             <p class="fix" id="nhanvien"/><br>
-                Nhân viên </p>
+            </p>
+        </div>
+        <div class="search-btn1">
+            <ul id="nav">
+                <li><a href="../Hocvien/FE_ALL.html">Đăng xuất</a></li>
+            </ul>
         </div>
         <!-- End : search button -->
     </div>
@@ -56,6 +61,10 @@
             <input class="modal-input form_st_input" disabled id="search-Phone" tabindex="3" type="text">
             <br>
 
+            <label>Giới tính :</label>
+            <input class="modal-input form_st_input" disabled id="search-GioiTinh" tabindex="3" type="text">
+            <br>
+
             <label>Địa Chỉ :</label>
             <input class="modal-input form_st_input" disabled id="search-HomeTown" tabindex="4" type="text">
             <br>
@@ -73,7 +82,7 @@
             <br>
 
             <label>Role :</label>
-            <input class="modal-input form_st_input" disabled id="search-Role" tabindex="8" type="text">
+            <input class="modal-input" disabled id="search-Role" tabindex="8" type="text">
             <br>
             <label>&nbsp;</label>
             <div class="btn-search">
@@ -81,7 +90,7 @@
             </div>
             <label>&nbsp;</label>
             <div class="btn-search">
-                <button class="btn-save " onclick="disableInputs()" >
+                <button class="btn-save saveNhanVien" onclick="disableInputs()">
                     Lưu
                 </button>
             </div>
@@ -109,6 +118,8 @@
 
     const test = localStorage.getItem('user');
     document.getElementById('nhanvien').textContent = test;
+    let luuIDNv, luuLuong, luuPass;
+
     async function Searchs(url = "") {
         // Default options are marked with *
         const response = await fetch(url, {
@@ -127,50 +138,107 @@
         return response.json(); // parses JSON response into native JavaScript objects
     }
 
-    let data = {
+    let dataSearch = {
         email: test,
         pageBegin: 0,
         pageEnd: 1,
     }
-    let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
-    let urlWithQuery = 'http://localhost:8889/NhanVien/search??' + queryString;
+    // let queryString = Object.keys(dataSearch).map(key => key + '=' + encodeURIComponent(dataSearch[key])).join('&');
+    // let urlWithQuery = 'http://localhost:8889/NhanVien/search??' + queryString;
+
+    let queryString = '';
+    for (let key in dataSearch) {
+        if (dataSearch.hasOwnProperty(key)) {
+            queryString += key + '=' + encodeURIComponent(dataSearch[key]) + '&';
+        }
+    }
+    queryString = queryString.slice(0, -1); // Loại bỏ ký tự & cuối cùng
+
+    let urlWithQuery = 'http://localhost:8889/NhanVien/search?' + queryString;
+
 
     // Tự động chay API lấy thông tin
-    document.addEventListener("DOMContentLoaded", Searchs(urlWithQuery).then((data) => {
-            document.getElementById("search-tenNv").value = data[0].tenNv;
-            document.getElementById("search-Date").value = data[0].ngaySinh;
-            document.getElementById("search-Phone").value = data[0].sdt;
-            document.getElementById("search-HomeTown").value = data[0].diaChi;
-            document.getElementById("search-trinhDo").value = data[0].trinhDo;
-            document.getElementById("search-email").value = data[0].email;
-            document.getElementById("search-kinhNgiem").value = data[0].kinhNghiem;
-            document.getElementById("search-Role").value = data[0].role;
+    document.addEventListener("DOMContentLoaded", Searchs(urlWithQuery).then((res) => {
+            luuIDNv = res[0].idNv;
+            luuLuong = res[0].luong;
+            luuPass = res[0].matKhau;
+            document.getElementById("search-tenNv").value = res[0].tenNv;
+            document.getElementById("search-Date").value = res[0].ngaySinh;
+            document.getElementById("search-Phone").value = res[0].sdt;
+            document.getElementById("search-HomeTown").value = res[0].diaChi;
+            document.getElementById("search-trinhDo").value = res[0].trinhDo;
+            document.getElementById("search-email").value = res[0].email;
+            document.getElementById("search-kinhNgiem").value = res[0].kinhNghiem;
+            document.getElementById("search-Role").value = res[0].role;
+            document.getElementById("search-GioiTinh").value = res[0].gioiTinh;
         })
     );
 
 </script>
 <script>
+    const Them = document.querySelectorAll('.saveNhanVien')
+    let myInputs = document.getElementsByClassName("form_st_input");
 
-let myInputs = document.getElementsByClassName("form_st_input");
-
-modal.addEventListener('click', hideBuy)
- modalContainer.addEventListener('click', function (event) {
-      event.stopPropagation()
-  })
-
-// Bật thuộc tính disabled của phần tử input
-function enableInputs() {
-    for (let i = 0; i < myInputs.length; i++) {
-        myInputs[i].disabled = false;
+    // Bật thuộc tính disabled của phần tử input
+    function enableInputs() {
+        for (let i = 0; i < myInputs.length; i++) {
+            myInputs[i].disabled = false;
+        }
     }
-}
 
-// Tắt thuộc tính disabled của phần tử input và chạy api update
-function disableInputs() {
-    for (let i = 0; i < myInputs.length; i++) {
-        myInputs[i].disabled = true;
+    async function Update(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "PUT", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
     }
-}
+
+
+    // Tắt thuộc tính disabled của phần tử input và chạy api update
+    function disableInputs() {
+        for (let i = 0; i < myInputs.length; i++) {
+            myInputs[i].disabled = true;
+        }
+
+        var themTen = document.getElementById('search-tenNv').value;
+        var themNgaySinh = document.getElementById('search-Date').value;
+        var themGioiTinh = document.getElementById('search-GioiTinh').value;
+        var themDiaChi = document.getElementById('search-HomeTown').value;
+        var themSDT = document.getElementById('search-Phone').value;
+        var themTrinhDo = document.getElementById('search-trinhDo').value;
+        var themEmail = document.getElementById('search-email').value;
+        var themKinhNgiem = document.getElementById('search-kinhNgiem').value;
+        var themRole = document.getElementById('search-Role').value;
+
+        Them.addEventListener('click', Update("http://localhost:8889/NhanVien/update", {
+            idNv: luuIDNv,
+            tenNv: themTen,
+            ngaySinh: themNgaySinh,
+            diaChi: themDiaChi,
+            kinhNghiem: themKinhNgiem,
+            gioiTinh: themGioiTinh,
+            email: themEmail,
+            sdt: themSDT,
+            trinhDo: themTrinhDo,
+            role: themRole,
+            luong: luuLuong,
+            matKhau: luuPass
+        }).then((data) => {
+            alert("Sửa thông tin nhân viên thành công")
+            location.reload()
+        }));
+    }
 
 </script>
 </body>

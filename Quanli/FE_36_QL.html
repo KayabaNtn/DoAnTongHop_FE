@@ -33,8 +33,13 @@
             <i class="search-icon ti-search"></i>
         </div>
         <div class="search-btn1">
-            <p class="fix">Mai Hồng Quân <br>
-                Quản lí </p>
+            <p class="fix" id="quanly"><br>
+            </p>
+        </div>
+        <div class="search-btn1">
+            <ul id="nav">
+                <li><a href="../Hocvien/FE_ALL.html">Đăng xuất</a></li>
+            </ul>
         </div>
         <!-- End : search button -->
     </div>
@@ -240,6 +245,8 @@
 </div>
 
 <script>
+    const test = localStorage.getItem('user');
+    document.getElementById('quanly').textContent = test;
     const buyBtns = document.querySelectorAll('.js-HD-themOpen')
     const modal = document.querySelector('.js-modal')
     const modalClose = document.querySelector('.js-modal-close')
@@ -378,8 +385,19 @@
             ngayKy: inputDate,
             hocPhi: inputHocPhi
         }
-        let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
-        let urlWithQuery = 'http://localhost:8889/HopDong/search??' + queryString;
+        // let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
+        // let urlWithQuery = 'http://localhost:8889/HopDong/search??' + queryString;
+
+        let queryString = '';
+        for (let key in data) {
+            if (data.hasOwnProperty(key)) {
+                queryString += key + '=' + encodeURIComponent(data[key]) + '&';
+            }
+        }
+        queryString = queryString.slice(0, -1); // Loại bỏ ký tự & cuối cùng
+
+        let urlWithQuery = 'http://localhost:8889/HopDong/search?' + queryString;
+
         Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
                 const table = document.getElementById("tableHopDong");
                 const tbody = table.getElementsByTagName("tbody")[0];

@@ -89,8 +89,17 @@ html {
     text-align: center;
 }
 
+
+.fixQl {
+    height: 76px; /* Đảm bảo chiều cao của container */
+    display: flex;
+    align-items: center;
+}
+
 .fix {
-    margin: 0;
+    text-align: center;
+    line-height: 76px;
+    width: 100%;
 }
 
 #header .search-btn:hover {

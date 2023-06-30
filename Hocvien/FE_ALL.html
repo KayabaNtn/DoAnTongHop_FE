@@ -155,7 +155,7 @@
                         <div class="row mt-8 ">
                             <div class="col col-full">
                                 <input class="form-control" id="Number" name="" placeholder="Phone number" required
-                                       type="number">
+                                       type="text">
                             </div>
                         </div>
                         <button class="btn mt-16 form-submit-btn s-full-width js-Send " onclick="Send1()"> Send</button>
@@ -193,9 +193,6 @@
     localStorage.setItem('user', null)
 
     const Sends = document.querySelector(" .js-Send")
-    const inputName = document.getElementById("Name").value;
-    const inputEmail = document.getElementById("Email").value;
-    const inputNumber = document.getElementById("Number").value;
 
     async function Send(url = "", data = {}) {
         // Default options are marked with *
@@ -217,22 +214,22 @@
 
 
     function Send1() {
+
         const inputName = document.getElementById("Name").value;
         const inputEmail = document.getElementById("Email").value;
         const inputNumber = document.getElementById("Number").value;
-        Sends.addEventListener('click', Send("http://localhost:8889/PhieuDangKy/insert", {
-            ten: inputName,
-            email: inputEmail,
-            sdt: inputNumber,
-            ngayThem: null,
-        }).then((data) => {
-            alert("Thành công")
-            console.log(data); // JSON data parsed by `data.json()` call
-        }));
-        console.log('Dữ liệu ô input')
-        console.log(inputName);
-        console.log(inputEmail);
-        console.log(inputNumber);
+        if (inputName == "" || inputEmail == "" || inputNumber == "") {
+            alert("Không để trống ô input ")
+        } else {
+            Sends.addEventListener('click', Send("http://localhost:8889/PhieuDangKy/insert", {
+                ten: inputName,
+                email: inputEmail,
+                sdt: inputNumber
+            }).then((res) => {
+                alert("Gửi thông tin thành công")
+            }));
+        }
+
 
     }
 
@@ -240,7 +237,7 @@
 </script>
 
 
-<!-- <script>
+<script>
     const buyBtns = document.querySelectorAll('.js-buy-ticket')
     const modal = document.querySelector('.js-modal')
     const modalClose = document.querySelector('.js-modal-close')
@@ -250,25 +247,25 @@
     var headerHeight = header.clientHeight;
 
     //Đóng mở menu
-    mobileMenu.onclick = function(){
-        var isClosed =header.clientHeight === headerHeight;
-        if (isClosed){
-            header.style.height='auto'
-        }else {
-            header.style.height=null
+    mobileMenu.onclick = function () {
+        var isClosed = header.clientHeight === headerHeight;
+        if (isClosed) {
+            header.style.height = 'auto'
+        } else {
+            header.style.height = null
         }
     }
     // Tự động đóng khi chọn menu
     var menuItems = document.querySelectorAll('#nav li a[href*="#"]')
-    for (var i = 0; i< menuItems.length ; i++){
+    for (var i = 0; i < menuItems.length; i++) {
         var menuItem = menuItems[i];
 
-        menuItem.onclick = function(event) {
+        menuItem.onclick = function (event) {
             var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav')
-            if(isParentMenu){
+            if (isParentMenu) {
                 event.preventDefault();
-            }else {
-                header.style.height=null;
+            } else {
+                header.style.height = null;
             }
 
         }
@@ -278,24 +275,26 @@
     function showBuyTickets() {
         modal.classList.add('open')
     }
+
     // Hàm ẩn modal mua vé (gỡ bỏ clas open của modal)
     function hideBuyTickets() {
         modal.classList.remove('open')
     }
+
     // Lặp qua từng thẻ button và nghe hành vi click
-    for(const buyBtn of buyBtns){
-        buyBtn.addEventListener('click',showBuyTickets)
+    for (const buyBtn of buyBtns) {
+        buyBtn.addEventListener('click', showBuyTickets)
     }
     // Nghe hành vi clickj vào nút button close
-    modalClose.addEventListener('click',hideBuyTickets)
+    modalClose.addEventListener('click', hideBuyTickets)
 
-    modal.addEventListener('click',hideBuyTickets)
+    modal.addEventListener('click', hideBuyTickets)
 
-    modalContainer.addEventListener('click',function(event){
+    modalContainer.addEventListener('click', function (event) {
         event.stopPropagation()
     })
 
-</script> -->
+</script>
 
 </body>
 </html>

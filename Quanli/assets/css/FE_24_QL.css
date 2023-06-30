@@ -89,9 +89,6 @@ html {
     text-align: center;
 }
 
-.fix {
-    margin: 0;
-}
 
 #header .search-btn:hover {
     cursor: pointer; /*Thay đổi con trỏ khi nó được chuột trỏ vào 1 box được chọn */
@@ -355,4 +352,17 @@ div.list-student h3 {
 
 input[type="radio"] {
     transform: scale(1.5); /* Phóng to 1.5 lần */
+}
+
+
+.fixQl {
+    height: 76px; /* Đảm bảo chiều cao của container */
+    display: flex;
+    align-items: center;
+}
+
+.fix {
+    text-align: center;
+    line-height: 76px;
+    width: 100%;
 }

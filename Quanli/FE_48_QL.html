@@ -25,14 +25,14 @@
             <li><a href="./FE_54_QL.html">Feed-Back </a></li>
             <li><a href="./FE_18_QL.html">Khóa Học </a></li>
             <li><a href="./FE_48_QL.html">Vật tư </a></li>
-            <li><a href="#footer">Giới thiệu</a></li>
+            <li><a href="./FE_ThongKe_QL.html">Thống Kê </a></li>
         </ul>
         <!-- End : nav -->
         <!-- Begin : search button -->
         <div class="search-btn">
             <i class="search-icon ti-search"></i>
         </div>
-        <div class="search-btn1">
+        <div class="search-btn1 fixQl">
             <p class="fix" id="quanly"><br>
             </p>
         </div>
@@ -342,8 +342,6 @@
         var inputIDVT = document.getElementById("TENVT").value;
         var inputGIAVT = document.getElementById("GIAVT").value;
         var inputSOLUONG = document.getElementById("SOLUONG").value;
-        var inputTHANHTIEN = document.getElementById("THANHTIEN").value;
-
 
         // Tạo bảng table tên đéo gì cũng được
         const table = document.createElement('tableTest');
@@ -355,8 +353,7 @@
             pageBegin: 0,
             pageEnd: 5,
             giaVt: inputGIAVT,
-            soLuong: inputSOLUONG,
-            thanhTien: inputTHANHTIEN,
+            soLuong: inputSOLUONG
         }
         // let queryString = Object.keys(data).map(key => key + '=' + encodeURIComponent(data[key])).join('&');
         // let urlWithQuery = 'http://localhost:8889/VatTu/search??' + queryString;

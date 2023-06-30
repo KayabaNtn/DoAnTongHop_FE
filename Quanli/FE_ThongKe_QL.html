@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Cats Sport AcademyThe Band</title>
+    <link href="./assets/css/FE_ThongKe_QL.css" rel="stylesheet">
+    <link href="./assets/css/responsive.css" rel="stylesheet">
+    <link href="./assets/fonts/themify-icons.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="main">
+
+    <div id="header">
+        <!-- Begin : nav -->
+        <ul id="nav"> <!--ul#nav>li*5 -->
+            <img alt="abc" class="logo" src="./assets/image/logo.jpg">
+            <li><a href="../Hocvien/FE_ALL.html">Trang chủ</a></li>
+            <li><a href="./FE_24_QL.html">Học Viên </a></li>
+            <li><a href="./FE_QLNV_QL.html">Nhân Viên </a></li>
+            <li><a href="./FE_36_QL.html">Hợp Đồng </a></li>
+            <li><a href="./FE_42_QL.html">Phiếu Đăng Kí </a></li>
+            <li><a href="./FE_54_QL.html">Feed-Back </a></li>
+            <li><a href="./FE_18_QL.html">Khóa Học </a></li>
+            <li><a href="./FE_48_QL.html">Vật tư </a></li>
+            <li><a href="./FE_ThongKe_QL.html">Thống Kê </a></li>
+        </ul>
+        <!-- End : nav -->
+        <!-- Begin : search button -->
+        <div class="search-btn">
+            <i class="search-icon ti-search"></i>
+        </div>
+        <div class="search-btn1 fixQl">
+            <p class="fix" id="quanly"><br>
+            </p>
+        </div>
+        <div class="search-btn1">
+            <ul id="nav">
+                <li><a href="../Hocvien/FE_ALL.html">Đăng xuất</a></li>
+            </ul>
+        </div>
+        <!-- End : search button -->
+    </div>
+
+    <div id="bodys">
+        <div class="form-student">
+            <h3>Thông tin Thu Chi</h3>
+
+            <label>Ngày :</label>
+            <input id="txtDate" tabindex="1" type="text">
+            <br>
+
+            <label>Loại Thu Chi :</label>
+            <div class="custom-combobox">
+                <select id="myComboBox">
+                    <option value="option1"> THU</option>
+                    <option value="option2"> CHI</option>
+
+                </select>
+                <span class="custom-caret"></span>
+            </div>
+
+
+            <br>
+
+            <label>&nbsp;</label>
+            <button class=" btn-save search " onclick="getValue1()">Tìm Kiếm</button>
+
+
+        </div>
+
+
+    </div>
+    <div class="list-student">
+        <h3>Danh sách Học viên</h3>
+        <!--        // Tạo table để gán ID-->
+        <table id="table-container">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>ID hóa đơn</th>
+                <th>Ngày</th>
+                <th>Nhân viên</th>
+                <th>Loại thu chi</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Các hàng dữ liệu sẽ được thêm vào đây -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="footer">
+        <div class="socials-list">
+            <a href=""><i class="ti-facebook"></i></a>
+            <a href=""><i class="ti-instagram"></i></a>
+            <a href=""><i class="ti-youtube"></i></a>
+
+            <a href=""><i class="ti-twitter"></i></a>
+            <a href=""><i class="ti-linkedin"></i></a>
+        </div>
+        <p class="copyright">
+            Powered by <a href="#"> Cats Sport Academy
+        </a>
+        </p>
+    </div>
+</div>
+
+
+<script>
+    const test = localStorage.getItem('user');
+    document.getElementById('quanly').textContent = test;
+
+</script>
+
+<script>
+    const buyBtns = document.querySelectorAll('.js-buy-ticket')
+    const modal = document.querySelector('.js-modal')
+    const modalClose = document.querySelector('.js-modal-close')
+    const modalContainer = document.querySelector('.js-modal-container')
+
+</script>
+<script>
+    const Save = document.querySelector(" .addHocVien");
+    const Search = document.querySelector(" .search");
+    var luuIDHv;
+
+    function showModelThem() {
+        modal1.classList.add('open')
+    }
+
+    function hideModalThem1() {
+        modal1.classList.remove('open')
+    }
+
+    // Example POST method implementation:
+    async function Saves(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+
+    function addHocVien() {
+        // Lấy tham chiếu đến phần tử input
+        var inputName = document.getElementById("addTenHv").value;
+        var inputDate = document.getElementById("addNgaySinh").value;
+        var inputDiachi = document.getElementById("addDiaChi").value;
+        var inputGioiTinh = document.getElementById("addGioiTinh").value;
+        var inputEmail = document.getElementById("addEmail").value;
+        var inputSDT = document.getElementById("addSDT").value;
+        var inputDiemDanhGia = document.getElementById("addDiemDanhGia").value;
+        var inputMatKhau = document.getElementById("addMatKhau").value;
+        var radios = document.getElementsByName('gender');
+        var selectedGender;
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                selectedGender = radios[i].value;
+                break;
+            }
+        }
+        // Nhật test thành công chức năng thêm rồi
+        Save.addEventListener('click', Saves("http://localhost:8889/HocVien/insert", {
+            tenHv: inputName,
+            ngaySinh: inputDate,
+            diaChi: inputDiachi,
+            gioiTinh: inputGioiTinh,
+            email: inputEmail,
+            sdt: inputSDT,
+            matKhau: inputMatKhau,
+
+        }).then((data) => {
+            alert("Thêm học viên thành công")
+            hideModalThem1()
+            location.reload()
+        }));
+
+
+    }
+
+
+    // Example POST method implementation:
+    async function Searchs(url = "") {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "GET", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            //body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+
+    ////      Lấy dữ liệu search
+
+    var comboBox = document.getElementById("myComboBox");
+    var selectedValue;
+    comboBox.addEventListener("change", function () {
+        selectedValue = comboBox.value;
+    });
+
+    function getValue1() {
+
+        // Tạo bảng table tên đéo gì cũng được
+        const table = document.createElement('tableTest');
+        var inputtxtDate = document.getElementById("txtDate").value;
+
+        let data = {
+            loaiThuChi: selectedValue,
+            ngayNhap: inputtxtDate,
+            pageBegin: 0,
+            pageEnd: 5,
+        }
+
+        // let queryString = Object.keys(dataSearch).map(key => key + '=' + encodeURIComponent(dataSearch[key])).join('&');
+        // let urlWithQuery = 'http://localhost:8889/NhanVien/search??' + queryString;
+
+        let queryString = '';
+        for (let key in data) {
+            if (data.hasOwnProperty(key)) {
+                queryString += key + '=' + encodeURIComponent(data[key]) + '&';
+            }
+        }
+        queryString = queryString.slice(0, -1); // Loại bỏ ký tự & cuối cùng
+        let urlWithQuery = "";
+        if (selectedValue == 'option2') {
+            urlWithQuery = 'http://localhost:8889/ThongKe/timKiemChi?' + queryString;
+        } else {
+            urlWithQuery = 'http://localhost:8889/ThongKe/timKiemThu?' + queryString;
+        }
+
+
+        Search.addEventListener('click', Searchs(urlWithQuery).then((data) => {
+
+                // // Xử lý phần đổ dữ liệu
+                // //////////////////////////////////////////////////////////////////////////////
+                //
+                // // Tạo bảng table tên đéo gì cũng được
+                // const table = document.createElement('tableTest');
+                //
+                // // Tạo hàng tiêu đề
+                // const headerRow = document.createElement('tr');
+                // const headers = ['STT','Tên học viên','Ngày sinh', 'Địa chỉ', 'Giới tính', 'Email', 'Số điện thoại', 'Điểm đánh giá', 'Mật khẩu'];
+                // headers.forEach(headerText => {
+                //     const header = document.createElement('th');
+                //     header.textContent = headerText;
+                //     headerRow.appendChild(header);
+                // });
+                // table.appendChild(headerRow);
+                //
+                // // Điền dữ liệu vào các hàng
+                // data.forEach(item => {
+                //     const row = document.createElement('tr');
+                //
+                //     // Tạo cột cho tiêu đề STT
+                //     const stt = document.createElement('td');
+                //     stt.textContent = item.stt;
+                //     row.appendChild(stt);
+                //
+                //     // Tạo cột cho tiêu đề Họ tên
+                //     const hoten = document.createElement('td');
+                //     hoten.textContent = item.tenHv;
+                //     row.appendChild(hoten);
+                //
+                //
+                //     // const ageCell = document.createElement('td');
+                //     // ageCell.textContent = item.age;
+                //     // row.appendChild(ageCell);
+                //     //
+                //     // const addressCell = document.createElement('td');
+                //     // addressCell.textContent = item.address;
+                //     // row.appendChild(addressCell);
+                //
+                //     table.appendChild(row);
+                // });
+                //
+                // // Thêm bảng vào một phần tử HTML có sẵn trong trang
+                // const tableContainer = document.getElementById('table-container');
+                // tableContainer.appendChild(table);
+
+                // Cách 2:
+                const table = document.getElementById("table-container");
+                const tbody = table.getElementsByTagName("tbody")[0];
+
+                // Xóa các hàng hiện tại
+                while (tbody.firstChild) {
+                    tbody.removeChild(tbody.firstChild);
+                }
+
+                // Thêm dữ liệu từ API vào bảng
+                data.forEach(function (item) {
+                    const row = document.createElement("tr");
+                    const cell1 = document.createElement("td");
+                    const cell2 = document.createElement("td");
+                    const cell3 = document.createElement("td");
+                    const cell4 = document.createElement("td");
+                    const cell5 = document.createElement("td");
+
+                    if (selectedValue == 'option2') {
+                        cell1.textContent = item.stt;
+                        cell2.textContent = item.idVt;
+                        cell3.textContent = item.ngayNhap;
+                        cell4.textContent = item.idNv;
+                        cell5.textContent = item.loaiThuChi;
+                    } else {
+                        cell1.textContent = item.stt;
+                        cell2.textContent = item.idHd;
+                        cell3.textContent = item.ngayKy;
+                        cell4.textContent = item.idNv;
+                        cell5.textContent = item.loaiThuChi;
+                    }
+
+                    row.appendChild(cell1);
+                    row.appendChild(cell2);
+                    row.appendChild(cell3);
+                    row.appendChild(cell4);
+                    row.appendChild(cell5);
+
+
+                    tbody.appendChild(row);
+
+
+                });
+            })
+        );
+    }
+
+
+</script>
+
+<script>
+
+    // Xử lý nút sửa ở Modal sửa
+
+    const buttonSua = document.querySelector('.buttonEdit');
+
+    async function Update(url = "", data = {}) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: "PUT", // *GET, POST, PUT, DELETE, etc.
+            mode: "cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    function hideModalSua() {
+        modal.classList.remove('open')
+    }
+
+    function suaHocVien() {
+        const editTenHv1 = document.getElementById("editTenHocVien").value;
+        const editEmail1 = document.getElementById("editEmail").value;
+        const editDiaChi1 = document.getElementById("editDiaChi").value;
+        const editGioiTinh1 = document.getElementById("editGioiTinh").value;
+        const editMatKhau1 = document.getElementById("editMatKhau").value;
+        const editDiemDanhGia1 = document.getElementById("editDiemDanhGia").value;
+        const editNgaySinh1 = document.getElementById("editNgaySinh").value;
+        const editSDT1 = document.getElementById("editSoDienThoai").value;
+        buttonSua.addEventListener('click', Update('http://localhost:8889/HocVien/update', {
+            idHv: luuIDHv,
+            tenHv: editTenHv1,
+            ngaySinh: editNgaySinh1,
+            diaChi: editDiaChi1,
+            gioiTinh: editGioiTinh1,
+            email: editEmail1,
+            sdt: editSDT1,
+            matKhau: editMatKhau1
+        }).then((data) => {
+            alert("Sửa học viên thành công")
+            hideModalSua()
+            location.reload()
+
+        }));
+    }
+
+
+</script>
+</body>
+</html>

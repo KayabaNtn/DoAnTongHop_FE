@@ -89,15 +89,6 @@ html {
     text-align: center;
 }
 
-.btn-search {
-    display: flex;
-
-    justify-content: space-between;
-    align-items: center;
-    margin: 8px;
-
-}
-
 
 .fixQl {
     height: 76px; /* Đảm bảo chiều cao của container */
@@ -155,8 +146,17 @@ div.form-student input[type="text"], .btn-save {
 
 .btn-save {
     margin-top: 15px;
-    margin-left: 50px;
 }
+
+.btn-search {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px;
+
+}
+
 
 div.list-student {
     width: 80%;
@@ -183,7 +183,6 @@ div.list-student h3 {
 }
 
 #bodys {
-
     padding: 0;
     margin: 0;
     /* margin-top: 75px; */
@@ -192,7 +191,6 @@ div.list-student h3 {
     overflow: hidden;
     padding-top: 80px;
     padding-bottom: 25px;
-
 }
 
 #footer {
@@ -248,11 +246,12 @@ div.list-student h3 {
     max-width: calc(100% - 32px);
     min-height: 200px;
     position: relative;
+    animation: modalFadeIn ease .5s;
 }
 
 .modal-header {
     background: #009688;
-    height: 120px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -275,7 +274,6 @@ div.list-student h3 {
     opacity: 1;
 }
 
-
 .modal-body {
     padding: 16px;
 }
@@ -288,7 +286,7 @@ div.list-student h3 {
 
 .modal-input {
     border: 1px solid #ccc;
-    width: 97%;
+    width: 300px;
     padding: 10px;
     font-size: 15px;
     margin-bottom: 24px;
@@ -318,6 +316,40 @@ div.list-student h3 {
     color: #2196F3;
 }
 
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-140px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#table-container {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#table-container th,
+#table-container td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#table-container th {
+    background-color: #f2f2f2;
+}
+
+#table-container tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#table-container tbody tr:hover {
+    background-color: #e9e9e9;
+}
 
 .modal-body-left {
     float: left;
@@ -332,5 +364,36 @@ div.list-student h3 {
 
 input[type="radio"] {
     transform: scale(1.5); /* Phóng to 1.5 lần */
-    margin-right: 10px; /* Khoảng cách 10px giữa các input */
 }
+
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+}
+
+#myComboBox {
+    width: 580px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 24px;
+}
+
+.custom-caret {
+
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #999;
+}
+
